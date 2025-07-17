@@ -1,0 +1,86 @@
+export interface GalleryItem {
+  url: string;
+  name: string;
+}
+
+export interface VideoItem {
+  url: string;
+  name: string;
+}
+
+export interface Property {
+  _id?: string;
+  name: string;
+  tagline: string;
+  propertyType: string;
+  location: string; // area
+  priceRange: string;
+  builder: {
+    developerName: string;
+    websiteUrl: string;
+  };
+  keyHighlights: {
+    reraApproved: boolean;
+    possessionDate: string;
+    unitConfiguration: string;
+    carpetArea: string;
+    otherAmenities: string[];
+    igbcGoldCertified: boolean;
+  };
+  gallery: GalleryItem[];
+  videos: VideoItem[];
+  locationAdvantage: {
+    addressUrl: string;
+    advantages: string[];
+  };
+  featuredDevelopment: {
+    text: string;
+    images: string[];
+  };
+  otherProjects: string[];
+  trendingScore: number;
+  featured: boolean;
+  status: string;
+  createdAt?: string;
+  updatedAt?: string;
+}
+
+export interface Inquiry {
+  id: string;
+  fullName: string;
+  email: string;
+  phone: string;
+  interestedIn: string;
+  propertyId?: string;
+  propertyName?: string;
+  message?: string;
+  status: 'new' | 'contacted' | 'qualified' | 'closed';
+  source: 'website' | 'phone' | 'email' | 'walk-in';
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface Settings {
+  general: {
+    siteName: string;
+    language: string;
+    timezone: string;
+  };
+  preferences: {
+    theme: 'dark' | 'light';
+    notifications: boolean;
+  };
+  security: {
+    twoFA: boolean;
+    sessionTimeout: number;
+  };
+  properties: {
+    defaultType: string;
+    customFields: string[];
+    statusTypes: string[];
+  };
+  integrations: {
+    apiKey: string;
+    webhooks: string[];
+  };
+}
