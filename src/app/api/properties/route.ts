@@ -48,7 +48,7 @@ const propertySchema = new mongoose.Schema({
   },
   featuredDevelopment: {
     text: String,
-    images: [String],
+    images: [gallerySchema],
   },
   otherProjects: [String],
   trendingScore: Number,

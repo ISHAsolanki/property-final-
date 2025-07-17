@@ -36,7 +36,7 @@ export interface Property {
   };
   featuredDevelopment: {
     text: string;
-    images: string[];
+    images: GalleryItem[];
   };
   otherProjects: string[];
   trendingScore: number;

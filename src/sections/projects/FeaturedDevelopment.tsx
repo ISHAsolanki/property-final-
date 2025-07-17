@@ -1,9 +1,10 @@
 import React from 'react';
 import Image from 'next/image';
+import { GalleryItem } from '@/app/admin/types';
 
 interface FeaturedDevelopmentProps {
   text: string;
-  images: string[];
+  images: GalleryItem[];
 }
 
 const FeaturedDevelopment: React.FC<FeaturedDevelopmentProps> = ({ text, images }) => {
@@ -25,8 +26,8 @@ const FeaturedDevelopment: React.FC<FeaturedDevelopmentProps> = ({ text, images 
             images.map((img, idx) => (
               <div key={idx} className={`relative h-full rounded-lg overflow-hidden`} style={{ width: `${100 / images.length}%` }}>
                 <Image
-                  src={img}
-                  alt={`Development showcase ${idx + 1}`}
+                  src={img.data || img.url || ''}
+                  alt={img.name || `Development showcase ${idx + 1}`}
                   fill
                   className="object-cover"
                 />

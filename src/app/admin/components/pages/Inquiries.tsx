@@ -33,8 +33,23 @@ export const Inquiries: React.FC = () => {
     return matchesSearch && matchesStatus && matchesSource;
   });
 
-  const handleStatusUpdate = (id: string, newStatus: string) => {
-    showToast(`Inquiry status updated to ${newStatus}`, 'success');
+  const handleStatusUpdate = async (id: string, newStatus: string) => {
+    try {
+      const res = await fetch('/api/inquiries', {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id, status: newStatus }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        setInquiries(prev => prev.map(inq => inq._id === id ? { ...inq, status: newStatus } : inq));
+        showToast(`Inquiry status updated to ${newStatus}`, 'success');
+      } else {
+        showToast(data.message || 'Failed to update status', 'error');
+      }
+    } catch (err) {
+      showToast('Failed to update status', 'error');
+    }
   };
 
   const handleViewDetails = (id: string) => {
@@ -182,10 +197,8 @@ export const Inquiries: React.FC = () => {
             <thead>
               <tr className="border-b border-gray-800">
                 <th className="text-left py-3 px-4 text-gray-300 font-medium">Contact</th>
-                <th className="text-left py-3 px-4 text-gray-300 font-medium">Interested In</th>
-                <th className="text-left py-3 px-4 text-gray-300 font-medium">Property</th>
-                <th className="text-left py-3 px-4 text-gray-300 font-medium">Status</th>
-                <th className="text-left py-3 px-4 text-gray-300 font-medium">Source</th>
+                <th className="text-left py-3 px-4 text-gray-300 font-medium">Property Type</th>
+                <th className="text-left py-3 px-4 text-gray-300 font-medium">Property Name</th>
                 <th className="text-left py-3 px-4 text-gray-300 font-medium">Date</th>
                 <th className="text-left py-3 px-4 text-gray-300 font-medium">Actions</th>
               </tr>
@@ -210,7 +223,7 @@ export const Inquiries: React.FC = () => {
                     </div>
                   </td>
                   <td className="py-4 px-4">
-                    <span className="text-white">{inquiry.interestedIn}</span>
+                    <span className="text-white">{inquiry.propertyType || '-'}</span>
                   </td>
                   <td className="py-4 px-4">
                     {inquiry.propertyName ? (
@@ -218,17 +231,6 @@ export const Inquiries: React.FC = () => {
                     ) : (
                       <span className="text-gray-400">General Inquiry</span>
                     )}
-                  </td>
-                  <td className="py-4 px-4">
-                    <div className="flex items-center space-x-2">
-                      {getStatusIcon(inquiry.status)}
-                      {getStatusBadge(inquiry.status)}
-                    </div>
-                  </td>
-                  <td className="py-4 px-4">
-                    <Badge variant="info" size="sm">
-                      {inquiry.source}
-                    </Badge>
                   </td>
                   <td className="py-4 px-4 text-gray-400 text-sm">
                     {formatDate(inquiry.createdAt)}
@@ -251,7 +253,7 @@ export const Inquiries: React.FC = () => {
                           { value: 'closed', label: 'Closed' },
                         ]}
                         value={inquiry.status}
-                        onChange={(value) => handleStatusUpdate(inquiry.id, value)}
+                        onChange={(value) => handleStatusUpdate(inquiry._id, value)}
                       />
                     </div>
                   </td>

@@ -15,7 +15,9 @@ const inquirySchema = new mongoose.Schema({
   fullName: String,
   email: String,
   phone: String,
-  interest: String,
+  propertyType: String,
+  propertyId: String,
+  status: { type: String, default: 'new' },
   agree: Boolean,
   createdAt: { type: Date, default: Date.now },
 });
@@ -40,6 +42,19 @@ export async function GET() {
     return NextResponse.json({ success: true, inquiries });
   } catch (error) {
     console.error('Inquiry GET error:', error);
+    return NextResponse.json({ success: false, message: 'Internal server error' }, { status: 500 });
+  }
+}
+
+export async function PATCH(req: NextRequest) {
+  try {
+    await connectDB();
+    const { id, status } = await req.json();
+    if (!id || !status) return NextResponse.json({ success: false, message: 'Missing id or status' }, { status: 400 });
+    const inquiry = await Inquiry.findByIdAndUpdate(id, { status }, { new: true });
+    if (!inquiry) return NextResponse.json({ success: false, message: 'Inquiry not found' }, { status: 404 });
+    return NextResponse.json({ success: true, inquiry });
+  } catch (error) {
     return NextResponse.json({ success: false, message: 'Internal server error' }, { status: 500 });
   }
 } 

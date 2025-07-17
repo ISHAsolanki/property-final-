@@ -152,10 +152,10 @@ export const PropertyForm: React.FC = () => {
     });
   };
 
-  const handleFeaturedDevImageChange = (index: number, value: string) => {
+  const handleFeaturedDevImageChange = (index: number, key: keyof GalleryItem, value: string) => {
     setFormData(prev => {
       const images = [...prev.featuredDevelopment.images];
-      images[index] = value;
+      images[index] = { ...images[index], [key]: value };
       return { ...prev, featuredDevelopment: { ...prev.featuredDevelopment, images } };
     });
   };
@@ -165,7 +165,7 @@ export const PropertyForm: React.FC = () => {
       ...prev,
       featuredDevelopment: {
         ...prev.featuredDevelopment,
-        images: [...prev.featuredDevelopment.images, ''],
+        images: [...prev.featuredDevelopment.images, { url: '', name: '', data: '' }],
       },
     }));
   };
@@ -362,9 +362,39 @@ export const PropertyForm: React.FC = () => {
           <Input label="Text" value={formData.featuredDevelopment.text} onChange={v => handleNestedChange('featuredDevelopment', 'text', v)} />
           <div className="mt-6">
             <h3 className="text-sm font-medium text-gray-300 mb-2">Images</h3>
-            {formData.featuredDevelopment.images.map((img, idx) => (
+            {formData.featuredDevelopment.images.map((item, idx) => (
               <div key={idx} className="flex items-center space-x-3 mb-2">
-                <Input placeholder="Image URL" value={img} onChange={v => handleFeaturedDevImageChange(idx, v)} />
+                {/* File upload for new images */}
+                <input
+                  type="file"
+                  accept="image/*"
+                  onChange={async (e) => {
+                    const file = e.target.files?.[0];
+                    if (file) {
+                      const reader = new FileReader();
+                      reader.onloadend = () => {
+                        const base64 = reader.result as string;
+                        setFormData(prev => {
+                          const images = [...prev.featuredDevelopment.images];
+                          images[idx] = { ...images[idx], data: base64, url: '', name: images[idx].name };
+                          return { ...prev, featuredDevelopment: { ...prev.featuredDevelopment, images } };
+                        });
+                      };
+                      reader.readAsDataURL(file);
+                    }
+                  }}
+                />
+                {/* Show preview if base64 or url exists */}
+                {item.data ? (
+                  <img src={item.data} alt="Preview" className="w-16 h-16 object-cover rounded" />
+                ) : item.url ? (
+                  <img src={item.url} alt="Preview" className="w-16 h-16 object-cover rounded" />
+                ) : null}
+                <Input placeholder="Name" value={item.name || ""} onChange={v => handleFeaturedDevImageChange(idx, 'name', v)} />
+                {/* For backward compatibility, allow editing url if present */}
+                {item.url && !item.data && (
+                  <Input placeholder="Image URL" value={item.url || ""} onChange={v => handleFeaturedDevImageChange(idx, 'url', v)} />
+                )}
                 <Button variant="ghost" size="sm" icon={X} onClick={() => handleFeaturedDevImageRemove(idx)}>{''}</Button>
               </div>
             ))}

@@ -1,18 +1,51 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Bricolage_Grotesque } from 'next/font/google';
 
 const bricolage = Bricolage_Grotesque({ subsets: ['latin'] });
+
+const propertyTypeOptions = [
+  'Residential',
+  'Commercial',
+  'Land',
+  'Luxury',
+  'Appartment',
+  'Villa',
+  'Penthouse',
+];
 
 const InquirySection = () => {
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
     phone: '',
-    interest: '',
+    propertyType: '',
+    propertyId: '',
     agree: false
   });
+  const [allProperties, setAllProperties] = useState([]);
+  const [filteredProperties, setFilteredProperties] = useState([]);
+
+  useEffect(() => {
+    fetch('/api/properties')
+      .then(res => res.json())
+      .then(data => {
+        if (data.success) setAllProperties(data.properties);
+      });
+  }, []);
+
+  useEffect(() => {
+    if (formData.propertyType) {
+      setFilteredProperties(
+        allProperties.filter((p) => p.propertyType === formData.propertyType)
+      );
+      setFormData(prev => ({ ...prev, propertyId: '' }));
+    } else {
+      setFilteredProperties([]);
+      setFormData(prev => ({ ...prev, propertyId: '' }));
+    }
+  }, [formData.propertyType, allProperties]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value, type } = e.target as HTMLInputElement;
@@ -107,19 +140,37 @@ const InquirySection = () => {
               </div>
 
               <div className="flex-1 flex flex-col gap-2">
-                <label className="text-sm text-white">Interested In</label>
+                <label className="text-sm text-white">Property Type</label>
                 <select
-                  name="interest"
-                  value={formData.interest}
+                  name="propertyType"
+                  value={formData.propertyType}
                   onChange={handleChange}
                   className="bg-[#0A0A0A] text-[#E0E0E0] text-sm p-3.5 rounded-lg border border-[#333] focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent appearance-none"
                   required
                 >
-                  <option value="">Select unit type</option>
-                  <option value="1bhk">1 BHK</option>
-                  <option value="2bhk">2 BHK</option>
-                  <option value="3bhk">3 BHK</option>
-                  <option value="4bhk">4 BHK</option>
+                  <option value="">Select property type</option>
+                  {propertyTypeOptions.map((type) => (
+                    <option key={type} value={type}>{type}</option>
+                  ))}
+                </select>
+              </div>
+            </div>
+
+            <div className="flex flex-col md:flex-row gap-6">
+              <div className="flex-1 flex flex-col gap-2">
+                <label className="text-sm text-white">Property</label>
+                <select
+                  name="propertyId"
+                  value={formData.propertyId}
+                  onChange={handleChange}
+                  className="bg-[#0A0A0A] text-[#E0E0E0] text-sm p-3.5 rounded-lg border border-[#333] focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent appearance-none"
+                  required
+                  disabled={!formData.propertyType}
+                >
+                  <option value="">{formData.propertyType ? 'Select property' : 'Select property type first'}</option>
+                  {filteredProperties.map((p) => (
+                    <option key={p._id} value={p._id}>{p.name}</option>
+                  ))}
                 </select>
               </div>
             </div>
