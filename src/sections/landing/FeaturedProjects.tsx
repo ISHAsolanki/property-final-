@@ -38,13 +38,13 @@ const statusConfig: { [key: string]: { label: string; className: string } } = {
  * <ProjectCard project={featuredProjects[0]} />
  * ```
  */
-const ProjectCard = ({ property }: { property: Property }) => {
+const ProjectCard = ({ property, cardClassName }: { property: Property; cardClassName?: string }) => {
   const status = statusConfig[property.status] || { label: property.status, className: 'bg-white text-black' };
   
   return (
     <Link 
       href={`/projects/${property._id}`}
-      className="flex-none w-[300px] sm:w-[360px] lg:w-[420px] bg-[#0A0A0A] rounded-lg shadow-lg overflow-hidden flex flex-col hover:shadow-xl transition-shadow duration-300"
+      className={`flex-none ${cardClassName || 'w-[300px] sm:w-[360px] lg:w-[420px]'} bg-[#0A0A0A] rounded-lg shadow-lg overflow-hidden flex flex-col hover:shadow-xl transition-shadow duration-300`}
     >
       {/* Image Container */}
       <div className="relative w-full h-[160px] sm:h-[180px] bg-gray-800">
@@ -109,9 +109,13 @@ const ProjectCard = ({ property }: { property: Property }) => {
  * - Pricing
  * - Property type and BHK configuration
  */
-const FeaturedProjects = () => {
+const FeaturedProjects = ({ onShowAll }: { onShowAll?: (show: boolean) => void }) => {
   const [featured, setFeatured] = useState<Property[]>([]);
+  const [all, setAll] = useState<Property[]>([]);
   const [loading, setLoading] = useState(true);
+  const [showAll, setShowAll] = useState(false);
+  const [page, setPage] = useState(1);
+  const pageSize = 6;
 
   useEffect(() => {
     setLoading(true);
@@ -120,11 +124,21 @@ const FeaturedProjects = () => {
       .then(data => {
         if (data.success) {
           setFeatured(data.properties.filter((p: any) => p.featured));
+          setAll(data.properties);
         }
         setLoading(false);
       })
       .catch(() => setLoading(false));
   }, []);
+
+  useEffect(() => {
+    if (onShowAll) onShowAll(showAll);
+  }, [showAll, onShowAll]);
+
+  const paginated = showAll
+    ? all.slice((page - 1) * pageSize, page * pageSize)
+    : featured;
+  const totalPages = showAll ? Math.ceil(all.length / pageSize) : 1;
 
   return (
     <section className="w-full bg-[#1A1A1A] py-12 sm:py-16">
@@ -135,30 +149,64 @@ const FeaturedProjects = () => {
           </h2>
           <button 
             className="flex items-center text-white text-sm font-['Bricolage_Grotesque'] hover:opacity-80 transition-opacity underline"
-            onClick={() => console.log('See all projects clicked')}
+            onClick={() => { setShowAll(!showAll); setPage(1); }}
           >
-            See All
+            {showAll ? 'Show Featured' : 'See All'}
           </button>
         </div>
-        
         <div className="relative -mx-4 sm:-mx-6 lg:-mx-8">
-          <div className="flex space-x-4 sm:space-x-6 overflow-x-auto pb-6 px-4 sm:px-6 lg:px-8" 
-               style={{
-                 scrollbarWidth: 'none',
-                 msOverflowStyle: 'none',
-               }}>
-            {loading ? (
-              <div className="text-gray-400">Loading...</div>
-            ) : featured.length === 0 ? (
-              <div className="text-gray-400">No featured properties found.</div>
-            ) : (
-              featured.map((property) => (
-                <ProjectCard key={property._id} property={property} />
-              ))
-            )}
-          </div>
-          
-          {/* Gradient overlay for the right side */}
+          {showAll ? (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-8 pb-6 px-4 sm:px-6 lg:px-8">
+              {loading ? (
+                <div className="text-gray-400">Loading...</div>
+              ) : paginated.length === 0 ? (
+                <div className="text-gray-400">No properties found.</div>
+              ) : (
+                paginated.map((property) => (
+                  <ProjectCard key={property._id} property={property} cardClassName="w-[300px] sm:w-[390px] lg:w-[370px]" />
+                ))
+              )}
+            </div>
+          ) : (
+            <div className="flex space-x-4 sm:space-x-6 overflow-x-auto pb-6 px-4 sm:px-6 lg:px-8" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+              {loading ? (
+                <div className="text-gray-400">Loading...</div>
+              ) : paginated.length === 0 ? (
+                <div className="text-gray-400">No properties found.</div>
+              ) : (
+                paginated.map((property) => (
+                  <ProjectCard key={property._id} property={property} />
+                ))
+              )}
+            </div>
+          )}
+          {showAll && totalPages > 1 && (
+            <div className="flex justify-center mt-8">
+              <button
+                className={`mx-1 px-3 py-1 rounded bg-gray-800 text-gray-300 border border-gray-700 ${page === 1 ? 'opacity-50 cursor-not-allowed' : 'hover:bg-gray-700'}`}
+                onClick={() => page > 1 && setPage(page - 1)}
+                disabled={page === 1}
+              >
+                {'<'}
+              </button>
+              {[...Array(totalPages)].map((_, i) => (
+                <button
+                  key={i}
+                  className={`mx-1 px-3 py-1 rounded border border-gray-700 ${page === i + 1 ? 'bg-red-600 text-white' : 'bg-gray-800 text-gray-300 hover:bg-gray-700'}`}
+                  onClick={() => setPage(i + 1)}
+                >
+                  {i + 1}
+                </button>
+              ))}
+              <button
+                className={`mx-1 px-3 py-1 rounded bg-gray-800 text-gray-300 border border-gray-700 ${page === totalPages ? 'opacity-50 cursor-not-allowed' : 'hover:bg-gray-700'}`}
+                onClick={() => page < totalPages && setPage(page + 1)}
+                disabled={page === totalPages}
+              >
+                {'>'}
+              </button>
+            </div>
+          )}
           <div 
             className="absolute right-0 top-0 bottom-0 w-16 sm:w-24 lg:w-32 pointer-events-none"
             style={{
@@ -167,18 +215,9 @@ const FeaturedProjects = () => {
           />
         </div>
       </div>
-      
       <style jsx global>{`
-        /* Hide scrollbar for Chrome, Safari and Opera */
-        .overflow-x-auto::-webkit-scrollbar {
-          display: none;
-        }
-        
-        /* Hide scrollbar for IE, Edge and Firefox */
-        .overflow-x-auto {
-          -ms-overflow-style: none;  /* IE and Edge */
-          scrollbar-width: none;  /* Firefox */
-        }
+        .overflow-x-auto::-webkit-scrollbar { display: none; }
+        .overflow-x-auto { -ms-overflow-style: none; scrollbar-width: none; }
       `}</style>
     </section>
   );

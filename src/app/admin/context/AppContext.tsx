@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, ReactNode } from 'react';
+import React, { createContext, useContext, useState, ReactNode, useEffect } from 'react';
 import { Property, Settings } from '../types';
 
 interface AppContextType {
@@ -69,6 +69,16 @@ export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
     setTimeout(() => setToast(null), 3000);
   };
 
+  // Restore auth state from localStorage on mount
+  useEffect(() => {
+    const storedAuth = localStorage.getItem('isAuthenticated');
+    const storedUser = localStorage.getItem('user');
+    if (storedAuth === 'true' && storedUser) {
+      setIsAuthenticated(true);
+      setUser(JSON.parse(storedUser));
+    }
+  }, []);
+
   const login = async (email: string, password: string) => {
     try {
       const res = await fetch('/api/auth', {
@@ -80,16 +90,22 @@ export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
       if (data.success) {
         setIsAuthenticated(true);
         setUser({ email });
+        localStorage.setItem('isAuthenticated', 'true');
+        localStorage.setItem('user', JSON.stringify({ email }));
         setCurrentPage('dashboard');
         showToast('Login successful!', 'success');
       } else {
         setIsAuthenticated(false);
         setUser(null);
+        localStorage.removeItem('isAuthenticated');
+        localStorage.removeItem('user');
         showToast(data.message || 'Login failed', 'error');
       }
     } catch (err) {
       setIsAuthenticated(false);
       setUser(null);
+      localStorage.removeItem('isAuthenticated');
+      localStorage.removeItem('user');
       showToast('Login failed. Please try again.', 'error');
     }
   };
@@ -97,6 +113,8 @@ export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
   const logout = () => {
     setIsAuthenticated(false);
     setUser(null);
+    localStorage.removeItem('isAuthenticated');
+    localStorage.removeItem('user');
     setCurrentPage('dashboard');
     showToast('Logged out successfully', 'info');
   };
