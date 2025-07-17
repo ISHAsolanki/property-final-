@@ -116,6 +116,16 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             className="w-full h-full"
           />
         )}
+        {/* If using gallery directly, prefer data (base64) over url */}
+        {project.gallery && project.gallery[0] && (project.gallery[0].data || project.gallery[0].url) && (
+          <Image
+            src={project.gallery[0].data || project.gallery[0].url}
+            alt={project.gallery[0].name || project.title}
+            layout="fill"
+            objectFit="cover"
+            className="w-full h-full"
+          />
+        )}
         
         {/* Status Badge */}
         <div className={`absolute left-4 ${tagPosition === 'top' ? 'top-4' : 'bottom-4'}`}>

@@ -1,6 +1,7 @@
 export interface GalleryItem {
   url: string;
   name: string;
+  data?: string; // base64 image data
 }
 
 export interface VideoItem {

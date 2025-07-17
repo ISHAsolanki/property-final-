@@ -12,7 +12,8 @@ async function connectDB() {
 }
 
 const gallerySchema = new mongoose.Schema({
-  url: String,
+  url: String, // for backward compatibility or external images
+  data: String, // base64 image data
   name: String,
 }, { _id: false });
 

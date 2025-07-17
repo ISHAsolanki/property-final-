@@ -22,7 +22,7 @@ const defaultForm: Property = {
     otherAmenities: [''],
     igbcGoldCertified: false,
   },
-  gallery: [{ url: '', name: '' }],
+  gallery: [{ url: '', name: '', data: '' }],
   videos: [{ url: '', name: '' }],
   locationAdvantage: { addressUrl: '', advantages: [''] },
   featuredDevelopment: { text: '', images: [''] },
@@ -101,7 +101,7 @@ export const PropertyForm: React.FC = () => {
   };
 
   const handleGalleryAdd = () => {
-    setFormData(prev => ({ ...prev, gallery: [...prev.gallery, { url: '', name: '' }] }));
+    setFormData(prev => ({ ...prev, gallery: [...prev.gallery, { url: '', name: '', data: '' }] }));
   };
 
   const handleGalleryRemove = (index: number) => {
@@ -185,11 +185,14 @@ export const PropertyForm: React.FC = () => {
     e.preventDefault();
     setLoading(true);
     try {
+      // Remove gallery items that have neither data nor url
+      const cleanedGallery = formData.gallery.filter(img => (img.data && img.data !== '') || (img.url && img.url !== ''));
+      const submitData = { ...formData, gallery: cleanedGallery };
       const isEdit = Boolean(formData._id);
       const res = await fetch('/api/properties', {
         method: isEdit ? 'PUT' : 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(submitData),
       });
       const data = await res.json();
       if (data.success) {
@@ -290,8 +293,37 @@ export const PropertyForm: React.FC = () => {
           <h2 className="text-lg font-semibold text-white mb-6">Gallery</h2>
           {formData.gallery.map((item, idx) => (
             <div key={idx} className="flex items-center space-x-3 mb-2">
-              <Input placeholder="Image URL" value={item.url} onChange={v => handleGalleryChange(idx, 'url', v)} />
+              {/* File upload for new images */}
+              <input
+                type="file"
+                accept="image/*"
+                onChange={async (e) => {
+                  const file = e.target.files?.[0];
+                  if (file) {
+                    const reader = new FileReader();
+                    reader.onloadend = () => {
+                      const base64 = reader.result as string;
+                      setFormData(prev => {
+                        const gallery = [...prev.gallery];
+                        gallery[idx] = { ...gallery[idx], data: base64, url: '', name: gallery[idx].name };
+                        return { ...prev, gallery };
+                      });
+                    };
+                    reader.readAsDataURL(file);
+                  }
+                }}
+              />
+              {/* Show preview if base64 or url exists */}
+              {item.data ? (
+                <img src={item.data} alt="Preview" className="w-16 h-16 object-cover rounded" />
+              ) : item.url ? (
+                <img src={item.url} alt="Preview" className="w-16 h-16 object-cover rounded" />
+              ) : null}
               <Input placeholder="Name" value={item.name} onChange={v => handleGalleryChange(idx, 'name', v)} />
+              {/* For backward compatibility, allow editing url if present */}
+              {item.url && !item.data && (
+                <Input placeholder="Image URL" value={item.url} onChange={v => handleGalleryChange(idx, 'url', v)} />
+              )}
               <Button variant="ghost" size="sm" icon={X} onClick={() => handleGalleryRemove(idx)}>{''}</Button>
             </div>
           ))}

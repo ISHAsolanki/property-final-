@@ -45,7 +45,7 @@ export default async function ProjectDetail({ params }: Props) {
         location={property.location}
         priceRange={property.priceRange}
         bhk={property.keyHighlights.unitConfiguration}
-        image={property.gallery[0]?.url || ''}
+        image={property.gallery[0]?.data || property.gallery[0]?.url || ''}
         builderWebsite={property.builder.websiteUrl}
       />
       {/* Key Highlights Section */}

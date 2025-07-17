@@ -79,8 +79,9 @@ const CommercialSpaces = () => {
                     price: property.priceRange,
                     type: property.propertyType,
                     status: (['new-launch','rera-approved','ready-to-move','prime-location','retail-space','co-working','industrial'].includes(property.status) ? property.status : 'new-launch') as any,
-                    image: property.gallery && property.gallery[0] && typeof property.gallery[0].url === 'string' ? property.gallery[0].url : '',
+                    image: (property.gallery && property.gallery[0] && (property.gallery[0].data || property.gallery[0].url)) || '',
                     bhk: property.keyHighlights.unitConfiguration || '',
+                    gallery: property.gallery // Pass the full gallery for base64 support
                   }} tagPosition="bottom" />
                 </Link>
               ))

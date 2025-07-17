@@ -46,7 +46,7 @@ const ProjectGallery: React.FC<ProjectGalleryProps> = ({ gallery, videos }) => {
                   gallery.map((image, idx) => (
                     <div key={idx} className="relative h-48 rounded overflow-hidden">
                       <Image
-                        src={image.url}
+                        src={image.data || image.url}
                         alt={image.name}
                         fill
                         className="object-cover"
