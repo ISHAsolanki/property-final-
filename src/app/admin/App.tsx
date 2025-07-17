@@ -10,6 +10,7 @@ import { Login } from './components/pages/Login';
 import { PropertyForm } from './components/pages/PropertyForm';
 import { Inquiries } from './components/pages/Inquiries';
 import { Settings } from './components/pages/Settings';
+import ArticlesAdmin from './components/pages/Articles';
 
 const AppContent: React.FC = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -29,6 +30,8 @@ const AppContent: React.FC = () => {
         return <PropertyForm />;
       case 'inquiries':
         return <Inquiries />;
+      case 'articles':
+        return <ArticlesAdmin />;
       case 'settings':
         return <Settings />;
       default:

@@ -5,7 +5,8 @@ import {
   MessageSquare,
   Settings, 
   Menu,
-  X
+  X,
+  BookOpen
 } from 'lucide-react';
 import { useApp } from '../../context/AppContext';
 
@@ -21,6 +22,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onToggle }) => {
     { id: 'dashboard', label: 'Dashboard', icon: Home },
     { id: 'properties', label: 'Properties', icon: Building },
     { id: 'inquiries', label: 'Inquiries', icon: MessageSquare },
+    { id: 'articles', label: 'Articles', icon: BookOpen },
     { id: 'settings', label: 'Settings', icon: Settings },
   ];
 
