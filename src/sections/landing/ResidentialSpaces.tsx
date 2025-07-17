@@ -49,12 +49,12 @@ const ResidentialSpaces = () => {
           <h2 className="text-2xl sm:text-3xl font-medium text-white font-['Bricolage_Grotesque'] tracking-wide">
             Residential Spaces
           </h2>
-          <button 
+          <Link 
+            href="/residential"
             className="flex items-center text-white text-sm font-['Bricolage_Grotesque'] hover:opacity-80 transition-opacity underline"
-            onClick={() => console.log('See all residential spaces clicked')}
           >
             See All
-          </button>
+          </Link>
         </div>
         <div className="relative -mx-4 sm:-mx-6 lg:-mx-8">
           <div 

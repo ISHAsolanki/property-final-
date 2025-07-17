@@ -35,7 +35,7 @@ export default function ArticlesPage() {
           <h1 className="text-4xl sm:text-5xl font-bold text-center mb-12 mt-8 leading-tight">
             The thinking, ideas<br />and technology<br />behind World.
           </h1>
-          <h2 className="text-lg font-medium mb-6">Featured Articles</h2>
+          <h2 className="text-lg font-medium mb-6">Articles</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
             {loading ? (
               <div className="text-gray-400">Loading...</div>

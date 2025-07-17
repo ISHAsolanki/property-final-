@@ -56,9 +56,6 @@ const TrendingProjects: React.FC = () => {
       <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 sm:mb-8">
           <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4 sm:mb-0">Top 10 Trending Projects This Week</h2>
-          <Link href="/projects/trending" className="text-red-500 hover:underline">
-            See All
-          </Link>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 sm:gap-6">
           {loading ? (

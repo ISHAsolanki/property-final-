@@ -2,8 +2,10 @@
 
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { FaSearch } from 'react-icons/fa';
 import { navigationData } from '@/data/navigation';
+import { useRouter } from 'next/navigation';
 
 /**
  * A responsive navigation bar component that includes a logo, navigation links, and search functionality.
@@ -30,6 +32,33 @@ const NavigationBar = () => {
   const { logo, links, search } = navigationData;
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [properties, setProperties] = useState<any[]>([]);
+  const [filtered, setFiltered] = useState<any[]>([]);
+  const [showDropdown, setShowDropdown] = useState(false);
+  const router = useRouter();
+
+  useEffect(() => {
+    fetch('/api/properties')
+      .then(res => res.json())
+      .then(data => {
+        if (data.success) setProperties(data.properties);
+      });
+  }, []);
+
+  useEffect(() => {
+    if (searchTerm.trim() === '') {
+      setFiltered([]);
+      setShowDropdown(false);
+      return;
+    }
+    const f = properties.filter((p) =>
+      p.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      (p.tagline && p.tagline.toLowerCase().includes(searchTerm.toLowerCase()))
+    );
+    setFiltered(f);
+    setShowDropdown(f.length > 0);
+  }, [searchTerm, properties]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -67,7 +96,7 @@ const NavigationBar = () => {
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isMenuOpen ? mobileMenuBackgroundClass : navBackgroundClass}`}>
       <div className="flex items-center justify-between px-4 sm:px-6 lg:px-8 py-4 w-full max-w-screen-xl mx-auto">
         {/* Left Section - Logo */}
-        <div className="w-[142.86px] h-[48px] relative">
+        <Link href="/" className="w-[142.86px] h-[48px] relative block">
           <Image
             src={logo.src}
             alt={logo.alt}
@@ -76,7 +105,7 @@ const NavigationBar = () => {
             className="object-contain"
             priority
           />
-        </div>
+        </Link>
 
         {/* Navigation Links */}
         <div className="hidden md:flex items-center gap-10">
@@ -102,8 +131,33 @@ const NavigationBar = () => {
               type="text"
               placeholder={search.placeholder}
               className="w-full h-10 pl-10 pr-4 py-2 bg-[#333333] text-[#ECECEC] rounded-full font-['Bricolage_Grotesque'] text-sm leading-6 placeholder-[#ECECEC] focus:outline-none focus:ring-2 focus:ring-gray-500"
+              value={searchTerm}
+              onChange={e => setSearchTerm(e.target.value)}
+              onFocus={() => setShowDropdown(filtered.length > 0)}
+              onBlur={() => setTimeout(() => setShowDropdown(false), 150)}
             />
             <FaSearch className="absolute left-4 top-1/2 transform -translate-y-1/2 text-[#ECECEC] w-4 h-4" />
+            {showDropdown && (
+              <div className="absolute left-0 right-0 mt-2 bg-[#222] border border-gray-700 rounded-lg shadow-lg z-50 max-h-64 overflow-y-auto">
+                {filtered.map((p) => (
+                  <div
+                    key={p._id}
+                    className="px-4 py-2 cursor-pointer hover:bg-gray-700 text-white"
+                    onMouseDown={() => {
+                      setSearchTerm('');
+                      setShowDropdown(false);
+                      router.push(`/projects/${p._id}`);
+                    }}
+                  >
+                    <div className="font-medium">{p.name}</div>
+                    <div className="text-xs text-gray-400">{p.location} &middot; {p.propertyType}</div>
+                  </div>
+                ))}
+                {filtered.length === 0 && (
+                  <div className="px-4 py-2 text-gray-400">No results found.</div>
+                )}
+              </div>
+            )}
           </div>
 
           {/* Mobile Menu Button */}
