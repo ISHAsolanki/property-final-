@@ -34,7 +34,16 @@ const statusConfig = {
   'industrial': {
     label: 'Industrial',
     className: 'bg-white text-black',
-  }
+  },
+  'upcoming': {
+    label: 'Upcoming',
+    className: 'bg-yellow-400 text-black',
+  },
+  'under-construction': {
+    label: 'Under Construction',
+    className: 'bg-orange-400 text-black',
+  },
+  // Add more statuses as needed
 };
 
 /**
@@ -63,9 +72,22 @@ interface ProjectCardProps {
     status: keyof typeof statusConfig;
     image: string;
     bhk: string;
+    gallery?: any[]; // Add gallery as optional, type can be improved if needed
   };
   className?: string;
   tagPosition?: 'top' | 'bottom';
+}
+
+export function formatPriceRange(price: any): string {
+  if (!price) return '';
+  if (typeof price === 'string') return price;
+  if (typeof price === 'object' && price.from && price.to) {
+    const from = price.from.value ? `${price.from.value} ${price.from.unit}` : '';
+    const to = price.to.value ? `${price.to.value} ${price.to.unit}` : '';
+    if (from && to) return `${from} to ${to}`;
+    return from || to || '';
+  }
+  return '';
 }
 
 /**
@@ -148,7 +170,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         
         <div className="mt-2 flex items-center justify-between text-xs sm:text-sm">
           <span className="bg-white/10 text-white px-2 py-1 rounded-md">
-            {project.price}
+            {formatPriceRange(project.price)}
           </span>
           <span className="text-[#E0E0E0]">
             {project.bhk}

@@ -15,17 +15,22 @@ const propertyTypeOptions = [
   'Penthouse',
 ];
 
-const InquirySection = () => {
+interface InquirySectionProps {
+  defaultPropertyType?: string;
+  defaultPropertyId?: string;
+}
+const InquirySection: React.FC<InquirySectionProps> = ({ defaultPropertyType, defaultPropertyId }) => {
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
     phone: '',
-    propertyType: '',
-    propertyId: '',
+    propertyType: defaultPropertyType || '',
+    propertyId: defaultPropertyId || '',
     agree: false
   });
-  const [allProperties, setAllProperties] = useState([]);
-  const [filteredProperties, setFilteredProperties] = useState([]);
+  type Property = { _id: string; name: string; propertyType: string };
+  const [allProperties, setAllProperties] = useState<Property[]>([]);
+  const [filteredProperties, setFilteredProperties] = useState<Property[]>([]);
 
   useEffect(() => {
     fetch('/api/properties')
@@ -37,15 +42,26 @@ const InquirySection = () => {
 
   useEffect(() => {
     if (formData.propertyType) {
-      setFilteredProperties(
-        allProperties.filter((p) => p.propertyType === formData.propertyType)
-      );
-      setFormData(prev => ({ ...prev, propertyId: '' }));
+      const filtered = allProperties.filter((p) => p.propertyType === formData.propertyType);
+      setFilteredProperties(filtered);
+      // Only reset propertyId if it's not in the filtered list
+      if (!filtered.some(p => p._id === formData.propertyId)) {
+        setFormData(prev => ({ ...prev, propertyId: '' }));
+      }
     } else {
       setFilteredProperties([]);
       setFormData(prev => ({ ...prev, propertyId: '' }));
     }
   }, [formData.propertyType, allProperties]);
+
+  // If defaultPropertyType or defaultPropertyId change (e.g. on navigation), update form
+  useEffect(() => {
+    setFormData(prev => ({
+      ...prev,
+      propertyType: defaultPropertyType || '',
+      propertyId: defaultPropertyId || '',
+    }));
+  }, [defaultPropertyType, defaultPropertyId]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value, type } = e.target as HTMLInputElement;
@@ -72,7 +88,8 @@ const InquirySection = () => {
           fullName: '',
           email: '',
           phone: '',
-          interest: '',
+          propertyType: '',
+          propertyId: '',
           agree: false
         });
       } else {
@@ -85,8 +102,8 @@ const InquirySection = () => {
 
   return (
     <section className="flex flex-col items-center py-10 px-10 md:px-40 w-full bg-[#0A0A0A]">
-      <div className="w-full max-w-[1120px] flex flex-col">
-        <div className="bg-[#141414] rounded-2xl p-10 md:p-20 w-full">
+      <div className="w-full max-w-[1100px] flex flex-col">
+        <div className="bg-[#141414] rounded-2xl p-6 md:p-10 w-full">
           <div className="flex flex-col items-center gap-1 mb-10">
             <h2 className={`${bricolage.className} text-2xl font-medium text-white text-center`}>
               Inquire Now
@@ -97,8 +114,9 @@ const InquirySection = () => {
           </div>
 
           <form onSubmit={handleSubmit} className="flex flex-col gap-6">
-            <div className="flex flex-col md:flex-row gap-6">
-              <div className="flex-1 flex flex-col gap-2">
+            <div className="flex flex-col gap-4 w-full">
+              <div className="flex flex-col md:flex-row gap-4 w-full">
+                <div className="flex-1 flex flex-col gap-2 min-w-[120px]">
                 <label className="text-sm text-white">Full Name</label>
                 <input
                   type="text"
@@ -110,8 +128,7 @@ const InquirySection = () => {
                   required
                 />
               </div>
-
-              <div className="flex-1 flex flex-col gap-2">
+                <div className="flex-1 flex flex-col gap-2 min-w-[120px]">
                 <label className="text-sm text-white">Email Address</label>
                 <input
                   type="email"
@@ -123,10 +140,7 @@ const InquirySection = () => {
                   required
                 />
               </div>
-            </div>
-
-            <div className="flex flex-col md:flex-row gap-6">
-              <div className="flex-1 flex flex-col gap-2">
+                <div className="flex-1 flex flex-col gap-2 min-w-[120px]">
                 <label className="text-sm text-white">Phone Number</label>
                 <input
                   type="tel"
@@ -138,8 +152,9 @@ const InquirySection = () => {
                   required
                 />
               </div>
-
-              <div className="flex-1 flex flex-col gap-2">
+              </div>
+              <div className="flex flex-col md:flex-row gap-4 w-full">
+                <div className="flex-1 flex flex-col gap-2 min-w-[120px]">
                 <label className="text-sm text-white">Property Type</label>
                 <select
                   name="propertyType"
@@ -154,16 +169,13 @@ const InquirySection = () => {
                   ))}
                 </select>
               </div>
-            </div>
-
-            <div className="flex flex-col md:flex-row gap-6">
-              <div className="flex-1 flex flex-col gap-2">
+                <div className="flex-1 flex flex-col gap-2 min-w-[120px]">
                 <label className="text-sm text-white">Property</label>
                 <select
                   name="propertyId"
                   value={formData.propertyId}
                   onChange={handleChange}
-                  className="bg-[#0A0A0A] text-[#E0E0E0] text-sm p-3.5 rounded-lg border border-[#333] focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent appearance-none"
+                    className="bg-[#0A0A0A] text-[#E0E0E0] text-sm p-3.5 rounded-lg border border-[#333] focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent appearance-none w-full"
                   required
                   disabled={!formData.propertyType}
                 >
@@ -172,6 +184,7 @@ const InquirySection = () => {
                     <option key={p._id} value={p._id}>{p.name}</option>
                   ))}
                 </select>
+                </div>
               </div>
             </div>
 

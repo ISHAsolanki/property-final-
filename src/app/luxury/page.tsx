@@ -6,6 +6,7 @@ import Navigation from "@/components/common/Navigation";
 import Footer from "@/components/common/Footer";
 import Link from "next/link";
 import { FaSortAmountDown, FaSortAmountUp } from 'react-icons/fa';
+import { formatPriceRange } from '@/components/property/ProjectCard';
 
 const LuxuryPage = () => {
   const [properties, setProperties] = useState<Property[]>([]);
@@ -51,30 +52,30 @@ const LuxuryPage = () => {
           <h1 className="text-3xl sm:text-4xl font-bold mb-10 mt-8 leading-tight font-['Bricolage_Grotesque']">
             All Luxury Properties
           </h1>
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-8 gap-4">
-            <div className="flex items-center gap-3">
+          <div className="bg-[#181818] rounded-xl shadow border border-[#232323] px-4 py-5 mb-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 w-full">
               <input
                 type="text"
                 placeholder="Filter by location..."
                 value={locationFilter}
                 onChange={e => setLocationFilter(e.target.value)}
-                className="px-3 py-2 rounded bg-[#222] text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-red-500"
+              className="h-12 px-4 rounded-lg bg-[#222] text-white text-base focus:outline-none focus:ring-2 focus:ring-red-500 w-full sm:w-72 shadow-sm"
               />
-            </div>
-            <div className="flex items-center gap-2">
-              <span className="text-sm text-gray-300 mr-2">Sort by price:</span>
+            <div className="flex flex-col gap-4 w-full sm:w-auto">
+              <span className="font-semibold text-base text-gray-100 text-center sm:text-left">Sort by price:</span>
+              <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
               <button
-                className={`px-3 py-2 rounded bg-[#222] border border-gray-700 text-white flex items-center gap-2 ${sortOrder === 'asc' ? 'ring-2 ring-red-500' : ''}`}
+                  className={`h-12 w-full sm:w-auto px-5 rounded-lg bg-[#222] text-white text-base font-medium flex items-center justify-center gap-2 shadow-sm transition hover:bg-[#232323] focus:ring-2 focus:ring-red-500 ${sortOrder === 'asc' ? 'ring-2 ring-red-500' : ''}`}
                 onClick={() => setSortOrder(sortOrder === 'asc' ? 'default' : 'asc')}
               >
                 <FaSortAmountDown /> Low to High
               </button>
               <button
-                className={`px-3 py-2 rounded bg-[#222] border border-gray-700 text-white flex items-center gap-2 ${sortOrder === 'desc' ? 'ring-2 ring-red-500' : ''}`}
+                  className={`h-12 w-full sm:w-auto px-5 rounded-lg bg-[#222] text-white text-base font-medium flex items-center justify-center gap-2 shadow-sm transition hover:bg-[#232323] focus:ring-2 focus:ring-red-500 ${sortOrder === 'desc' ? 'ring-2 ring-red-500' : ''}`}
                 onClick={() => setSortOrder(sortOrder === 'desc' ? 'default' : 'desc')}
               >
                 <FaSortAmountUp /> High to Low
               </button>
+              </div>
             </div>
           </div>
           {loading ? (
@@ -85,11 +86,12 @@ const LuxuryPage = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {sorted.map((property) => (
                 <Link key={property._id} href={`/projects/${property._id}`} className="block">
+                  <div className="flex-none w-full sm:w-[360px] bg-[#0A0A0A] rounded-lg shadow-lg overflow-hidden flex flex-col hover:shadow-xl transition-shadow duration-300">
                   <ProjectCard project={{
                     id: property._id || '',
                     title: property.name,
                     location: property.location,
-                    price: property.priceRange,
+                    price: formatPriceRange(property.priceRange),
                     type: property.propertyType,
                     status: ([
                       'new-launch',
@@ -106,6 +108,7 @@ const LuxuryPage = () => {
                       (property.gallery && property.gallery[0] && (property.gallery[0].data || property.gallery[0].url)) || '',
                     bhk: property.keyHighlights.unitConfiguration || '',
                   }} tagPosition="bottom" />
+                  </div>
                 </Link>
               ))}
             </div>

@@ -5,7 +5,23 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Property } from '@/app/admin/types';
 
-const ProjectCard: React.FC<Property> = ({ _id, name, location, gallery, trendingScore }) => {
+function formatPriceRange(price: any): string {
+  if (!price) return '';
+  if (typeof price === 'string') return price;
+  if (typeof price === 'object' && price.from && price.to) {
+    const from = price.from.value ? `${price.from.value} ${price.from.unit}` : '';
+    const to = price.to.value ? `${price.to.value} ${price.to.unit}` : '';
+    if (from && to) return `${from} to ${to}`;
+    return from || to || '';
+  }
+  return '';
+}
+
+const ProjectCard: React.FC<Property & { priceRange?: any }> = ({ _id, name, location, gallery, trendingScore, priceRange }) => {
+  let imageSrc = '/public/placeholder.png';
+  if (gallery && gallery[0]) {
+    imageSrc = gallery[0].data || gallery[0].url || imageSrc;
+  }
   return (
     <Link 
       href={`/projects/${_id}`} 
@@ -13,7 +29,7 @@ const ProjectCard: React.FC<Property> = ({ _id, name, location, gallery, trendin
     >
       <div className="relative aspect-[4/3] w-full overflow-hidden">
         <Image
-          src={gallery && gallery[0]?.url ? gallery[0].url : '/public/placeholder.png'}
+          src={imageSrc}
           alt={name}
           fill
           className="object-cover transition-transform duration-300 group-hover:scale-105"
@@ -25,6 +41,9 @@ const ProjectCard: React.FC<Property> = ({ _id, name, location, gallery, trendin
       <div className="bg-[#262626] p-4">
         <h3 className="text-white text-lg font-medium truncate">{name}</h3>
         <p className="text-gray-400 text-sm mt-1">{location}</p>
+        <p className="text-white text-sm mt-1 bg-white/10 rounded px-2 py-1 w-fit">
+          {formatPriceRange(priceRange)}
+        </p>
       </div>
     </Link>
   );
@@ -64,7 +83,7 @@ const TrendingProjects: React.FC = () => {
             <div className="text-gray-400">No trending properties found.</div>
           ) : (
             properties.map((property) => (
-              <ProjectCard key={property._id} {...property} />
+              <ProjectCard key={property._id} {...property} priceRange={property.priceRange} />
             ))
           )}
         </div>

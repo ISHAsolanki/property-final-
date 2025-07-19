@@ -32,7 +32,7 @@ export default function ArticleDetailPage() {
       <Navigation />
       <main className="min-h-screen bg-[#181818] text-white">
         {/* Hero Section */}
-        <div className="relative w-full aspect-[16/5] bg-black flex items-end justify-start">
+        <div className="relative w-full min-h-[220px] sm:min-h-[320px] md:min-h-[400px] bg-black flex items-end justify-start">
           {article && (article.coverImage?.data || article.coverImage?.url || (article.images && article.images[0] && (article.images[0].data || article.images[0].url))) && (
             <Image
               src={article.coverImage?.data || article.coverImage?.url || article.images[0]?.data || article.images[0]?.url}
@@ -43,11 +43,11 @@ export default function ArticleDetailPage() {
             />
           )}
           <div className="absolute inset-0 bg-gradient-to-t from-[#181818] via-[#181818cc] to-transparent" />
-          <div className="relative z-10 p-8 md:p-16 max-w-3xl">
-            <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
+          <div className="relative z-10 px-4 py-6 sm:px-8 md:p-16 max-w-3xl">
+            <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-4 sm:mb-6 leading-tight">
               {article?.title || 'Loading...'}
             </h1>
-            <div className="flex items-center gap-4 text-gray-300 text-sm mb-2">
+            <div className="flex flex-wrap items-center gap-2 sm:gap-4 text-gray-300 text-xs sm:text-sm mb-2">
               <span className="flex items-center gap-2">
                 <FaUser className="w-5 h-5 rounded-full bg-white/20 p-1" />
                 <span className="font-medium">{article?.author}</span>
@@ -66,7 +66,7 @@ export default function ArticleDetailPage() {
           </div>
         </div>
         {/* Article Body */}
-        <div className="max-w-3xl mx-auto px-4 py-12">
+        <div className="max-w-3xl mx-auto px-4 py-8 sm:py-12">
           {loading ? (
             <div className="text-gray-400">Loading...</div>
           ) : !article ? (
@@ -77,15 +77,15 @@ export default function ArticleDetailPage() {
                 <p key={idx} className="mb-6 text-gray-200 whitespace-pre-line">{para}</p>
               ))}
               {article.images && article.images.length > 0 && (
-                <div className="w-full flex flex-wrap gap-6 my-10">
+                <div className="w-full flex flex-col md:flex-row flex-wrap gap-4 md:gap-6 my-8 md:my-10">
                   {article.images.map((img: any, idx: number) => (
-                    <div key={idx} className="flex-1 min-w-[300px] max-w-[400px]">
+                    <div key={idx} className="w-full md:flex-1 min-w-0 max-w-full md:min-w-[300px] md:max-w-[400px]">
                       <Image
                         src={img.data || img.url}
                         alt={img.name || article.title}
                         width={400}
                         height={250}
-                        className="rounded-lg object-cover w-full h-[250px]"
+                        className="rounded-lg object-cover w-full h-[200px] sm:h-[250px]"
                       />
                     </div>
                   ))}

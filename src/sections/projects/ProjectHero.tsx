@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { FaMapMarkerAlt } from 'react-icons/fa';
+import { FaMapMarkerAlt, FaHome } from 'react-icons/fa';
 import { projectPageContent, projectHeroStyles, backgroundStyles } from '@/data/project-page';
 
 interface ProjectHeroProps {
@@ -14,9 +14,22 @@ interface ProjectHeroProps {
   builderWebsite?: string;
 }
 
+function formatPriceRange(price: any): string {
+  if (!price) return '';
+  if (typeof price === 'string') return price;
+  if (typeof price === 'object' && price.from && price.to) {
+    const from = price.from.value ? `${price.from.value} ${price.from.unit}` : '';
+    const to = price.to.value ? `${price.to.value} ${price.to.unit}` : '';
+    if (from && to) return `${from} to ${to}`;
+    return from || to || '';
+  }
+  return '';
+}
+
 export default function ProjectHero({ title, tagline, location, priceRange, bhk, image, builderWebsite }: ProjectHeroProps) {
   const imageSrc = typeof image === 'string' ? image : image.src;
-  const priceDisplay = `₹ ${priceRange && priceRange.trim() !== '' ? priceRange : '-'}`;
+  const formattedPrice = formatPriceRange(priceRange);
+  const priceDisplay = `₹ ${formattedPrice && formattedPrice.trim() !== '' ? formattedPrice : '-'}`;
 
   // Scroll to gallery section
   const handleViewGallery = () => {
@@ -72,7 +85,8 @@ export default function ProjectHero({ title, tagline, location, priceRange, bhk,
               </div>
               {bhk && (
                 <div className={projectHeroStyles.metaItem}>
-                  <span>{bhk} {projectPageContent.metaLabels.apartments}</span>
+                  <FaHome className="mr-2" />
+                  <span>{bhk.replace(/,\s*/g, '').replace(/\s+/g, '')}</span>
                 </div>
               )}
             </div>

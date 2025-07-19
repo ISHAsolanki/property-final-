@@ -9,12 +9,19 @@ interface ProjectGalleryProps {
   videos: VideoItem[];
 }
 
+function getYouTubeEmbedUrl(url: string): string | null {
+  if (!url) return null;
+  // Match standard and share YouTube URLs
+  const match = url.match(/(?:youtube\.com\/(?:watch\?v=|embed\/)|youtu\.be\/)([\w-]{11})/);
+  return match ? `https://www.youtube.com/embed/${match[1]}` : null;
+}
+
 const ProjectGallery: React.FC<ProjectGalleryProps> = ({ gallery, videos }) => {
   const [activeTab, setActiveTab] = React.useState<'photos' | 'videos'>('photos');
 
   return (
     <section id="project-gallery" className="w-full bg-black">
-      <div className=" mx-auto px-16 py-20">
+      <div className="mx-auto px-4 sm:px-8 md:px-16 py-10 md:py-20">
         <div className="flex flex-col gap-8 w-full">
           {/* Header */}
           <div className="flex justify-between items-center w-full relative z-10">
@@ -39,12 +46,12 @@ const ProjectGallery: React.FC<ProjectGalleryProps> = ({ gallery, videos }) => {
           {/* Gallery Grid */}
           <div className="relative">
             {activeTab === 'photos' ? (
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
                 {gallery.length === 0 ? (
                   <div className="text-gray-400 col-span-4">No photos available.</div>
                 ) : (
                   gallery.map((image, idx) => (
-                    <div key={idx} className="relative h-48 rounded overflow-hidden">
+                    <div key={idx} className="relative h-40 md:h-48 rounded overflow-hidden">
                       <Image
                         src={image.data || image.url}
                         alt={image.name}
@@ -59,17 +66,33 @@ const ProjectGallery: React.FC<ProjectGalleryProps> = ({ gallery, videos }) => {
                 )}
               </div>
             ) : (
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
                 {videos.length === 0 ? (
                   <div className="text-gray-400 col-span-4">No videos available.</div>
                 ) : (
-                  videos.map((video, idx) => (
-                    <div key={idx} className="relative h-48 rounded overflow-hidden flex flex-col items-center justify-center bg-[#181818]">
-                      <a href={video.url} target="_blank" rel="noopener noreferrer" className="text-white underline text-center">
-                        {video.name || video.url}
-                      </a>
-                    </div>
-                  ))
+                  videos.map((video, idx) => {
+                    const embedUrl = getYouTubeEmbedUrl(video.url);
+                    return (
+                      <div key={idx} className="relative h-40 md:h-48 rounded overflow-hidden flex flex-col items-center justify-center bg-[#181818]">
+                        {embedUrl ? (
+                          <iframe
+                            width="100%"
+                            height="100%"
+                            src={embedUrl}
+                            title={video.name || 'YouTube video'}
+                            frameBorder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen
+                            className="w-full h-full rounded"
+                          />
+                        ) : (
+                          <a href={video.url} target="_blank" rel="noopener noreferrer" className="text-white underline text-center">
+                            {video.name || video.url}
+                          </a>
+                        )}
+                      </div>
+                    );
+                  })
                 )}
               </div>
             )}

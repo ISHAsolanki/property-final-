@@ -38,6 +38,7 @@ const ArticlesAdmin: React.FC = () => {
   const [form, setForm] = useState<Article>(defaultArticle);
   const [editingId, setEditingId] = useState<string | null>(null);
   const [showForm, setShowForm] = useState(false);
+  const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     fetch('/api/articles')
@@ -173,6 +174,7 @@ const ArticlesAdmin: React.FC = () => {
                 <input
                   type="file"
                   accept="image/*"
+                  style={{ color: 'white' }}
                   onChange={e => {
                     const file = e.target.files?.[0];
                     if (file) handleCoverImageFile(file);
@@ -213,6 +215,7 @@ const ArticlesAdmin: React.FC = () => {
                   <input
                     type="file"
                     accept="image/*"
+                    style={{ color: 'white' }}
                     onChange={e => {
                       const file = e.target.files?.[0];
                       if (file) handleImageFile(idx, file);
@@ -240,6 +243,14 @@ const ArticlesAdmin: React.FC = () => {
         </Card>
       )}
       <Card>
+        <div className="mb-4 flex items-center">
+          <Input
+            placeholder="Search articles..."
+            value={searchTerm}
+            onChange={setSearchTerm}
+            className="w-full max-w-xs"
+          />
+        </div>
         <div className="overflow-x-auto">
           <table className="w-full">
             <thead>
@@ -252,7 +263,11 @@ const ArticlesAdmin: React.FC = () => {
               </tr>
             </thead>
             <tbody>
-              {articles.map((article) => (
+              {articles.filter(article =>
+                article.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                article.author.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                article.readTime.toLowerCase().includes(searchTerm.toLowerCase())
+              ).map((article) => (
                 <tr key={article._id} className="border-b border-gray-800 hover:bg-gray-800 transition-colors">
                   <td className="py-4 px-4 text-white">{article.title}</td>
                   <td className="py-4 px-4 text-white">{article.author}</td>

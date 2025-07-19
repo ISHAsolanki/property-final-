@@ -6,6 +6,7 @@ import { Badge } from '../../components/common/Badge';
 import { Input } from '../../components/common/Input';
 import { Select } from '../../components/common/Select';
 import { useApp } from '../../context/AppContext';
+import { Property } from '../../types';
 
 export const Inquiries: React.FC = () => {
   const { showToast } = useApp();
@@ -13,12 +14,18 @@ export const Inquiries: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [filterStatus, setFilterStatus] = useState('');
   const [filterSource, setFilterSource] = useState('');
+  const [properties, setProperties] = useState<Property[]>([]);
 
   useEffect(() => {
     fetch('/api/inquiries')
       .then(res => res.json())
       .then(data => {
         if (data.success) setInquiries(data.inquiries);
+      });
+    fetch('/api/properties')
+      .then(res => res.json())
+      .then(data => {
+        if (data.success) setProperties(data.properties);
       });
   }, []);
 
@@ -118,40 +125,56 @@ export const Inquiries: React.FC = () => {
       value: inquiries.length.toString(),
       icon: MessageSquare,
       color: 'text-blue-500',
+      bg: 'bg-gradient-to-tr from-blue-900/60 to-blue-800/30',
     },
     {
       title: 'New Inquiries',
       value: inquiries.filter(i => i.status === 'new').length.toString(),
       icon: AlertCircle,
       color: 'text-yellow-500',
+      bg: 'bg-gradient-to-tr from-yellow-900/60 to-yellow-800/30',
     },
     {
       title: 'Qualified Leads',
       value: inquiries.filter(i => i.status === 'qualified').length.toString(),
       icon: CheckCircle,
       color: 'text-green-500',
+      bg: 'bg-gradient-to-tr from-green-900/60 to-green-800/30',
+    },
+    {
+      title: 'Closed Inquiries',
+      value: inquiries.filter(i => i.status === 'closed').length.toString(),
+      icon: Clock,
+      color: 'text-gray-400',
+      bg: 'bg-gradient-to-tr from-gray-900/60 to-gray-800/30',
     },
   ];
 
+  const getPropertyName = (propertyId: string) => {
+    if (!propertyId) return null;
+    const property = properties.find((p) => p._id === propertyId);
+    return property ? property.name : null;
+  };
+
   return (
-    <div className="p-8">
+    <div className="p-8 min-h-screen bg-gray-900">
       <div className="mb-8">
         <h1 className="text-2xl font-bold text-white mb-2">Inquiries</h1>
         <p className="text-gray-400">Manage customer inquiries and leads</p>
       </div>
 
       {/* Stats Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
         {stats.map((stat, index) => {
           const Icon = stat.icon;
           return (
-            <Card key={index}>
+            <Card key={index} className={`relative overflow-hidden ${stat.bg}`}>
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm text-gray-400 mb-1">{stat.title}</p>
                   <p className="text-2xl font-bold text-white">{stat.value}</p>
                 </div>
-                <div className={`p-3 rounded-full bg-gray-800 ${stat.color}`}>
+                <div className={`p-3 rounded-full bg-gray-800 ${stat.color} shadow-lg`}>
                   <Icon className="h-6 w-6" />
                 </div>
               </div>
@@ -179,12 +202,6 @@ export const Inquiries: React.FC = () => {
               value={filterStatus}
               onChange={setFilterStatus}
               placeholder="Filter by status"
-            />
-            <Select
-              options={sourceOptions}
-              value={filterSource}
-              onChange={setFilterSource}
-              placeholder="Filter by source"
             />
           </div>
         </div>
@@ -226,8 +243,8 @@ export const Inquiries: React.FC = () => {
                     <span className="text-white">{inquiry.propertyType || '-'}</span>
                   </td>
                   <td className="py-4 px-4">
-                    {inquiry.propertyName ? (
-                      <span className="text-white">{inquiry.propertyName}</span>
+                    {getPropertyName(inquiry.propertyId) ? (
+                      <span className="text-white">{getPropertyName(inquiry.propertyId)}</span>
                     ) : (
                       <span className="text-gray-400">General Inquiry</span>
                     )}
@@ -237,14 +254,6 @@ export const Inquiries: React.FC = () => {
                   </td>
                   <td className="py-4 px-4">
                     <div className="flex items-center space-x-2">
-                      <Button
-                        variant="ghost"
-                        size="sm"
-                        icon={Eye}
-                        onClick={() => handleViewDetails(inquiry.id)}
-                      >
-                        <span className="sr-only">View</span>
-                      </Button>
                       <Select
                         options={[
                           { value: 'new', label: 'New' },

@@ -1,13 +1,17 @@
-import React from 'react';
+'use client';
+
+import React, { useRef } from 'react';
 import { FaChevronRight, FaChevronLeft } from 'react-icons/fa';
 
 interface Highlights {
   reraApproved: boolean;
+  reraNumber?: string;
   possessionDate: string;
   unitConfiguration: string;
   carpetArea: string;
   otherAmenities: string[];
   igbcGoldCertified: boolean;
+  igbcLevel?: 'Certified' | 'Silver' | 'Gold' | 'Platinum';
 }
 
 interface KeyHighlightsProps {
@@ -50,27 +54,43 @@ const icons = {
   ),
 };
 
+// Add a helper to format carpet area
+function formatCarpetArea(carpetArea: any): string {
+  if (!carpetArea) return 'N/A';
+  if (typeof carpetArea === 'string') return carpetArea;
+  if (typeof carpetArea === 'object' && carpetArea.from && carpetArea.to) {
+    return `${carpetArea.from} to ${carpetArea.to} ${carpetArea.unit || ''}`.trim();
+  }
+  return 'N/A';
+}
+
 const KeyHighlights: React.FC<KeyHighlightsProps> = ({ highlights }) => {
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+
   const dynamicHighlights = [
     {
       icon: icons.rera,
       title: 'RERA Approved',
-      description: highlights.reraApproved ? 'Project is RERA approved' : 'Not RERA approved',
+      description: highlights.reraApproved
+        ? `Project is RERA approved${highlights.reraNumber ? ' (No: ' + highlights.reraNumber + ')' : ''}`
+        : 'Not RERA approved',
     },
     {
       icon: icons.possession,
       title: 'Possession',
-      description: highlights.possessionDate || 'N/A',
+      description: highlights.possessionDate ? new Date(highlights.possessionDate).toLocaleDateString('en-IN', { year: 'numeric', month: 'short', day: 'numeric' }) : 'N/A',
     },
     {
       icon: icons.carpet,
       title: 'Unit Configuration',
-      description: highlights.unitConfiguration || 'N/A',
+      description: highlights.unitConfiguration
+        ? highlights.unitConfiguration.replace(/,\s*/g, '').replace(/\s+/g, '')
+        : 'N/A',
     },
     {
       icon: icons.carpet,
       title: 'Carpet Area',
-      description: highlights.carpetArea || 'N/A',
+      description: formatCarpetArea(highlights.carpetArea),
     },
     {
       icon: icons.amenities,
@@ -79,14 +99,28 @@ const KeyHighlights: React.FC<KeyHighlightsProps> = ({ highlights }) => {
     },
     {
       icon: icons.igbc,
-      title: 'IGBC Gold Certified',
-      description: highlights.igbcGoldCertified ? 'IGBC Gold certified sustainable design' : 'Not IGBC certified',
+      title: 'IGBC Certification',
+      description: highlights.igbcGoldCertified
+        ? `IGBC ${highlights.igbcLevel || 'Gold'} certified sustainable design`
+        : 'Not IGBC certified',
     },
   ];
 
+  const scrollLeft = () => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollBy({ left: -300, behavior: 'smooth' });
+    }
+  };
+
+  const scrollRight = () => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollBy({ left: 300, behavior: 'smooth' });
+    }
+  };
+
   return (
     <section className="w-full bg-black overflow-hidden">
-      <div className="w-full mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div className="w-full mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16">
         <div style={{
           display: 'flex',
           flexDirection: 'column',
@@ -104,19 +138,29 @@ const KeyHighlights: React.FC<KeyHighlightsProps> = ({ highlights }) => {
                   Key Highlights
                 </h2>
                 <div className="flex gap-3">
-                  <button className="w-10 h-10 rounded-full bg-[#121212] flex items-center justify-center">
+                  <button 
+                    onClick={scrollLeft}
+                    className="w-10 h-10 rounded-full bg-[#121212] flex items-center justify-center hover:bg-[#1a1a1a] transition-colors"
+                  >
                     <FaChevronLeft className="text-white w-3 h-3" />
                   </button>
-                  <button className="w-10 h-10 rounded-full bg-[#121212] flex items-center justify-center">
+                  <button 
+                    onClick={scrollRight}
+                    className="w-10 h-10 rounded-full bg-[#121212] flex items-center justify-center hover:bg-[#1a1a1a] transition-colors"
+                  >
                     <FaChevronRight className="text-white w-3 h-3" />
                   </button>
                 </div>
               </div>
-              {/* Highlights Grid */}
+              {/* Highlights Horizontal Scroll */}
               <div className="relative w-full mt-8">
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+                <div 
+                  ref={scrollContainerRef}
+                  className="flex gap-4 sm:gap-6 overflow-x-auto scrollbar-hide"
+                  style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+                >
                   {dynamicHighlights.map((item, index) => (
-                    <div key={index} className="bg-[#0A0A0A] rounded-lg p-6 shadow-lg">
+                    <div key={index} className="flex-none min-w-[220px] sm:w-[280px] bg-[#0A0A0A] rounded-lg p-6 shadow-lg">
                       <div className="flex flex-col gap-4">
                         <div className="w-12 h-12 rounded-full bg-[rgba(229,9,20,0.1)] flex items-center justify-center">
                           {item.icon}
@@ -136,6 +180,15 @@ const KeyHighlights: React.FC<KeyHighlightsProps> = ({ highlights }) => {
           </div>
         </div>
       </div>
+      <style jsx global>{`
+        .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+        }
+        .scrollbar-hide {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+      `}</style>
     </section>
   );
 };

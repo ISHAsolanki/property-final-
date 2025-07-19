@@ -11,6 +11,7 @@ import { PropertyForm } from './components/pages/PropertyForm';
 import { Inquiries } from './components/pages/Inquiries';
 import { Settings } from './components/pages/Settings';
 import ArticlesAdmin from './components/pages/Articles';
+import Groups from './components/pages/Groups';
 
 const AppContent: React.FC = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -32,8 +33,8 @@ const AppContent: React.FC = () => {
         return <Inquiries />;
       case 'articles':
         return <ArticlesAdmin />;
-      case 'settings':
-        return <Settings />;
+      case 'groups':
+        return <Groups />;
       default:
         return <Dashboard />;
     }

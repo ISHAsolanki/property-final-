@@ -10,19 +10,29 @@ import ArticlesSection from "@/sections/landing/ArticlesSection";
 import Navigation from "@/components/common/Navigation";
 import Footer from "@/components/common/Footer";
 import React, { useState } from 'react';
+import { Property } from '@/app/admin/types';
 
 export default function Home() {
-  const [showAllProjects, setShowAllProjects] = useState(false);
+  const [searchActive, setSearchActive] = useState(false);
+  const [matched, setMatched] = useState<Property[]>([]);
+
   return (
     <>
       <Navigation />
-      <Hero />
-      <FeaturedProjects onShowAll={setShowAllProjects} />
-      {!showAllProjects && <ResidentialSpaces />}
-      {!showAllProjects && <CommercialSpaces />}
-      {!showAllProjects && <LocationCollections />}
-      {!showAllProjects && <TrendingProjects />}
-      {!showAllProjects && <ArticlesSection />}
+      <Hero 
+        onSearch={(results: Property[]) => {
+          setMatched(results);
+          setSearchActive(results.length > 0);
+        }}
+        searchActive={searchActive}
+        matched={matched}
+      />
+      {!searchActive && <FeaturedProjects />}
+      {!searchActive && <ResidentialSpaces />}
+      {!searchActive && <CommercialSpaces />}
+      {!searchActive && <LocationCollections />}
+      {!searchActive && <TrendingProjects />}
+      {!searchActive && <ArticlesSection />}
       <Footer />
     </>
   );

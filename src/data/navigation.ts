@@ -13,6 +13,7 @@ export const navigationData = {
     { label: 'Land', href: '/land' },
     { label: 'Luxury', href: '/luxury' },
     { label: 'Articles', href: '/articles' },
+    { label: 'Contact Us', href: '/contact' },
   ] as LinkItem[],
   search: {
     placeholder: 'Search properties...',

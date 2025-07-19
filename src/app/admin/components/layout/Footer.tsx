@@ -7,14 +7,9 @@ export const Footer: React.FC = () => {
   const router = useRouter();
   return (
     <footer className="h-16 bg-gray-900 border-t border-gray-800 px-6 flex items-center justify-end space-x-4">
-      <Button variant="secondary" size="sm" icon={Save}>
-        Save Draft
-      </Button>
+      {/* Removed Save Draft and Publish buttons */}
       <Button variant="ghost" size="sm" icon={Eye} onClick={() => router.push('/') }>
         Preview
-      </Button>
-      <Button variant="primary" size="sm" icon={Upload}>
-        Publish
       </Button>
     </footer>
   );

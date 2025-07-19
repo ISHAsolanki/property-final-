@@ -8,6 +8,14 @@ import { Input } from '../../components/common/Input';
 import { useApp } from '../../context/AppContext';
 import { Property } from '../../types';
 
+function formatPriceRange(priceRange: any): string {
+  if (!priceRange || typeof priceRange === 'string') return priceRange || '';
+  const from = priceRange.from?.value ? `${priceRange.from.value} ${priceRange.from.unit}` : '';
+  const to = priceRange.to?.value ? `${priceRange.to.value} ${priceRange.to.unit}` : '';
+  if (from && to) return `${from} to ${to}`;
+  return from || to || '';
+}
+
 export const Properties: React.FC = () => {
   const { setCurrentPage, showToast, setSelectedProperty } = useApp();
   const [properties, setProperties] = useState<Property[]>([]);
@@ -121,20 +129,7 @@ export const Properties: React.FC = () => {
               placeholder="Filter by status"
             />
           </div>
-          <div className="flex items-center space-x-2">
-            <Button
-              variant={viewMode === 'grid' ? 'primary' : 'ghost'}
-              size="sm"
-              icon={Grid}
-              onClick={() => setViewMode('grid')}
-            >{''}</Button>
-            <Button
-              variant={viewMode === 'list' ? 'primary' : 'ghost'}
-              size="sm"
-              icon={List}
-              onClick={() => setViewMode('list')}
-            >{''}</Button>
-          </div>
+          {/* Removed grid/list view toggle buttons */}
         </div>
       </Card>
       <Card>
@@ -159,10 +154,10 @@ export const Properties: React.FC = () => {
                   <tr key={property._id} className="border-b border-gray-800 hover:bg-gray-800 transition-colors">
                     <td className="py-4 px-4">
                       <div className="flex items-center space-x-3">
-                        {property.gallery && property.gallery[0]?.url ? (
+                        {property.gallery && (property.gallery[0]?.data || property.gallery[0]?.url) ? (
                           <img
-                            src={property.gallery[0].url}
-                            alt={property.gallery[0].name || property.name}
+                            src={property.gallery[0]?.data || property.gallery[0]?.url}
+                            alt={property.gallery[0]?.name || property.name}
                             className="w-12 h-12 object-cover rounded-lg"
                           />
                         ) : (
@@ -179,8 +174,8 @@ export const Properties: React.FC = () => {
                         {property.propertyType}
                       </Badge>
                     </td>
-                    <td className="py-4 px-4">{property.status}</td>
-                    <td className="py-4 px-4">{property.priceRange}</td>
+                    <td className="py-4 px-4 text-white">{property.status}</td>
+                    <td className="py-4 px-4 text-white">{formatPriceRange(property.priceRange)}</td>
                     <td className="py-4 px-4">
                       <Button variant="ghost" size="sm" icon={Edit} onClick={() => handleEdit(property._id)}>{''}</Button>
                       <Button variant="ghost" size="sm" icon={Trash2} onClick={() => handleDelete(property._id)}>{''}</Button>

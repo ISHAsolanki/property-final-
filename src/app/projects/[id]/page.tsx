@@ -59,6 +59,7 @@ export default async function ProjectDetail({ params }: Props) {
       />
       {/* Location & Advantages */}
       <LocationAdvantages
+        address={property.locationAdvantage.address}
         addressUrl={property.locationAdvantage.addressUrl}
         advantages={property.locationAdvantage.advantages}
       />
@@ -71,6 +72,8 @@ export default async function ProjectDetail({ params }: Props) {
       <InquirySection
         developerName={property.builder.developerName}
         websiteUrl={property.builder.websiteUrl}
+        defaultPropertyType={property.propertyType}
+        defaultPropertyId={property._id}
       />
       {/* Related Projects */}
       <RelatedProjects

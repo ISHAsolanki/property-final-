@@ -23,7 +23,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onToggle }) => {
     { id: 'properties', label: 'Properties', icon: Building },
     { id: 'inquiries', label: 'Inquiries', icon: MessageSquare },
     { id: 'articles', label: 'Articles', icon: BookOpen },
-    { id: 'settings', label: 'Settings', icon: Settings },
+    { id: 'groups', label: 'Groups', icon: Menu },
   ];
 
   return (

@@ -25,6 +25,18 @@ const statusConfig: { [key: string]: { label: string; className: string } } = {
   },
 };
 
+function formatPriceRange(price: any): string {
+  if (!price) return '';
+  if (typeof price === 'string') return price;
+  if (typeof price === 'object' && price.from && price.to) {
+    const from = price.from.value ? `${price.from.value} ${price.from.unit}` : '';
+    const to = price.to.value ? `${price.to.value} ${price.to.unit}` : '';
+    if (from && to) return `${from} to ${to}`;
+    return from || to || '';
+  }
+  return '';
+}
+
 /**
  * A card component that displays information about a featured project.
  * 
@@ -73,7 +85,7 @@ const ProjectCard = ({ property, cardClassName }: { property: Property; cardClas
         </div>
         <div className="mt-2 flex items-center justify-between">
           <span className="text-sm bg-white/10 text-white px-2 py-1 rounded-md">
-            {property.priceRange}
+            {formatPriceRange(property.priceRange)}
           </span>
         </div>
         <div className="mt-2 text-sm text-[#E0E0E0]">

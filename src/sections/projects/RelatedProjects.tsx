@@ -1,9 +1,10 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Bricolage_Grotesque, Inter } from 'next/font/google';
 import Image from 'next/image';
 import Link from 'next/link';
+import { Property } from '@/app/admin/types';
 
 const bricolage = Bricolage_Grotesque({ subsets: ['latin'] });
 const inter = Inter({ subsets: ['latin'] });
@@ -56,11 +57,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             </svg>
           </div>
         </div>
-        
-        {/* Property Type Tag */}
-        <div className="absolute bottom-2 left-2 bg-white rounded px-2 py-0.5">
-          <span className="text-xs font-medium text-black">{type}</span>
-        </div>
       </div>
       
       {/* Content */}
@@ -99,53 +95,81 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   );
 };
 
-const RelatedProjects = () => {
-  const relatedProjects = [
-    {
-      id: 'shilp-business-gateway',
-      title: 'Shilp Business Gateway',
-      type: 'Prime Location',
-      location: 'SG Highway, Chharodi',
-      price: '£75/sq ft',
-      size: '5,000-20,000 sq ft',
-      image: '/images/projects/shilp-business-gateway.jpg',
-    },
-    {
-      id: 'kensington-hotel',
-      title: 'Kensington Hotel',
-      type: 'Industrial',
-      location: 'Memnagar',
-      price: '£15.5M',
-      size: '45 Rooms',
-      image: '/images/projects/kensington-hotel.jpg',
-    },
-    {
-      id: 'pehel',
-      title: 'Pehel',
-      type: 'Retail Space',
-      location: 'Vaishnodevi Circle',
-      price: '£120/sq ft',
-      size: '2,500-8,000 sq ft',
-      image: '/images/projects/pehel.jpg',
-    },
-  ];
+interface RelatedProjectsProps {
+  otherProjects: string[];
+}
+
+const RelatedProjects: React.FC<RelatedProjectsProps> = ({ otherProjects }) => {
+  const [relatedProperties, setRelatedProperties] = useState<Property[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchRelatedProperties = async () => {
+      try {
+        const response = await fetch('/api/properties');
+        const data = await response.json();
+        
+        if (data.success) {
+          // Filter properties that match the otherProjects names
+          const filtered = data.properties.filter((property: Property) => 
+            otherProjects.includes(property.name)
+          );
+          setRelatedProperties(filtered);
+        }
+      } catch (error) {
+        console.error('Error fetching related properties:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    if (otherProjects && otherProjects.length > 0) {
+      fetchRelatedProperties();
+    } else {
+      setLoading(false);
+    }
+  }, [otherProjects]);
+
+  if (loading) {
+    return (
+      <section className="w-full bg-[#0A0A0A] py-20 px-16">
+        <div className="mx-auto">
+          <div className="flex justify-between items-center mb-6">
+            <h2 className={`${bricolage.className} text-2xl font-medium text-white`}>
+              Other Projects of The Stolen Group
+            </h2>
+          </div>
+          <div className="text-gray-400">Loading related projects...</div>
+        </div>
+      </section>
+    );
+  }
+
+  if (relatedProperties.length === 0) {
+    return null; // Don't show the section if no related projects
+  }
 
   return (
     <section className="w-full bg-[#0A0A0A] py-20 px-16">
-      <div className=" mx-auto">
+      <div className="mx-auto">
         <div className="flex justify-between items-center mb-6">
           <h2 className={`${bricolage.className} text-2xl font-medium text-white`}>
             Other Projects of The Stolen Group
           </h2>
-          <Link href="/projects" className="text-white text-sm underline">
-            View All
-          </Link>
         </div>
         
         <div className="flex gap-7 overflow-x-auto pb-4 scrollbar-hide">
-          {relatedProjects.map((project) => (
-            <Link key={project.id} href={`/projects/${project.id}`} className="flex-shrink-0">
-              <ProjectCard {...project} />
+          {relatedProperties.map((property) => (
+            <Link key={property._id} href={`/projects/${property._id}`} className="flex-shrink-0">
+              <ProjectCard 
+                id={property._id || ''}
+                title={property.name}
+                type={property.status || 'Property'}
+                location={property.location}
+                price={property.priceRange}
+                size={property.keyHighlights.unitConfiguration || ''}
+                image={property.gallery && property.gallery[0] && (property.gallery[0].data || property.gallery[0].url) || ''}
+              />
             </Link>
           ))}
         </div>

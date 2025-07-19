@@ -10,8 +10,8 @@ export const heroData = {
       text: 'Shantigram',
     },
     {
-      icon: 'price',
-      text: '£1.2M - £4.5M',
+      icon: '',
+      text: '₹1.2Cr - ₹5Cr',
     },
     {
       icon: 'bedroom',
@@ -52,7 +52,7 @@ export const heroData = {
       placeholder: 'Select price range',
       icon: 'dropdown',
       type: 'select',
-      options: ['£0 - £500,000', '£500,000 - £1,000,000', '£1,000,000+'],
+      options: ['₹0 - ₹500,000', '₹500,000 - ₹1,000,000', '₹1,000,000+'],
     },
   ] as SearchFilter[],
   filterChips: [

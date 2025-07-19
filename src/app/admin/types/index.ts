@@ -15,22 +15,29 @@ export interface Property {
   tagline: string;
   propertyType: string;
   location: string; // area
-  priceRange: string;
+  priceRange: {
+    from: { value: string; unit: 'Lac' | 'Cr' };
+    to: { value: string; unit: 'Lac' | 'Cr' };
+  };
   builder: {
     developerName: string;
     websiteUrl: string;
   };
   keyHighlights: {
     reraApproved: boolean;
+    reraNumber?: string;
+    /** Possession date in YYYY-MM-DD format */
     possessionDate: string;
     unitConfiguration: string;
-    carpetArea: string;
+    carpetArea: { from: string; to: string; unit: string };
     otherAmenities: string[];
     igbcGoldCertified: boolean;
+    igbcLevel?: 'Certified' | 'Silver' | 'Gold' | 'Platinum';
   };
   gallery: GalleryItem[];
   videos: VideoItem[];
   locationAdvantage: {
+    address: string;
     addressUrl: string;
     advantages: string[];
   };

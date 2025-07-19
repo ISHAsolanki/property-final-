@@ -22,27 +22,45 @@ const videoSchema = new mongoose.Schema({
   name: String,
 }, { _id: false });
 
+const keyHighlightsSchema = new mongoose.Schema({
+  reraApproved: Boolean,
+  reraNumber: { type: String, default: '' },
+  possessionDate: String,
+  unitConfiguration: String,
+  carpetArea: {
+    from: String,
+    to: String,
+    unit: { type: String, default: 'sqft' }
+  },
+  otherAmenities: [String],
+  igbcGoldCertified: Boolean,
+  igbcLevel: { type: String, enum: ['', 'Certified', 'Silver', 'Gold', 'Platinum'], default: '' },
+}, { _id: false });
+
 const propertySchema = new mongoose.Schema({
   name: String,
   tagline: String,
   propertyType: String,
   location: String, // area
-  priceRange: String,
+  priceRange: {
+    from: {
+      value: String,
+      unit: { type: String, enum: ['Lac', 'Cr'], default: 'Lac' }
+    },
+    to: {
+      value: String,
+      unit: { type: String, enum: ['Lac', 'Cr'], default: 'Lac' }
+    }
+  },
   builder: {
     developerName: String,
     websiteUrl: String,
   },
-  keyHighlights: {
-    reraApproved: Boolean,
-    possessionDate: String,
-    unitConfiguration: String,
-    carpetArea: String,
-    otherAmenities: [String],
-    igbcGoldCertified: Boolean,
-  },
+  keyHighlights: keyHighlightsSchema,
   gallery: [gallerySchema],
   videos: [videoSchema],
   locationAdvantage: {
+    address: String,
     addressUrl: String,
     advantages: [String],
   },
@@ -74,9 +92,11 @@ export async function POST(req: NextRequest) {
   try {
     await connectDB();
     const data = await req.json();
+    console.log('POST /api/properties received data:', JSON.stringify(data, null, 2));
     const property = await Property.create(data);
     return NextResponse.json({ success: true, property });
   } catch (error) {
+    console.error('Property POST error:', error);
     return NextResponse.json({ success: false, message: 'Internal server error' }, { status: 500 });
   }
 }
@@ -85,10 +105,16 @@ export async function PUT(req: NextRequest) {
   try {
     await connectDB();
     const data = await req.json();
+    console.log('PUT /api/properties received data:', JSON.stringify(data, null, 2));
     if (!data._id) return NextResponse.json({ success: false, message: 'Missing property ID' }, { status: 400 });
-    const property = await Property.findByIdAndUpdate(data._id, { ...data, updatedAt: new Date() }, { new: true });
+    const property = await Property.findByIdAndUpdate(
+      data._id,
+      { $set: { ...data, updatedAt: new Date() } },
+      { new: true }
+    );
     return NextResponse.json({ success: true, property });
   } catch (error) {
+    console.error('Property PUT error:', error);
     return NextResponse.json({ success: false, message: 'Internal server error' }, { status: 500 });
   }
 }
