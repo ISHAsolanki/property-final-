@@ -20,10 +20,11 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onToggle }) => {
 
   const menuItems = [
     { id: 'dashboard', label: 'Dashboard', icon: Home },
+    { id: 'groups', label: 'Groups', icon: Menu },
+    { id: 'property-categories', label: 'Property Categories', icon: Building },
     { id: 'properties', label: 'Properties', icon: Building },
     { id: 'inquiries', label: 'Inquiries', icon: MessageSquare },
     { id: 'articles', label: 'Articles', icon: BookOpen },
-    { id: 'groups', label: 'Groups', icon: Menu },
   ];
 
   return (

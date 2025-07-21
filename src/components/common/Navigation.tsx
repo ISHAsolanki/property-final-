@@ -29,13 +29,15 @@ import { useRouter } from 'next/navigation';
  * - Mobile menu toggle (hamburger menu on small screens)
  */
 const NavigationBar = () => {
-  const { logo, links, search } = navigationData;
+  const { logo, search } = navigationData;
+  const [categories, setCategories] = useState<{ name: string }[]>([]);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const [properties, setProperties] = useState<any[]>([]);
   const [filtered, setFiltered] = useState<any[]>([]);
   const [showDropdown, setShowDropdown] = useState(false);
+  const [propertiesMenuOpen, setPropertiesMenuOpen] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
@@ -59,6 +61,14 @@ const NavigationBar = () => {
     setFiltered(f);
     setShowDropdown(f.length > 0);
   }, [searchTerm, properties]);
+
+  useEffect(() => {
+    fetch('/api/property-categories')
+      .then(res => res.json())
+      .then(data => {
+        if (data.success) setCategories(data.categories);
+      });
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -110,16 +120,43 @@ const NavigationBar = () => {
         {/* Navigation Links */}
         <div className="hidden md:flex items-center gap-10">
           <ul className="flex items-center gap-8">
-            {links.map((link, index) => (
-              <li key={index}>
-                <a 
-                  href={link.href} 
-                  className="text-white text-base font-medium leading-6 hover:opacity-80 transition-opacity whitespace-nowrap"
+            <li className="relative">
+              <div
+                onMouseEnter={() => setPropertiesMenuOpen(true)}
+                onMouseLeave={() => setPropertiesMenuOpen(false)}
+                className="inline-block relative"
+              >
+                <button
+                  className="text-white text-base font-medium leading-6 hover:opacity-80 transition-opacity whitespace-nowrap focus:outline-none"
+                  onClick={e => e.preventDefault()}
                 >
-                  {link.label}
-                </a>
-              </li>
-            ))}
+                  Properties
+                </button>
+                {/* Mega Menu */}
+                {propertiesMenuOpen && (
+                  <div className="absolute left-1/2 -translate-x-1/2 top-full w-[340px] sm:w-[480px] bg-black border border-gray-900 rounded-xl shadow-xl z-50 p-6 flex flex-col gap-2" style={{minWidth: 240}}>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                      {categories.map(cat => (
+                        <Link
+                          key={cat.name}
+                          href={`/category/${encodeURIComponent(cat.name)}`}
+                          className="text-white text-base font-medium py-2 px-3 rounded hover:bg-gray-800 transition-colors"
+                          onClick={() => setPropertiesMenuOpen(false)}
+                        >
+                          {cat.name}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            </li>
+            <li>
+              <Link href="/articles" className="text-white text-base font-medium leading-6 hover:opacity-80 transition-opacity whitespace-nowrap">Articles</Link>
+            </li>
+            <li>
+              <Link href="/contact" className="text-white text-base font-medium leading-6 hover:opacity-80 transition-opacity whitespace-nowrap">Contact Us</Link>
+            </li>
           </ul>
         </div>
 
@@ -177,17 +214,35 @@ const NavigationBar = () => {
       {isMenuOpen && (
         <div className="md:hidden absolute top-full left-0 w-full bg-black/95 backdrop-blur-md shadow-lg pt-4 pb-8">
           <ul className="flex flex-col items-center gap-6">
-            {links.map((link, index) => (
-              <li key={index}>
-                <a 
-                  href={link.href} 
-                  className="text-white text-lg font-medium leading-6 hover:opacity-80 transition-opacity"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {link.label}
-                </a>
-              </li>
-            ))}
+            <li className="relative group w-full">
+              <button
+                className="text-white text-lg font-medium leading-6 hover:opacity-80 transition-opacity whitespace-nowrap focus:outline-none w-full text-left"
+                onClick={e => e.preventDefault()}
+              >
+                Properties
+              </button>
+              {/* Mega Menu for mobile */}
+              <div className="w-full bg-[#10131a] border border-gray-800 rounded-xl shadow-2xl z-50 mt-2 p-4 flex flex-col gap-2">
+                <div className="grid grid-cols-1 gap-2">
+                  {categories.map(cat => (
+                    <Link
+                      key={cat.name}
+                      href={`/category/${encodeURIComponent(cat.name)}`}
+                      className="text-white text-base font-medium py-2 px-3 rounded hover:bg-gray-800 transition-colors"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      {cat.name}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </li>
+            <li>
+              <Link href="/articles" className="text-white text-lg font-medium leading-6 hover:opacity-80 transition-opacity" onClick={() => setIsMenuOpen(false)}>Articles</Link>
+            </li>
+            <li>
+              <Link href="/contact" className="text-white text-lg font-medium leading-6 hover:opacity-80 transition-opacity" onClick={() => setIsMenuOpen(false)}>Contact Us</Link>
+            </li>
           </ul>
           {/* Search Bar in Mobile Menu */}
           <div className="mt-6 mx-4">

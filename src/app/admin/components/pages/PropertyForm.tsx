@@ -43,6 +43,7 @@ export const PropertyForm: React.FC = () => {
   const [formData, setFormData] = useState<Property>(selectedProperty || defaultForm);
   const [loading, setLoading] = useState(false);
   const [allProperties, setAllProperties] = useState<Property[]>([]);
+  const [propertyCategories, setPropertyCategories] = useState<{ value: string; label: string }[]>([]);
 
   // Fetch all properties for the dropdown
   useEffect(() => {
@@ -58,6 +59,17 @@ export const PropertyForm: React.FC = () => {
       }
     };
     fetchProperties();
+  }, []);
+
+  // Fetch property categories
+  useEffect(() => {
+    fetch('/api/property-categories')
+      .then(res => res.json())
+      .then(data => {
+        if (data.success) {
+          setPropertyCategories(data.categories.map((cat: any) => ({ value: cat.name, label: cat.name })));
+        }
+      });
   }, []);
 
   // If selectedProperty changes (e.g. user clicks edit), update formData
@@ -283,16 +295,6 @@ export const PropertyForm: React.FC = () => {
     }
   };
 
-  const propertyTypeOptions = [
-    { value: 'Residential', label: 'Residential' },
-    { value: 'Commercial', label: 'Commercial' },
-    { value: 'Land', label: 'Land' },
-    { value: 'Luxury', label: 'Luxury' },
-    { value: 'Appartment', label: 'Appartment' },
-    { value: 'Villa', label: 'Villa' },
-    { value: 'Penthouse', label: 'Penthouse' },
-  ];
-
   const statusOptions = [
     { value: 'Ready', label: 'Ready' },
     { value: 'Under Construction', label: 'Under Construction' },
@@ -325,7 +327,7 @@ export const PropertyForm: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <Input label="Property name" value={formData.name} onChange={v => handleChange('name', v)} required />
             <Input label="Tagline" value={formData.tagline} onChange={v => handleChange('tagline', v)} />
-            <Select label="Property type" options={propertyTypeOptions} value={formData.propertyType} onChange={v => handleChange('propertyType', v)} required />
+            <Select label="Property type" options={propertyCategories} value={formData.propertyType} onChange={v => handleChange('propertyType', v)} required />
             <Input label="Area" value={formData.location} onChange={v => handleChange('location', v)} required />
             <div className="flex gap-2 items-end">
               <Input label="Price From" value={formData.priceRange.from.value} onChange={v => setFormData(prev => ({ ...prev, priceRange: { ...prev.priceRange, from: { ...prev.priceRange.from, value: v } } }))} required />
@@ -585,7 +587,7 @@ export const PropertyForm: React.FC = () => {
         </Card>
         {/* Section 8: Other Projects of The Stolen Group */}
         <Card>
-          <h2 className="text-lg font-semibold text-white mb-6">Other Projects of The Stolen Group</h2>
+          <h2 className="text-lg font-semibold text-white mb-6">Other Projects</h2>
           <div className="space-y-4">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <Select 
@@ -628,7 +630,7 @@ export const PropertyForm: React.FC = () => {
               <div className="mt-4">
                 <p className="text-sm text-gray-300 mb-2">Selected Projects:</p>
                 <div className="flex flex-wrap gap-2">
-                  {formData.otherProjects.map((projectName, index) => (
+                  {formData.otherProjects.filter(Boolean).map((projectName, index) => (
                     <span
                       key={index}
                       className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-red-100 text-red-800"

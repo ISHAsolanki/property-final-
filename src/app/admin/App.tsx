@@ -12,6 +12,7 @@ import { Inquiries } from './components/pages/Inquiries';
 import { Settings } from './components/pages/Settings';
 import ArticlesAdmin from './components/pages/Articles';
 import Groups from './components/pages/Groups';
+import PropertyCategories from './components/pages/PropertyCategories';
 
 const AppContent: React.FC = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -35,6 +36,8 @@ const AppContent: React.FC = () => {
         return <ArticlesAdmin />;
       case 'groups':
         return <Groups />;
+      case 'property-categories':
+        return <PropertyCategories />;
       default:
         return <Dashboard />;
     }

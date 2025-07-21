@@ -117,75 +117,45 @@ const InquirySection: React.FC<InquirySectionProps> = ({ defaultPropertyType, de
             <div className="flex flex-col gap-4 w-full">
               <div className="flex flex-col md:flex-row gap-4 w-full">
                 <div className="flex-1 flex flex-col gap-2 min-w-[120px]">
-                <label className="text-sm text-white">Full Name</label>
-                <input
-                  type="text"
-                  name="fullName"
-                  value={formData.fullName}
-                  onChange={handleChange}
-                  placeholder="Enter your full name"
-                  className="bg-[#0A0A0A] text-[#E0E0E0] text-sm p-3.5 rounded-lg border border-[#333] focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent"
-                  required
-                />
-              </div>
+                  <label className="text-sm text-white">Full Name</label>
+                  <input
+                    type="text"
+                    name="fullName"
+                    value={formData.fullName}
+                    onChange={handleChange}
+                    placeholder="Enter your full name"
+                    className="bg-[#0A0A0A] text-[#E0E0E0] text-sm p-3.5 rounded-lg border border-[#333] focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent"
+                    required
+                  />
+                </div>
                 <div className="flex-1 flex flex-col gap-2 min-w-[120px]">
-                <label className="text-sm text-white">Email Address</label>
-                <input
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  placeholder="Enter your email address"
-                  className="bg-[#0A0A0A] text-[#E0E0E0] text-sm p-3.5 rounded-lg border border-[#333] focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent"
-                  required
-                />
-              </div>
+                  <label className="text-sm text-white">Email Address</label>
+                  <input
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder="Enter your email address"
+                    className="bg-[#0A0A0A] text-[#E0E0E0] text-sm p-3.5 rounded-lg border border-[#333] focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent"
+                    required
+                  />
+                </div>
                 <div className="flex-1 flex flex-col gap-2 min-w-[120px]">
-                <label className="text-sm text-white">Phone Number</label>
-                <input
-                  type="tel"
-                  name="phone"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  placeholder="Enter your phone number"
-                  className="bg-[#0A0A0A] text-[#E0E0E0] text-sm p-3.5 rounded-lg border border-[#333] focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent"
-                  required
-                />
-              </div>
-              </div>
-              <div className="flex flex-col md:flex-row gap-4 w-full">
-                <div className="flex-1 flex flex-col gap-2 min-w-[120px]">
-                <label className="text-sm text-white">Property Type</label>
-                <select
-                  name="propertyType"
-                  value={formData.propertyType}
-                  onChange={handleChange}
-                  className="bg-[#0A0A0A] text-[#E0E0E0] text-sm p-3.5 rounded-lg border border-[#333] focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent appearance-none"
-                  required
-                >
-                  <option value="">Select property type</option>
-                  {propertyTypeOptions.map((type) => (
-                    <option key={type} value={type}>{type}</option>
-                  ))}
-                </select>
-              </div>
-                <div className="flex-1 flex flex-col gap-2 min-w-[120px]">
-                <label className="text-sm text-white">Property</label>
-                <select
-                  name="propertyId"
-                  value={formData.propertyId}
-                  onChange={handleChange}
-                    className="bg-[#0A0A0A] text-[#E0E0E0] text-sm p-3.5 rounded-lg border border-[#333] focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent appearance-none w-full"
-                  required
-                  disabled={!formData.propertyType}
-                >
-                  <option value="">{formData.propertyType ? 'Select property' : 'Select property type first'}</option>
-                  {filteredProperties.map((p) => (
-                    <option key={p._id} value={p._id}>{p.name}</option>
-                  ))}
-                </select>
+                  <label className="text-sm text-white">Phone Number</label>
+                  <input
+                    type="tel"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    placeholder="Enter your phone number"
+                    className="bg-[#0A0A0A] text-[#E0E0E0] text-sm p-3.5 rounded-lg border border-[#333] focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent"
+                    required
+                  />
                 </div>
               </div>
+              {/* Hidden propertyType and propertyId fields for property detail page only */}
+              <input type="hidden" name="propertyType" value={formData.propertyType} />
+              <input type="hidden" name="propertyId" value={formData.propertyId} />
             </div>
 
             <div className="flex items-start gap-3 mt-2">

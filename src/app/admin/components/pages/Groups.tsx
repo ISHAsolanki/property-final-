@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Card } from '../common/Card';
 import { Button } from '../common/Button';
 import { Input } from '../common/Input';
-import { Select } from '../common/Select';
+// import { Select } from '../common/Select';
+import ReactSelect from 'react-select';
 import { Property } from '../../types';
 import { Edit, Trash2 } from 'lucide-react';
 
@@ -138,33 +139,66 @@ const Groups: React.FC = () => {
         <Card className="mb-8">
           <div className="flex flex-col gap-4">
             <Input label="Group Name" value={groupName} onChange={setGroupName} />
-            <label className="text-gray-300 text-sm font-medium">Properties</label>
-            <select
-              multiple
-              className="bg-gray-800 text-white rounded p-2 h-40"
-              value={selectedProperties}
-              onChange={e => {
-                const options = Array.from(e.target.selectedOptions).map(opt => opt.value);
-                setSelectedProperties(options);
-              }}
-            >
-              {properties.map((p) => (
-                <option key={p._id} value={p._id}>
-                  {p.name}
-                </option>
-              ))}
-            </select>
-            <label className="text-gray-300 text-sm font-medium">Group Photo</label>
-            <input
-              type="file"
-              accept="image/*"
-              className="bg-gray-800 text-white rounded p-2"
-              onChange={handleGroupPhotoChange}
-              style={{ color: 'white' }}
-            />
-            {groupPhoto && (
-              <img src={groupPhoto} alt="Group Preview" className="w-24 h-24 object-cover rounded mt-2 border border-gray-700" />
-            )}
+            <label className="text-gray-300 text-sm font-medium mb-1">Select Properties</label>
+            <div className="flex flex-col gap-2">
+              <ReactSelect
+                isMulti
+                options={properties.filter(p => p._id).map((p) => ({ value: p._id as string, label: p.name }))}
+                value={properties.filter(p => selectedProperties.includes(p._id as string)).map(p => ({ value: p._id as string, label: p.name }))}
+                onChange={opts => setSelectedProperties(Array.isArray(opts) ? opts.map(opt => opt.value) : [])}
+                classNamePrefix="react-select"
+                placeholder="Select properties..."
+                styles={{
+                  control: (base, state) => ({
+                    ...base,
+                    backgroundColor: '#1f2937', // bg-gray-800
+                    borderColor: state.isFocused ? '#ef4444' : '#374151', // focus:red-500, default:gray-700
+                    minHeight: '40px',
+                    color: '#fff',
+                    boxShadow: state.isFocused ? '0 0 0 2px #ef4444' : undefined,
+                  }),
+                  menu: (base) => ({
+                    ...base,
+                    backgroundColor: '#1f2937', // bg-gray-800
+                    color: '#fff',
+                  }),
+                  multiValue: (base) => ({
+                    ...base,
+                    backgroundColor: '#fee2e2',
+                    color: '#991b1b',
+                  }),
+                  multiValueLabel: (base) => ({
+                    ...base,
+                    color: '#991b1b',
+                  }),
+                  multiValueRemove: (base) => ({
+                    ...base,
+                    color: '#991b1b',
+                    ':hover': { backgroundColor: '#fecaca', color: '#b91c1c' },
+                  }),
+                  placeholder: (base) => ({ ...base, color: '#9ca3af' }),
+                  singleValue: (base) => ({ ...base, color: '#fff' }),
+                  option: (base, state) => ({
+                    ...base,
+                    backgroundColor: state.isSelected ? '#991b1b' : state.isFocused ? '#374151' : '#1f2937',
+                    color: '#fff',
+                  }),
+                }}
+              />
+            </div>
+            <label className="text-gray-300 text-sm font-medium mb-1">Group Photo</label>
+            <div className="flex items-center gap-4">
+              <input
+                type="file"
+                accept="image/*"
+                className="bg-gray-800 text-white rounded p-2 w-48 text-sm border border-gray-700 focus:outline-none focus:ring-2 focus:ring-red-500"
+                onChange={handleGroupPhotoChange}
+                style={{ color: 'white' }}
+              />
+              {groupPhoto && (
+                <img src={groupPhoto} alt="Group Preview" className="w-16 h-16 object-cover rounded border border-gray-700" />
+              )}
+            </div>
             <div className="flex gap-2 mt-4">
               {editingGroup ? (
                 <Button variant="primary" onClick={handleSaveEdit}>Update Group</Button>

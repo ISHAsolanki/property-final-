@@ -187,6 +187,16 @@ const Sidebar = ({ isOpen, onToggle })=>{
             icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$house$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Home$3e$__["Home"]
         },
         {
+            id: 'groups',
+            label: 'Groups',
+            icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$menu$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Menu$3e$__["Menu"]
+        },
+        {
+            id: 'property-categories',
+            label: 'Property Categories',
+            icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$building$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Building$3e$__["Building"]
+        },
+        {
             id: 'properties',
             label: 'Properties',
             icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$building$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Building$3e$__["Building"]
@@ -200,11 +210,6 @@ const Sidebar = ({ isOpen, onToggle })=>{
             id: 'articles',
             label: 'Articles',
             icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$book$2d$open$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__BookOpen$3e$__["BookOpen"]
-        },
-        {
-            id: 'groups',
-            label: 'Groups',
-            icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$menu$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Menu$3e$__["Menu"]
         }
     ];
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
@@ -214,7 +219,7 @@ const Sidebar = ({ isOpen, onToggle })=>{
                 onClick: onToggle
             }, void 0, false, {
                 fileName: "[project]/src/app/admin/components/layout/Sidebar.tsx",
-                lineNumber: 33,
+                lineNumber: 34,
                 columnNumber: 9
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -232,12 +237,12 @@ const Sidebar = ({ isOpen, onToggle })=>{
                                             className: "h-5 w-5 text-white"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/admin/components/layout/Sidebar.tsx",
-                                            lineNumber: 46,
+                                            lineNumber: 47,
                                             columnNumber: 15
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/admin/components/layout/Sidebar.tsx",
-                                        lineNumber: 45,
+                                        lineNumber: 46,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
@@ -245,13 +250,13 @@ const Sidebar = ({ isOpen, onToggle })=>{
                                         children: "Real Estate CMS"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/admin/components/layout/Sidebar.tsx",
-                                        lineNumber: 48,
+                                        lineNumber: 49,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/admin/components/layout/Sidebar.tsx",
-                                lineNumber: 44,
+                                lineNumber: 45,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -261,18 +266,18 @@ const Sidebar = ({ isOpen, onToggle })=>{
                                     className: "h-6 w-6"
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/admin/components/layout/Sidebar.tsx",
-                                    lineNumber: 54,
+                                    lineNumber: 55,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/app/admin/components/layout/Sidebar.tsx",
-                                lineNumber: 50,
+                                lineNumber: 51,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/admin/components/layout/Sidebar.tsx",
-                        lineNumber: 43,
+                        lineNumber: 44,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("nav", {
@@ -291,7 +296,7 @@ const Sidebar = ({ isOpen, onToggle })=>{
                                         className: "h-5 w-5"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/admin/components/layout/Sidebar.tsx",
-                                        lineNumber: 76,
+                                        lineNumber: 77,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -299,25 +304,25 @@ const Sidebar = ({ isOpen, onToggle })=>{
                                         children: item.label
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/admin/components/layout/Sidebar.tsx",
-                                        lineNumber: 77,
+                                        lineNumber: 78,
                                         columnNumber: 17
                                     }, this)
                                 ]
                             }, item.id, true, {
                                 fileName: "[project]/src/app/admin/components/layout/Sidebar.tsx",
-                                lineNumber: 64,
+                                lineNumber: 65,
                                 columnNumber: 15
                             }, this);
                         })
                     }, void 0, false, {
                         fileName: "[project]/src/app/admin/components/layout/Sidebar.tsx",
-                        lineNumber: 58,
+                        lineNumber: 59,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/admin/components/layout/Sidebar.tsx",
-                lineNumber: 40,
+                lineNumber: 41,
                 columnNumber: 7
             }, this)
         ]
@@ -3982,7 +3987,7 @@ const PropertyForm = ()=>{
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
                                 className: "text-lg font-semibold text-white mb-6",
-                                children: "Other Projects of The Stolen Group"
+                                children: "Other Projects"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
                                 lineNumber: 588,
@@ -4071,7 +4076,7 @@ const PropertyForm = ()=>{
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                 className: "flex flex-wrap gap-2",
-                                                children: formData.otherProjects.map((projectName, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                children: formData.otherProjects.filter(Boolean).map((projectName, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                         className: "inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-red-100 text-red-800",
                                                         children: [
                                                             projectName,
@@ -5847,10 +5852,13 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$admin$2f$components$2f$common$2f$Card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/app/admin/components/common/Card.tsx [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$admin$2f$components$2f$common$2f$Button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/app/admin/components/common/Button.tsx [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$admin$2f$components$2f$common$2f$Input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/app/admin/components/common/Input.tsx [app-client] (ecmascript)");
+// import { Select } from '../common/Select';
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$select$2f$dist$2f$react$2d$select$2e$esm$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__ = __turbopack_context__.i("[project]/node_modules/react-select/dist/react-select.esm.js [app-client] (ecmascript) <locals>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$square$2d$pen$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Edit$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/square-pen.js [app-client] (ecmascript) <export default as Edit>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$trash$2d$2$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Trash2$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/trash-2.js [app-client] (ecmascript) <export default as Trash2>");
 ;
 var _s = __turbopack_context__.k.signature();
+;
 ;
 ;
 ;
@@ -5989,7 +5997,7 @@ const Groups = ()=>{
                         children: "Groups"
                     }, void 0, false, {
                         fileName: "[project]/src/app/admin/components/pages/Groups.tsx",
-                        lineNumber: 129,
+                        lineNumber: 130,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$admin$2f$components$2f$common$2f$Button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -5998,13 +6006,13 @@ const Groups = ()=>{
                         children: "Add Group"
                     }, void 0, false, {
                         fileName: "[project]/src/app/admin/components/pages/Groups.tsx",
-                        lineNumber: 130,
+                        lineNumber: 131,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/admin/components/pages/Groups.tsx",
-                lineNumber: 128,
+                lineNumber: 129,
                 columnNumber: 7
             }, this),
             message && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -6012,7 +6020,7 @@ const Groups = ()=>{
                 children: message
             }, void 0, false, {
                 fileName: "[project]/src/app/admin/components/pages/Groups.tsx",
-                lineNumber: 135,
+                lineNumber: 136,
                 columnNumber: 9
             }, this),
             showForm && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$admin$2f$components$2f$common$2f$Card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
@@ -6026,67 +6034,125 @@ const Groups = ()=>{
                             onChange: setGroupName
                         }, void 0, false, {
                             fileName: "[project]/src/app/admin/components/pages/Groups.tsx",
-                            lineNumber: 140,
-                            columnNumber: 13
-                        }, this),
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
-                            className: "text-gray-300 text-sm font-medium",
-                            children: "Properties"
-                        }, void 0, false, {
-                            fileName: "[project]/src/app/admin/components/pages/Groups.tsx",
                             lineNumber: 141,
                             columnNumber: 13
                         }, this),
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
-                            multiple: true,
-                            className: "bg-gray-800 text-white rounded p-2 h-40",
-                            value: selectedProperties,
-                            onChange: (e)=>{
-                                const options = Array.from(e.target.selectedOptions).map((opt)=>opt.value);
-                                setSelectedProperties(options);
-                            },
-                            children: properties.map((p)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
-                                    value: p._id,
-                                    children: p.name
-                                }, p._id, false, {
-                                    fileName: "[project]/src/app/admin/components/pages/Groups.tsx",
-                                    lineNumber: 152,
-                                    columnNumber: 17
-                                }, this))
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                            className: "text-gray-300 text-sm font-medium mb-1",
+                            children: "Select Properties"
                         }, void 0, false, {
                             fileName: "[project]/src/app/admin/components/pages/Groups.tsx",
                             lineNumber: 142,
                             columnNumber: 13
                         }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "flex flex-col gap-2",
+                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$select$2f$dist$2f$react$2d$select$2e$esm$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["default"], {
+                                isMulti: true,
+                                options: properties.filter((p)=>p._id).map((p)=>({
+                                        value: p._id,
+                                        label: p.name
+                                    })),
+                                value: properties.filter((p)=>selectedProperties.includes(p._id)).map((p)=>({
+                                        value: p._id,
+                                        label: p.name
+                                    })),
+                                onChange: (opts)=>setSelectedProperties(Array.isArray(opts) ? opts.map((opt)=>opt.value) : []),
+                                classNamePrefix: "react-select",
+                                placeholder: "Select properties...",
+                                styles: {
+                                    control: (base, state)=>({
+                                            ...base,
+                                            backgroundColor: '#1f2937',
+                                            borderColor: state.isFocused ? '#ef4444' : '#374151',
+                                            minHeight: '40px',
+                                            color: '#fff',
+                                            boxShadow: state.isFocused ? '0 0 0 2px #ef4444' : undefined
+                                        }),
+                                    menu: (base)=>({
+                                            ...base,
+                                            backgroundColor: '#1f2937',
+                                            color: '#fff'
+                                        }),
+                                    multiValue: (base)=>({
+                                            ...base,
+                                            backgroundColor: '#fee2e2',
+                                            color: '#991b1b'
+                                        }),
+                                    multiValueLabel: (base)=>({
+                                            ...base,
+                                            color: '#991b1b'
+                                        }),
+                                    multiValueRemove: (base)=>({
+                                            ...base,
+                                            color: '#991b1b',
+                                            ':hover': {
+                                                backgroundColor: '#fecaca',
+                                                color: '#b91c1c'
+                                            }
+                                        }),
+                                    placeholder: (base)=>({
+                                            ...base,
+                                            color: '#9ca3af'
+                                        }),
+                                    singleValue: (base)=>({
+                                            ...base,
+                                            color: '#fff'
+                                        }),
+                                    option: (base, state)=>({
+                                            ...base,
+                                            backgroundColor: state.isSelected ? '#991b1b' : state.isFocused ? '#374151' : '#1f2937',
+                                            color: '#fff'
+                                        })
+                                }
+                            }, void 0, false, {
+                                fileName: "[project]/src/app/admin/components/pages/Groups.tsx",
+                                lineNumber: 144,
+                                columnNumber: 15
+                            }, this)
+                        }, void 0, false, {
+                            fileName: "[project]/src/app/admin/components/pages/Groups.tsx",
+                            lineNumber: 143,
+                            columnNumber: 13
+                        }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
-                            className: "text-gray-300 text-sm font-medium",
+                            className: "text-gray-300 text-sm font-medium mb-1",
                             children: "Group Photo"
                         }, void 0, false, {
                             fileName: "[project]/src/app/admin/components/pages/Groups.tsx",
-                            lineNumber: 157,
+                            lineNumber: 189,
                             columnNumber: 13
                         }, this),
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                            type: "file",
-                            accept: "image/*",
-                            className: "bg-gray-800 text-white rounded p-2",
-                            onChange: handleGroupPhotoChange,
-                            style: {
-                                color: 'white'
-                            }
-                        }, void 0, false, {
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "flex items-center gap-4",
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                    type: "file",
+                                    accept: "image/*",
+                                    className: "bg-gray-800 text-white rounded p-2 w-48 text-sm border border-gray-700 focus:outline-none focus:ring-2 focus:ring-red-500",
+                                    onChange: handleGroupPhotoChange,
+                                    style: {
+                                        color: 'white'
+                                    }
+                                }, void 0, false, {
+                                    fileName: "[project]/src/app/admin/components/pages/Groups.tsx",
+                                    lineNumber: 191,
+                                    columnNumber: 15
+                                }, this),
+                                groupPhoto && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
+                                    src: groupPhoto,
+                                    alt: "Group Preview",
+                                    className: "w-16 h-16 object-cover rounded border border-gray-700"
+                                }, void 0, false, {
+                                    fileName: "[project]/src/app/admin/components/pages/Groups.tsx",
+                                    lineNumber: 199,
+                                    columnNumber: 17
+                                }, this)
+                            ]
+                        }, void 0, true, {
                             fileName: "[project]/src/app/admin/components/pages/Groups.tsx",
-                            lineNumber: 158,
+                            lineNumber: 190,
                             columnNumber: 13
-                        }, this),
-                        groupPhoto && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
-                            src: groupPhoto,
-                            alt: "Group Preview",
-                            className: "w-24 h-24 object-cover rounded mt-2 border border-gray-700"
-                        }, void 0, false, {
-                            fileName: "[project]/src/app/admin/components/pages/Groups.tsx",
-                            lineNumber: 166,
-                            columnNumber: 15
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                             className: "flex gap-2 mt-4",
@@ -6097,7 +6163,7 @@ const Groups = ()=>{
                                     children: "Update Group"
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/admin/components/pages/Groups.tsx",
-                                    lineNumber: 170,
+                                    lineNumber: 204,
                                     columnNumber: 17
                                 }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$admin$2f$components$2f$common$2f$Button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
                                     variant: "primary",
@@ -6105,7 +6171,7 @@ const Groups = ()=>{
                                     children: "Save Group"
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/admin/components/pages/Groups.tsx",
-                                    lineNumber: 172,
+                                    lineNumber: 206,
                                     columnNumber: 17
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$admin$2f$components$2f$common$2f$Button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -6120,24 +6186,24 @@ const Groups = ()=>{
                                     children: "Cancel"
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/admin/components/pages/Groups.tsx",
-                                    lineNumber: 174,
+                                    lineNumber: 208,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/admin/components/pages/Groups.tsx",
-                            lineNumber: 168,
+                            lineNumber: 202,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/app/admin/components/pages/Groups.tsx",
-                    lineNumber: 139,
+                    lineNumber: 140,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/app/admin/components/pages/Groups.tsx",
-                lineNumber: 138,
+                lineNumber: 139,
                 columnNumber: 9
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -6148,7 +6214,7 @@ const Groups = ()=>{
                         children: "Existing Groups"
                     }, void 0, false, {
                         fileName: "[project]/src/app/admin/components/pages/Groups.tsx",
-                        lineNumber: 180,
+                        lineNumber: 214,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -6160,12 +6226,12 @@ const Groups = ()=>{
                             className: "w-full max-w-xs"
                         }, void 0, false, {
                             fileName: "[project]/src/app/admin/components/pages/Groups.tsx",
-                            lineNumber: 182,
+                            lineNumber: 216,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/app/admin/components/pages/Groups.tsx",
-                        lineNumber: 181,
+                        lineNumber: 215,
                         columnNumber: 9
                     }, this),
                     groups.length === 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -6173,7 +6239,7 @@ const Groups = ()=>{
                         children: "No groups found."
                     }, void 0, false, {
                         fileName: "[project]/src/app/admin/components/pages/Groups.tsx",
-                        lineNumber: 190,
+                        lineNumber: 224,
                         columnNumber: 11
                     }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "space-y-4",
@@ -6192,7 +6258,7 @@ const Groups = ()=>{
                                                         className: "w-10 h-10 object-cover rounded-full border border-gray-700"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/admin/components/pages/Groups.tsx",
-                                                        lineNumber: 200,
+                                                        lineNumber: 234,
                                                         columnNumber: 23
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -6200,13 +6266,13 @@ const Groups = ()=>{
                                                         children: group.name
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/admin/components/pages/Groups.tsx",
-                                                        lineNumber: 202,
+                                                        lineNumber: 236,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/admin/components/pages/Groups.tsx",
-                                                lineNumber: 198,
+                                                lineNumber: 232,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -6220,7 +6286,7 @@ const Groups = ()=>{
                                                         children: "Edit"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/admin/components/pages/Groups.tsx",
-                                                        lineNumber: 205,
+                                                        lineNumber: 239,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$admin$2f$components$2f$common$2f$Button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -6231,19 +6297,19 @@ const Groups = ()=>{
                                                         children: "Delete"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/admin/components/pages/Groups.tsx",
-                                                        lineNumber: 208,
+                                                        lineNumber: 242,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/admin/components/pages/Groups.tsx",
-                                                lineNumber: 204,
+                                                lineNumber: 238,
                                                 columnNumber: 19
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/admin/components/pages/Groups.tsx",
-                                        lineNumber: 197,
+                                        lineNumber: 231,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -6254,30 +6320,30 @@ const Groups = ()=>{
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/admin/components/pages/Groups.tsx",
-                                        lineNumber: 213,
+                                        lineNumber: 247,
                                         columnNumber: 17
                                     }, this)
                                 ]
                             }, group._id, true, {
                                 fileName: "[project]/src/app/admin/components/pages/Groups.tsx",
-                                lineNumber: 196,
+                                lineNumber: 230,
                                 columnNumber: 15
                             }, this))
                     }, void 0, false, {
                         fileName: "[project]/src/app/admin/components/pages/Groups.tsx",
-                        lineNumber: 192,
+                        lineNumber: 226,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/admin/components/pages/Groups.tsx",
-                lineNumber: 179,
+                lineNumber: 213,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/app/admin/components/pages/Groups.tsx",
-        lineNumber: 127,
+        lineNumber: 128,
         columnNumber: 5
     }, this);
 };
@@ -6312,8 +6378,14 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$admin$2f$compo
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$admin$2f$components$2f$pages$2f$Inquiries$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/app/admin/components/pages/Inquiries.tsx [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$admin$2f$components$2f$pages$2f$Articles$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/app/admin/components/pages/Articles.tsx [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$admin$2f$components$2f$pages$2f$Groups$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/app/admin/components/pages/Groups.tsx [app-client] (ecmascript)");
+(()=>{
+    const e = new Error("Cannot find module './components/pages/PropertyCategories'");
+    e.code = 'MODULE_NOT_FOUND';
+    throw e;
+})();
 ;
 var _s = __turbopack_context__.k.signature();
+;
 ;
 ;
 ;
@@ -6339,43 +6411,49 @@ const AppContent = ()=>{
             case 'dashboard':
                 return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$admin$2f$components$2f$pages$2f$Dashboard$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Dashboard"], {}, void 0, false, {
                     fileName: "[project]/src/app/admin/App.tsx",
-                    lineNumber: 27,
+                    lineNumber: 28,
                     columnNumber: 16
                 }, this);
             case 'properties':
                 return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$admin$2f$components$2f$pages$2f$Properties$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Properties"], {}, void 0, false, {
                     fileName: "[project]/src/app/admin/App.tsx",
-                    lineNumber: 29,
+                    lineNumber: 30,
                     columnNumber: 16
                 }, this);
             case 'property-form':
                 return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$admin$2f$components$2f$pages$2f$PropertyForm$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["PropertyForm"], {}, void 0, false, {
                     fileName: "[project]/src/app/admin/App.tsx",
-                    lineNumber: 31,
+                    lineNumber: 32,
                     columnNumber: 16
                 }, this);
             case 'inquiries':
                 return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$admin$2f$components$2f$pages$2f$Inquiries$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Inquiries"], {}, void 0, false, {
                     fileName: "[project]/src/app/admin/App.tsx",
-                    lineNumber: 33,
+                    lineNumber: 34,
                     columnNumber: 16
                 }, this);
             case 'articles':
                 return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$admin$2f$components$2f$pages$2f$Articles$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                     fileName: "[project]/src/app/admin/App.tsx",
-                    lineNumber: 35,
+                    lineNumber: 36,
                     columnNumber: 16
                 }, this);
             case 'groups':
                 return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$admin$2f$components$2f$pages$2f$Groups$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                     fileName: "[project]/src/app/admin/App.tsx",
-                    lineNumber: 37,
+                    lineNumber: 38,
+                    columnNumber: 16
+                }, this);
+            case 'property-categories':
+                return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(PropertyCategories, {}, void 0, false, {
+                    fileName: "[project]/src/app/admin/App.tsx",
+                    lineNumber: 40,
                     columnNumber: 16
                 }, this);
             default:
                 return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$admin$2f$components$2f$pages$2f$Dashboard$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Dashboard"], {}, void 0, false, {
                     fileName: "[project]/src/app/admin/App.tsx",
-                    lineNumber: 39,
+                    lineNumber: 42,
                     columnNumber: 16
                 }, this);
         }
@@ -6389,7 +6467,7 @@ const AppContent = ()=>{
                     onLogin: login
                 }, void 0, false, {
                     fileName: "[project]/src/app/admin/App.tsx",
-                    lineNumber: 47,
+                    lineNumber: 50,
                     columnNumber: 9
                 }, this),
                 toast && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$admin$2f$components$2f$common$2f$Toast$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Toast"], {
@@ -6398,13 +6476,13 @@ const AppContent = ()=>{
                     onClose: ()=>{}
                 }, void 0, false, {
                     fileName: "[project]/src/app/admin/App.tsx",
-                    lineNumber: 49,
+                    lineNumber: 52,
                     columnNumber: 11
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/src/app/admin/App.tsx",
-            lineNumber: 46,
+            lineNumber: 49,
             columnNumber: 7
         }, this);
     }
@@ -6416,7 +6494,7 @@ const AppContent = ()=>{
                 onToggle: toggleSidebar
             }, void 0, false, {
                 fileName: "[project]/src/app/admin/App.tsx",
-                lineNumber: 61,
+                lineNumber: 64,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -6426,7 +6504,7 @@ const AppContent = ()=>{
                         onMenuToggle: toggleSidebar
                     }, void 0, false, {
                         fileName: "[project]/src/app/admin/App.tsx",
-                        lineNumber: 64,
+                        lineNumber: 67,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("main", {
@@ -6434,18 +6512,18 @@ const AppContent = ()=>{
                         children: renderPage()
                     }, void 0, false, {
                         fileName: "[project]/src/app/admin/App.tsx",
-                        lineNumber: 66,
+                        lineNumber: 69,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$admin$2f$components$2f$layout$2f$Footer$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Footer"], {}, void 0, false, {
                         fileName: "[project]/src/app/admin/App.tsx",
-                        lineNumber: 70,
+                        lineNumber: 73,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/admin/App.tsx",
-                lineNumber: 63,
+                lineNumber: 66,
                 columnNumber: 7
             }, this),
             toast && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$admin$2f$components$2f$common$2f$Toast$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Toast"], {
@@ -6454,13 +6532,13 @@ const AppContent = ()=>{
                 onClose: ()=>{}
             }, void 0, false, {
                 fileName: "[project]/src/app/admin/App.tsx",
-                lineNumber: 74,
+                lineNumber: 77,
                 columnNumber: 9
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/app/admin/App.tsx",
-        lineNumber: 60,
+        lineNumber: 63,
         columnNumber: 5
     }, this);
 };
@@ -6474,12 +6552,12 @@ function App() {
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$admin$2f$context$2f$AppContext$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AppProvider"], {
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(AppContent, {}, void 0, false, {
             fileName: "[project]/src/app/admin/App.tsx",
-            lineNumber: 87,
+            lineNumber: 90,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/app/admin/App.tsx",
-        lineNumber: 86,
+        lineNumber: 89,
         columnNumber: 5
     }, this);
 }
