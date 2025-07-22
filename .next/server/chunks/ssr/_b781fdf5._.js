@@ -142,12 +142,12 @@ function formatPriceRange(price) {
                             children: status.label
                         }, void 0, false, {
                             fileName: "[project]/src/components/property/ProjectCard.tsx",
-                            lineNumber: 154,
+                            lineNumber: 153,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/components/property/ProjectCard.tsx",
-                        lineNumber: 153,
+                        lineNumber: 152,
                         columnNumber: 9
                     }, this)
                 ]
@@ -164,7 +164,7 @@ function formatPriceRange(price) {
                         children: project.title
                     }, void 0, false, {
                         fileName: "[project]/src/components/property/ProjectCard.tsx",
-                        lineNumber: 162,
+                        lineNumber: 160,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -174,20 +174,20 @@ function formatPriceRange(price) {
                                 className: "w-4 h-4 text-[#9CA3AF] mr-1"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/property/ProjectCard.tsx",
-                                lineNumber: 167,
+                                lineNumber: 164,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                 children: project.location
                             }, void 0, false, {
                                 fileName: "[project]/src/components/property/ProjectCard.tsx",
-                                lineNumber: 168,
+                                lineNumber: 165,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/property/ProjectCard.tsx",
-                        lineNumber: 166,
+                        lineNumber: 163,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -198,21 +198,21 @@ function formatPriceRange(price) {
                                 children: formatPriceRange(project.price)
                             }, void 0, false, {
                                 fileName: "[project]/src/components/property/ProjectCard.tsx",
-                                lineNumber: 172,
+                                lineNumber: 168,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                 className: "text-[#E0E0E0]",
-                                children: project.bhk
+                                children: project.bhk ? project.bhk.replace(/,\s*/g, '').replace(/\s+/g, '') : ''
                             }, void 0, false, {
                                 fileName: "[project]/src/components/property/ProjectCard.tsx",
-                                lineNumber: 175,
+                                lineNumber: 171,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/property/ProjectCard.tsx",
-                        lineNumber: 171,
+                        lineNumber: 167,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -220,13 +220,13 @@ function formatPriceRange(price) {
                         children: project.type
                     }, void 0, false, {
                         fileName: "[project]/src/components/property/ProjectCard.tsx",
-                        lineNumber: 180,
+                        lineNumber: 175,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/property/ProjectCard.tsx",
-                lineNumber: 161,
+                lineNumber: 159,
                 columnNumber: 7
             }, this)
         ]
@@ -733,6 +733,8 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$propert
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$common$2f$Navigation$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/components/common/Navigation.tsx [app-rsc] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$common$2f$Footer$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/components/common/Footer.tsx [app-rsc] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$headers$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/headers.js [app-rsc] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/client/app-dir/link.js [app-rsc] (ecmascript)");
+;
 ;
 ;
 ;
@@ -748,16 +750,17 @@ async function fetchPropertiesByCategory(category) {
     });
     const data = await res.json();
     if (!data.success) return [];
-    return data.properties.filter((p)=>p.propertyType === category);
+    const normalizedCategory = category.trim().toLowerCase();
+    return data.properties.filter((p)=>typeof p.propertyType === 'string' && p.propertyType.trim().toLowerCase() === normalizedCategory);
 }
 async function CategoryPage({ params }) {
-    const { name } = params;
+    const { name } = await params;
     const properties = await fetchPropertiesByCategory(decodeURIComponent(name));
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["Fragment"], {
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$common$2f$Navigation$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                 fileName: "[project]/src/app/category/[name]/page.tsx",
-                lineNumber: 28,
+                lineNumber: 33,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -773,7 +776,7 @@ async function CategoryPage({ params }) {
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/category/[name]/page.tsx",
-                            lineNumber: 31,
+                            lineNumber: 36,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -783,45 +786,53 @@ async function CategoryPage({ params }) {
                                 children: "No properties found in this category."
                             }, void 0, false, {
                                 fileName: "[project]/src/app/category/[name]/page.tsx",
-                                lineNumber: 36,
+                                lineNumber: 41,
                                 columnNumber: 15
-                            }, this) : properties.map((property)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$property$2f$ProjectCard$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
-                                    project: {
-                                        id: property._id || '',
-                                        title: property.name,
-                                        location: property.location,
-                                        price: property.priceRange,
-                                        type: property.propertyType,
-                                        status: property.status,
-                                        image: property.gallery && property.gallery[0] && (property.gallery[0].data || property.gallery[0].url) || '',
-                                        bhk: property.keyHighlights?.unitConfiguration || '',
-                                        gallery: property.gallery
-                                    },
-                                    className: "w-[300px] sm:w-[390px] lg:w-[370px]"
+                            }, this) : properties.map((property)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
+                                    href: `/projects/${property._id}`,
+                                    className: "block",
+                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$property$2f$ProjectCard$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
+                                        project: {
+                                            id: property._id || '',
+                                            title: property.name,
+                                            location: property.location,
+                                            price: property.priceRange,
+                                            type: property.propertyType,
+                                            status: property.status,
+                                            image: property.gallery && property.gallery[0] && (property.gallery[0].data || property.gallery[0].url) || '',
+                                            bhk: property.keyHighlights?.unitConfiguration || '',
+                                            gallery: property.gallery
+                                        },
+                                        className: "w-[300px] sm:w-[390px] lg:w-[370px] cursor-pointer hover:shadow-2xl transition-shadow duration-200"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/category/[name]/page.tsx",
+                                        lineNumber: 45,
+                                        columnNumber: 17
+                                    }, this)
                                 }, property._id, false, {
                                     fileName: "[project]/src/app/category/[name]/page.tsx",
-                                    lineNumber: 39,
+                                    lineNumber: 44,
                                     columnNumber: 17
                                 }, this))
                         }, void 0, false, {
                             fileName: "[project]/src/app/category/[name]/page.tsx",
-                            lineNumber: 34,
+                            lineNumber: 39,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/app/category/[name]/page.tsx",
-                    lineNumber: 30,
+                    lineNumber: 35,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/app/category/[name]/page.tsx",
-                lineNumber: 29,
+                lineNumber: 34,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$common$2f$Footer$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                 fileName: "[project]/src/app/category/[name]/page.tsx",
-                lineNumber: 60,
+                lineNumber: 66,
                 columnNumber: 7
             }, this)
         ]

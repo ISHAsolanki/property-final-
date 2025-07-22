@@ -227,7 +227,7 @@ var _s = __turbopack_context__.k.signature();
                                                 columnNumber: 17
                                             }, this),
                                             propertiesMenuOpen && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                className: "absolute left-1/2 -translate-x-1/2 top-full w-[340px] sm:w-[480px] bg-black border border-gray-900 rounded-xl shadow-xl z-50 p-6 flex flex-col gap-2",
+                                                className: "absolute left-1/2 -translate-x-1/2 top-full w-[340px] sm:w-[480px] bg-black/30 backdrop-blur-xl border border-white/20 rounded-2xl shadow-2xl z-50 p-6 flex flex-col gap-2",
                                                 style: {
                                                     minWidth: 240
                                                 },
@@ -235,7 +235,7 @@ var _s = __turbopack_context__.k.signature();
                                                     className: "grid grid-cols-1 sm:grid-cols-2 gap-2",
                                                     children: categories.map((cat)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                                                             href: `/category/${encodeURIComponent(cat.name)}`,
-                                                            className: "text-white text-base font-medium py-2 px-3 rounded hover:bg-gray-800 transition-colors",
+                                                            className: "text-white text-base font-medium py-2 px-3 rounded-lg hover:bg-white/10 transition-colors",
                                                             onClick: ()=>setPropertiesMenuOpen(false),
                                                             children: cat.name
                                                         }, cat.name, false, {

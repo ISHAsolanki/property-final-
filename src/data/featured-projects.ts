@@ -97,7 +97,7 @@ export const featuredProjects: Project[] = [
     id: '4',
     title: 'Canary Wharf Residences',
     location: 'Canary Wharf, London',
-    price: '£1.3M - £4.1M',
+    price: '₹1.3M - ₹4.1M',
     type: 'Luxury Apartments',
     status: 'new-launch',
     image: '/featured/i4.png',

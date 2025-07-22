@@ -3,6 +3,7 @@ import ProjectCard from '@/components/property/ProjectCard';
 import Navigation from '@/components/common/Navigation';
 import Footer from '@/components/common/Footer';
 import { headers } from 'next/headers';
+import Link from 'next/link';
 
 interface Props {
   params: { name: string };
@@ -16,11 +17,15 @@ async function fetchPropertiesByCategory(category: string) {
   const res = await fetch(`${baseUrl}/api/properties`, { cache: 'no-store' });
   const data = await res.json();
   if (!data.success) return [];
-  return data.properties.filter((p: any) => p.propertyType === category);
+  const normalizedCategory = category.trim().toLowerCase();
+  return data.properties.filter((p: any) =>
+    typeof p.propertyType === 'string' &&
+    p.propertyType.trim().toLowerCase() === normalizedCategory
+  );
 }
 
 export default async function CategoryPage({ params }: Props) {
-  const { name } = params;
+  const { name } = await params;
   const properties = await fetchPropertiesByCategory(decodeURIComponent(name));
 
   return (
@@ -36,8 +41,8 @@ export default async function CategoryPage({ params }: Props) {
               <div className="text-gray-400 col-span-full">No properties found in this category.</div>
             ) : (
               properties.map((property: any) => (
+                <Link key={property._id} href={`/projects/${property._id}`} className="block">
                 <ProjectCard
-                  key={property._id}
                   project={{
                     id: property._id || '',
                     title: property.name,
@@ -50,8 +55,9 @@ export default async function CategoryPage({ params }: Props) {
                     bhk: property.keyHighlights?.unitConfiguration || '',
                     gallery: property.gallery,
                   }}
-                  className="w-[300px] sm:w-[390px] lg:w-[370px]"
+                    className="w-[300px] sm:w-[390px] lg:w-[370px] cursor-pointer hover:shadow-2xl transition-shadow duration-200"
                 />
+                </Link>
               ))
             )}
           </div>

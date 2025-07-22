@@ -191,6 +191,7 @@ const propertySchema = new __TURBOPACK__imported__module__$5b$externals$5d2f$mon
     ],
     trendingScore: Number,
     featured: Boolean,
+    home: Boolean,
     status: String,
     createdAt: {
         type: Date,
@@ -252,12 +253,38 @@ async function PUT(req) {
         }, {
             status: 400
         });
-        const property = await Property.findByIdAndUpdate(data._id, {
-            $set: {
-                ...data,
-                updatedAt: new Date()
-            }
-        }, {
+        // If this property is being marked as home, unset 'home' for all others
+        if (data.home === true) {
+            await Property.updateMany({
+                _id: {
+                    $ne: data._id
+                }
+            }, {
+                $set: {
+                    home: false
+                }
+            });
+        }
+        let updateQuery;
+        if (data.trendingScore === undefined || data.trendingScore === null || data.trendingScore === '') {
+            updateQuery = {
+                $set: {
+                    ...data,
+                    updatedAt: new Date()
+                },
+                $unset: {
+                    trendingScore: 1
+                }
+            };
+        } else {
+            updateQuery = {
+                $set: {
+                    ...data,
+                    updatedAt: new Date()
+                }
+            };
+        }
+        const property = await Property.findByIdAndUpdate(data._id, updateQuery, {
             new: true
         });
         return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({

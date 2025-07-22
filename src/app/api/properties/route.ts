@@ -71,6 +71,7 @@ const propertySchema = new mongoose.Schema({
   otherProjects: [String],
   trendingScore: Number,
   featured: Boolean,
+  home: Boolean,
   status: String,
   createdAt: { type: Date, default: Date.now },
   updatedAt: { type: Date, default: Date.now },
@@ -107,9 +108,19 @@ export async function PUT(req: NextRequest) {
     const data = await req.json();
     console.log('PUT /api/properties received data:', JSON.stringify(data, null, 2));
     if (!data._id) return NextResponse.json({ success: false, message: 'Missing property ID' }, { status: 400 });
+    // If this property is being marked as home, unset 'home' for all others
+    if (data.home === true) {
+      await Property.updateMany({ _id: { $ne: data._id } }, { $set: { home: false } });
+    }
+    let updateQuery;
+    if (data.trendingScore === undefined || data.trendingScore === null || data.trendingScore === '') {
+      updateQuery = { $set: { ...data, updatedAt: new Date() }, $unset: { trendingScore: 1 } };
+    } else {
+      updateQuery = { $set: { ...data, updatedAt: new Date() } };
+    }
     const property = await Property.findByIdAndUpdate(
       data._id,
-      { $set: { ...data, updatedAt: new Date() } },
+      updateQuery,
       { new: true }
     );
     return NextResponse.json({ success: true, property });

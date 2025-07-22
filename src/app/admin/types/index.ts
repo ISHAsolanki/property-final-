@@ -48,6 +48,7 @@ export interface Property {
   otherProjects: string[];
   trendingScore: number;
   featured: boolean;
+  home?: boolean;
   status: string;
   createdAt?: string;
   updatedAt?: string;

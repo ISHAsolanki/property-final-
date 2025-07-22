@@ -8,118 +8,7 @@ var { g: global, __dirname } = __turbopack_context__;
 __turbopack_context__.s({
     "heroData": (()=>heroData)
 });
-const heroData = {
-    backgroundImage: '/Hero.png',
-    badge: 'TOP PROJECT IN AHM',
-    title: 'The Skyline\nResidences',
-    infoChips: [
-        {
-            icon: 'location',
-            text: 'Shantigram'
-        },
-        {
-            icon: '',
-            text: '₹1.2Cr - ₹5Cr'
-        },
-        {
-            icon: 'bedroom',
-            text: '1-4 Bedroom Apartments'
-        }
-    ],
-    ctaButtons: [
-        {
-            text: 'View Project',
-            variant: 'primary',
-            href: '#'
-        },
-        {
-            text: 'Request Info',
-            variant: 'secondary',
-            href: '#'
-        }
-    ],
-    searchFilters: [
-        {
-            id: 'location',
-            label: 'Location',
-            placeholder: 'Search by location',
-            icon: 'search',
-            type: 'text'
-        },
-        {
-            id: 'property-type',
-            label: 'Property Type',
-            placeholder: 'Select property type',
-            icon: 'dropdown',
-            type: 'select',
-            options: [
-                'Apartment',
-                'Villa',
-                'Penthouse',
-                'Townhouse'
-            ]
-        },
-        {
-            id: 'price-range',
-            label: 'Price Range',
-            placeholder: 'Select price range',
-            icon: 'dropdown',
-            type: 'select',
-            options: [
-                '₹0 - ₹500,000',
-                '₹500,000 - ₹1,000,000',
-                '₹1,000,000+'
-            ]
-        }
-    ],
-    filterChips: [
-        {
-            id: 'more-filters',
-            label: 'More Filters',
-            active: false
-        },
-        {
-            id: 'studio',
-            label: 'Studio - 5+ BHK',
-            active: false
-        },
-        {
-            id: 'price-asc',
-            label: 'Price: Low to High',
-            active: false
-        },
-        {
-            id: 'ready-to-move',
-            label: 'Ready to Move',
-            active: false
-        },
-        {
-            id: 'rera-approved',
-            label: 'RERA Approved',
-            active: false
-        },
-        {
-            id: 'new-launch',
-            label: 'New Launch',
-            active: true
-        },
-        {
-            id: 'furnished',
-            label: 'Furnished',
-            active: false
-        },
-        {
-            id: 'semi-furnished',
-            label: 'Semi-Furnished',
-            active: false
-        },
-        {
-            id: 'unfurnished',
-            label: 'Unfurnished',
-            active: false
-        }
-    ]
-};
+const heroData = null;
 }}),
 "[project]/src/components/property/ProjectCard.tsx [app-ssr] (ecmascript)": ((__turbopack_context__) => {
 "use strict";
@@ -252,12 +141,12 @@ function formatPriceRange(price) {
                             children: status.label
                         }, void 0, false, {
                             fileName: "[project]/src/components/property/ProjectCard.tsx",
-                            lineNumber: 154,
+                            lineNumber: 153,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/components/property/ProjectCard.tsx",
-                        lineNumber: 153,
+                        lineNumber: 152,
                         columnNumber: 9
                     }, this)
                 ]
@@ -274,7 +163,7 @@ function formatPriceRange(price) {
                         children: project.title
                     }, void 0, false, {
                         fileName: "[project]/src/components/property/ProjectCard.tsx",
-                        lineNumber: 162,
+                        lineNumber: 160,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -284,20 +173,20 @@ function formatPriceRange(price) {
                                 className: "w-4 h-4 text-[#9CA3AF] mr-1"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/property/ProjectCard.tsx",
-                                lineNumber: 167,
+                                lineNumber: 164,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                 children: project.location
                             }, void 0, false, {
                                 fileName: "[project]/src/components/property/ProjectCard.tsx",
-                                lineNumber: 168,
+                                lineNumber: 165,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/property/ProjectCard.tsx",
-                        lineNumber: 166,
+                        lineNumber: 163,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -308,21 +197,21 @@ function formatPriceRange(price) {
                                 children: formatPriceRange(project.price)
                             }, void 0, false, {
                                 fileName: "[project]/src/components/property/ProjectCard.tsx",
-                                lineNumber: 172,
+                                lineNumber: 168,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                 className: "text-[#E0E0E0]",
-                                children: project.bhk
+                                children: project.bhk ? project.bhk.replace(/,\s*/g, '').replace(/\s+/g, '') : ''
                             }, void 0, false, {
                                 fileName: "[project]/src/components/property/ProjectCard.tsx",
-                                lineNumber: 175,
+                                lineNumber: 171,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/property/ProjectCard.tsx",
-                        lineNumber: 171,
+                        lineNumber: 167,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -330,13 +219,13 @@ function formatPriceRange(price) {
                         children: project.type
                     }, void 0, false, {
                         fileName: "[project]/src/components/property/ProjectCard.tsx",
-                        lineNumber: 180,
+                        lineNumber: 175,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/property/ProjectCard.tsx",
-                lineNumber: 161,
+                lineNumber: 159,
                 columnNumber: 7
             }, this)
         ]
@@ -365,6 +254,18 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navi
 ;
 ;
 ;
+const RupeesIcon = ()=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+        className: "text-white w-4 h-4 font-bold",
+        style: {
+            fontSize: '1rem',
+            lineHeight: '1'
+        },
+        children: "₹"
+    }, void 0, false, {
+        fileName: "[project]/src/sections/landing/Hero.tsx",
+        lineNumber: 5,
+        columnNumber: 3
+    }, this);
 ;
 ;
 ;
@@ -379,35 +280,33 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navi
             className: "text-white w-4 h-4"
         }, void 0, false, {
             fileName: "[project]/src/sections/landing/Hero.tsx",
-            lineNumber: 17,
+            lineNumber: 24,
             columnNumber: 15
         }, this),
-        price: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$fa$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["FaPoundSign"], {
-            className: "text-white w-4 h-4"
-        }, void 0, false, {
+        price: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(RupeesIcon, {}, void 0, false, {
             fileName: "[project]/src/sections/landing/Hero.tsx",
-            lineNumber: 18,
+            lineNumber: 25,
             columnNumber: 12
         }, this),
         bedroom: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$fa$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["FaBed"], {
             className: "text-white w-4 h-4"
         }, void 0, false, {
             fileName: "[project]/src/sections/landing/Hero.tsx",
-            lineNumber: 19,
+            lineNumber: 26,
             columnNumber: 14
         }, this),
         search: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$fa$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["FaSearch"], {
             className: "text-[#9CA3AF] w-4 h-4"
         }, void 0, false, {
             fileName: "[project]/src/sections/landing/Hero.tsx",
-            lineNumber: 20,
+            lineNumber: 27,
             columnNumber: 13
         }, this),
         dropdown: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$fa$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["FaChevronDown"], {
             className: "text-[#9CA3AF] w-3 h-3"
         }, void 0, false, {
             fileName: "[project]/src/sections/landing/Hero.tsx",
-            lineNumber: 21,
+            lineNumber: 28,
             columnNumber: 15
         }, this)
     };
@@ -425,7 +324,7 @@ function formatPriceRange(price) {
     return '';
 }
 const pageSize = 6;
-const propertyTypeOptions = [
+const propertyTypeOptionsStatic = [
     {
         value: '',
         label: 'Select property type'
@@ -461,29 +360,12 @@ const statusButtonOptions = [
         label: 'Upcoming'
     }
 ];
-/**
- * Hero component that displays the main banner section of the landing page.
- * 
- * @component
- * @returns {JSX.Element} The rendered Hero component
- * 
- * @example
- * ```tsx
- * <Hero />
- * ```
- * 
- * @description
- * This component displays a full-width hero section with:
- * - Background image with gradient overlay
- * - Main heading with customizable text
- * - Information chips with icons
- * - Call-to-action buttons
- * - Search filters for property search
- */ const Hero = ({ onSearch, searchActive, matched: matchedProp })=>{
-    const { badge, title, infoChips, ctaButtons, searchFilters, filterChips, backgroundImage } = __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$hero$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["heroData"];
-    // Search/filter state
+const Hero = ({ onSearch, searchActive, matched: matchedProp })=>{
+    const [homeProperty, setHomeProperty] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null);
+    const [heroContent, setHeroContent] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$hero$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["heroData"]);
     const [location, setLocation] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])('');
     const [propertyType, setPropertyType] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])('');
+    const [propertyTypeOptions, setPropertyTypeOptions] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(propertyTypeOptionsStatic);
     const [priceRange, setPriceRange] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])('');
     const [status, setStatus] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])('');
     const [matched, setMatched] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])([]);
@@ -491,9 +373,76 @@ const statusButtonOptions = [
     const [loading, setLoading] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
     const [page, setPage] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(1);
     const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRouter"])();
+    // Only destructure if heroContent exists
+    let badge, title, infoChips, ctaButtons, searchFilters, filterChips, backgroundImage;
+    if (heroContent) {
+        ({ badge, title, infoChips, ctaButtons, searchFilters, filterChips, backgroundImage } = heroContent);
+    }
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
         fetch('/api/properties').then((res)=>res.json()).then((data)=>{
-            if (data.success) setAllProperties(data.properties);
+            if (data.success) {
+                // Prioritize 'home' properties at the top, keep others in original order
+                const homeProps = data.properties.filter((p)=>p.home && p.trendingScore !== undefined && p.trendingScore !== null);
+                const nonHomeProps = data.properties.filter((p)=>!p.home);
+                setAllProperties([
+                    ...homeProps,
+                    ...nonHomeProps
+                ]);
+                if (homeProps.length > 0) {
+                    setHomeProperty(homeProps[0]);
+                    setHeroContent({
+                        ...__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$hero$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["heroData"],
+                        backgroundImage: homeProps[0].gallery && homeProps[0].gallery[0] && (homeProps[0].gallery[0].data || homeProps[0].gallery[0].url) || __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$hero$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["heroData"].backgroundImage,
+                        title: homeProps[0].name,
+                        tagline: homeProps[0].tagline,
+                        infoChips: [
+                            {
+                                icon: 'location',
+                                text: homeProps[0].location
+                            },
+                            {
+                                icon: 'price',
+                                text: formatPriceRange(homeProps[0].priceRange)
+                            },
+                            {
+                                icon: 'bedroom',
+                                text: homeProps[0].keyHighlights?.unitConfiguration ? homeProps[0].keyHighlights.unitConfiguration.replace(/,\s*/g, '').replace(/\s+/g, '') : ''
+                            }
+                        ],
+                        ctaButtons: [
+                            {
+                                text: 'View Project',
+                                variant: 'primary',
+                                href: `/projects/${homeProps[0]._id}`
+                            },
+                            {
+                                text: 'Request Info',
+                                variant: 'secondary',
+                                href: '/contact'
+                            }
+                        ]
+                    });
+                } else {
+                    setHomeProperty(null);
+                    setHeroContent(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$hero$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["heroData"]);
+                }
+            }
+        });
+        // Fetch property categories for property type options
+        fetch('/api/property-categories').then((res)=>res.json()).then((data)=>{
+            if (data.success && Array.isArray(data.categories)) {
+                const options = data.categories.map((cat)=>({
+                        value: cat.name,
+                        label: cat.name
+                    }));
+                setPropertyTypeOptions([
+                    {
+                        value: '',
+                        label: 'Select property type'
+                    },
+                    ...options
+                ]);
+            }
         });
     }, []);
     const handleSearch = (e)=>{
@@ -510,6 +459,7 @@ const statusButtonOptions = [
     const results = matchedProp !== undefined ? matchedProp : matched;
     const paginated = results.slice((page - 1) * pageSize, page * pageSize);
     const totalPages = Math.ceil(results.length / pageSize);
+    if (!heroContent) return null;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -525,7 +475,7 @@ const statusButtonOptions = [
                         }
                     }, void 0, false, {
                         fileName: "[project]/src/sections/landing/Hero.tsx",
-                        lineNumber: 121,
+                        lineNumber: 175,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -535,25 +485,25 @@ const statusButtonOptions = [
                                 className: "absolute inset-0 bg-black/40 md:bg-transparent z-[-1] rounded-none"
                             }, void 0, false, {
                                 fileName: "[project]/src/sections/landing/Hero.tsx",
-                                lineNumber: 133,
+                                lineNumber: 187,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "flex flex-col gap-4 text-left md:text-left w-full max-w-md md:max-w-4xl mx-0",
                                 children: [
-                                    badge && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    (heroContent.tagline || badge) && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         className: "flex items-center justify-start w-fit bg-[#E50914] rounded-full px-4 py-1 mx-0",
                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                             className: "text-white text-xs font-semibold leading-5",
-                                            children: badge
+                                            children: heroContent.tagline || badge
                                         }, void 0, false, {
                                             fileName: "[project]/src/sections/landing/Hero.tsx",
-                                            lineNumber: 139,
+                                            lineNumber: 192,
                                             columnNumber: 17
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/src/sections/landing/Hero.tsx",
-                                        lineNumber: 138,
+                                        lineNumber: 191,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
@@ -563,23 +513,23 @@ const statusButtonOptions = [
                                                     line,
                                                     i < title.split('\n').length - 1 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
                                                         fileName: "[project]/src/sections/landing/Hero.tsx",
-                                                        lineNumber: 150,
+                                                        lineNumber: 203,
                                                         columnNumber: 56
                                                     }, this)
                                                 ]
                                             }, i, true, {
                                                 fileName: "[project]/src/sections/landing/Hero.tsx",
-                                                lineNumber: 148,
+                                                lineNumber: 201,
                                                 columnNumber: 17
                                             }, this))
                                     }, void 0, false, {
                                         fileName: "[project]/src/sections/landing/Hero.tsx",
-                                        lineNumber: 146,
+                                        lineNumber: 199,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         className: "flex flex-col md:flex-row md:flex-wrap items-start md:items-center gap-0.5 md:gap-6 mt-2",
-                                        children: infoChips.map((chip, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        children: infoChips && infoChips.map((chip, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                 className: "flex items-center gap-2 mb-1 md:mb-0",
                                                 children: [
                                                     getInfoIcon(chip.icon),
@@ -588,23 +538,23 @@ const statusButtonOptions = [
                                                         children: chip.text
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/sections/landing/Hero.tsx",
-                                                        lineNumber: 160,
+                                                        lineNumber: 213,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, index, true, {
                                                 fileName: "[project]/src/sections/landing/Hero.tsx",
-                                                lineNumber: 158,
+                                                lineNumber: 211,
                                                 columnNumber: 17
                                             }, this))
                                     }, void 0, false, {
                                         fileName: "[project]/src/sections/landing/Hero.tsx",
-                                        lineNumber: 156,
+                                        lineNumber: 209,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         className: "flex flex-row gap-2 md:gap-4 mt-4 w-full pb-20 md:pb-0",
-                                        children: ctaButtons.map((button, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                        children: ctaButtons && ctaButtons.map((button, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                                 className: `px-4 md:px-6 py-2 md:py-3 rounded-lg font-medium font-['Bricolage_Grotesque'] text-xs md:text-base leading-6 ${button.variant === 'primary' ? 'bg-[#E50914] text-white' : 'bg-white/20 backdrop-blur-md text-white'}`,
                                                 onClick: ()=>{
                                                     if (button.text === 'Request Info') {
@@ -617,18 +567,18 @@ const statusButtonOptions = [
                                                 children: button.text
                                             }, index, false, {
                                                 fileName: "[project]/src/sections/landing/Hero.tsx",
-                                                lineNumber: 170,
+                                                lineNumber: 223,
                                                 columnNumber: 17
                                             }, this))
                                     }, void 0, false, {
                                         fileName: "[project]/src/sections/landing/Hero.tsx",
-                                        lineNumber: 168,
+                                        lineNumber: 221,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/sections/landing/Hero.tsx",
-                                lineNumber: 135,
+                                lineNumber: 189,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
@@ -645,7 +595,7 @@ const statusButtonOptions = [
                                                     children: getInfoIcon('location')
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/sections/landing/Hero.tsx",
-                                                    lineNumber: 195,
+                                                    lineNumber: 248,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -656,13 +606,13 @@ const statusButtonOptions = [
                                                     onChange: (e)=>setLocation(e.target.value)
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/sections/landing/Hero.tsx",
-                                                    lineNumber: 198,
+                                                    lineNumber: 251,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/sections/landing/Hero.tsx",
-                                            lineNumber: 194,
+                                            lineNumber: 247,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -677,12 +627,12 @@ const statusButtonOptions = [
                                                             children: option.label
                                                         }, option.value, false, {
                                                             fileName: "[project]/src/sections/landing/Hero.tsx",
-                                                            lineNumber: 214,
+                                                            lineNumber: 267,
                                                             columnNumber: 21
                                                         }, this))
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/sections/landing/Hero.tsx",
-                                                    lineNumber: 208,
+                                                    lineNumber: 261,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -690,13 +640,13 @@ const statusButtonOptions = [
                                                     children: getInfoIcon('dropdown')
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/sections/landing/Hero.tsx",
-                                                    lineNumber: 219,
+                                                    lineNumber: 272,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/sections/landing/Hero.tsx",
-                                            lineNumber: 207,
+                                            lineNumber: 260,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -712,7 +662,7 @@ const statusButtonOptions = [
                                                             children: "Select price range"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/sections/landing/Hero.tsx",
-                                                            lineNumber: 230,
+                                                            lineNumber: 283,
                                                             columnNumber: 19
                                                         }, this),
                                                         [
@@ -722,13 +672,13 @@ const statusButtonOptions = [
                                                                 children: pr
                                                             }, i, false, {
                                                                 fileName: "[project]/src/sections/landing/Hero.tsx",
-                                                                lineNumber: 232,
+                                                                lineNumber: 285,
                                                                 columnNumber: 21
                                                             }, this))
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/sections/landing/Hero.tsx",
-                                                    lineNumber: 225,
+                                                    lineNumber: 278,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -736,13 +686,13 @@ const statusButtonOptions = [
                                                     children: getInfoIcon('dropdown')
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/sections/landing/Hero.tsx",
-                                                    lineNumber: 235,
+                                                    lineNumber: 288,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/sections/landing/Hero.tsx",
-                                            lineNumber: 224,
+                                            lineNumber: 277,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -753,25 +703,25 @@ const statusButtonOptions = [
                                                     className: "w-4 h-4"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/sections/landing/Hero.tsx",
-                                                    lineNumber: 241,
+                                                    lineNumber: 294,
                                                     columnNumber: 17
                                                 }, this),
                                                 "Search"
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/sections/landing/Hero.tsx",
-                                            lineNumber: 240,
+                                            lineNumber: 293,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/sections/landing/Hero.tsx",
-                                    lineNumber: 192,
+                                    lineNumber: 245,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/sections/landing/Hero.tsx",
-                                lineNumber: 191,
+                                lineNumber: 244,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -786,24 +736,24 @@ const statusButtonOptions = [
                                         children: option.label
                                     }, option.value, false, {
                                         fileName: "[project]/src/sections/landing/Hero.tsx",
-                                        lineNumber: 249,
+                                        lineNumber: 302,
                                         columnNumber: 15
                                     }, this))
                             }, void 0, false, {
                                 fileName: "[project]/src/sections/landing/Hero.tsx",
-                                lineNumber: 247,
+                                lineNumber: 300,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/sections/landing/Hero.tsx",
-                        lineNumber: 131,
+                        lineNumber: 185,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/sections/landing/Hero.tsx",
-                lineNumber: 119,
+                lineNumber: 173,
                 columnNumber: 7
             }, this),
             results.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -818,12 +768,12 @@ const statusButtonOptions = [
                                 children: "Matched Properties"
                             }, void 0, false, {
                                 fileName: "[project]/src/sections/landing/Hero.tsx",
-                                lineNumber: 270,
+                                lineNumber: 323,
                                 columnNumber: 15
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/src/sections/landing/Hero.tsx",
-                            lineNumber: 269,
+                            lineNumber: 322,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -833,14 +783,14 @@ const statusButtonOptions = [
                                 children: "Loading..."
                             }, void 0, false, {
                                 fileName: "[project]/src/sections/landing/Hero.tsx",
-                                lineNumber: 276,
+                                lineNumber: 329,
                                 columnNumber: 17
                             }, this) : paginated.length === 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "text-gray-400",
                                 children: "No properties found."
                             }, void 0, false, {
                                 fileName: "[project]/src/sections/landing/Hero.tsx",
-                                lineNumber: 278,
+                                lineNumber: 331,
                                 columnNumber: 17
                             }, this) : paginated.map((property)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$property$2f$ProjectCard$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
                                     project: {
@@ -857,12 +807,12 @@ const statusButtonOptions = [
                                     className: "w-[300px] sm:w-[390px] lg:w-[370px]"
                                 }, property._id, false, {
                                     fileName: "[project]/src/sections/landing/Hero.tsx",
-                                    lineNumber: 281,
+                                    lineNumber: 334,
                                     columnNumber: 19
                                 }, this))
                         }, void 0, false, {
                             fileName: "[project]/src/sections/landing/Hero.tsx",
-                            lineNumber: 274,
+                            lineNumber: 327,
                             columnNumber: 13
                         }, this),
                         totalPages > 1 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -875,7 +825,7 @@ const statusButtonOptions = [
                                     children: '<'
                                 }, void 0, false, {
                                     fileName: "[project]/src/sections/landing/Hero.tsx",
-                                    lineNumber: 302,
+                                    lineNumber: 355,
                                     columnNumber: 17
                                 }, this),
                                 [
@@ -886,7 +836,7 @@ const statusButtonOptions = [
                                         children: i + 1
                                     }, i, false, {
                                         fileName: "[project]/src/sections/landing/Hero.tsx",
-                                        lineNumber: 310,
+                                        lineNumber: 363,
                                         columnNumber: 19
                                     }, this)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -896,24 +846,24 @@ const statusButtonOptions = [
                                     children: '>'
                                 }, void 0, false, {
                                     fileName: "[project]/src/sections/landing/Hero.tsx",
-                                    lineNumber: 318,
+                                    lineNumber: 371,
                                     columnNumber: 17
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/sections/landing/Hero.tsx",
-                            lineNumber: 301,
+                            lineNumber: 354,
                             columnNumber: 15
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/sections/landing/Hero.tsx",
-                    lineNumber: 268,
+                    lineNumber: 321,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/sections/landing/Hero.tsx",
-                lineNumber: 267,
+                lineNumber: 320,
                 columnNumber: 9
             }, this)
         ]
@@ -1536,7 +1486,7 @@ function formatPriceRange(price) {
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                                     className: "jsx-dfddf51250ab189a" + " " + "text-[#E0E0E0]",
-                                                                    children: property.keyHighlights.unitConfiguration || ''
+                                                                    children: property.keyHighlights.unitConfiguration ? property.keyHighlights.unitConfiguration.replace(/,\s*/g, '').replace(/\s+/g, '') : ''
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/sections/landing/ResidentialSpaces.tsx",
                                                                     lineNumber: 136,
@@ -1839,7 +1789,7 @@ function formatPriceRange(price) {
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                                     className: "jsx-d8b65b42e7fc341c" + " " + "text-[#E0E0E0]",
-                                                                    children: property.keyHighlights.unitConfiguration || ''
+                                                                    children: property.keyHighlights.unitConfiguration ? property.keyHighlights.unitConfiguration.replace(/,\s*/g, '').replace(/\s+/g, '') : ''
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/sections/landing/CommercialSpaces.tsx",
                                                                     lineNumber: 137,
@@ -2685,7 +2635,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navi
                                                 columnNumber: 17
                                             }, this),
                                             propertiesMenuOpen && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                className: "absolute left-1/2 -translate-x-1/2 top-full w-[340px] sm:w-[480px] bg-black border border-gray-900 rounded-xl shadow-xl z-50 p-6 flex flex-col gap-2",
+                                                className: "absolute left-1/2 -translate-x-1/2 top-full w-[340px] sm:w-[480px] bg-black/30 backdrop-blur-xl border border-white/20 rounded-2xl shadow-2xl z-50 p-6 flex flex-col gap-2",
                                                 style: {
                                                     minWidth: 240
                                                 },
@@ -2693,7 +2643,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navi
                                                     className: "grid grid-cols-1 sm:grid-cols-2 gap-2",
                                                     children: categories.map((cat)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
                                                             href: `/category/${encodeURIComponent(cat.name)}`,
-                                                            className: "text-white text-base font-medium py-2 px-3 rounded hover:bg-gray-800 transition-colors",
+                                                            className: "text-white text-base font-medium py-2 px-3 rounded-lg hover:bg-white/10 transition-colors",
                                                             onClick: ()=>setPropertiesMenuOpen(false),
                                                             children: cat.name
                                                         }, cat.name, false, {

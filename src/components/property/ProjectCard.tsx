@@ -148,7 +148,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             className="w-full h-full"
           />
         )}
-        
         {/* Status Badge */}
         <div className={`absolute left-4 ${tagPosition === 'top' ? 'top-4' : 'bottom-4'}`}>
           <span className={`px-2 py-1 text-xs font-medium rounded ${status.className}`}>
@@ -156,27 +155,23 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           </span>
         </div>
       </div>
-      
       {/* Details Container */}
       <div className="p-3 sm:p-4 flex-1 flex flex-col">
         <h3 className="text-white text-base sm:text-lg font-medium leading-snug sm:leading-7">
           {project.title}
         </h3>
-        
         <div className="flex items-center mt-1 text-[#E0E0E0] text-xs sm:text-sm">
           <FaMapMarkerAlt className="w-4 h-4 text-[#9CA3AF] mr-1" />
           <span>{project.location}</span>
         </div>
-        
         <div className="mt-2 flex items-center justify-between text-xs sm:text-sm">
           <span className="bg-white/10 text-white px-2 py-1 rounded-md">
             {formatPriceRange(project.price)}
           </span>
           <span className="text-[#E0E0E0]">
-            {project.bhk}
+            {project.bhk ? project.bhk.replace(/,\s*/g, '').replace(/\s+/g, '') : ''}
           </span>
         </div>
-        
         <div className="mt-2 text-xs sm:text-sm text-[#E0E0E0]">
           {project.type}
         </div>

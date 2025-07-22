@@ -135,7 +135,7 @@ const CommercialSpaces = () => {
                             {formatPriceRange(property.priceRange)}
                           </span>
                           <span className="text-[#E0E0E0]">
-                            {property.keyHighlights.unitConfiguration || ''}
+                            {property.keyHighlights.unitConfiguration ? property.keyHighlights.unitConfiguration.replace(/,\s*/g, '').replace(/\s+/g, '') : ''}
                           </span>
                         </div>
                         <div className="mt-2 text-xs sm:text-sm text-[#E0E0E0]">

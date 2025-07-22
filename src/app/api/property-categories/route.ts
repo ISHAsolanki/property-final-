@@ -51,4 +51,32 @@ export async function POST(req: NextRequest) {
   } catch (error) {
     return NextResponse.json({ success: false, message: 'Internal server error' }, { status: 500 });
   }
-} 
+}
+
+export async function PUT(req: NextRequest) {
+  try {
+    await connectDB();
+    const { id, name } = await req.json();
+    if (!id || !name) return NextResponse.json({ success: false, message: 'ID and name are required' }, { status: 400 });
+    const existing = await Category.findOne({ name });
+    if (existing) return NextResponse.json({ success: false, message: 'Category name already exists' }, { status: 400 });
+    const updated = await Category.findByIdAndUpdate(id, { name }, { new: true });
+    if (!updated) return NextResponse.json({ success: false, message: 'Category not found' }, { status: 404 });
+    return NextResponse.json({ success: true, category: updated });
+  } catch (error) {
+    return NextResponse.json({ success: false, message: 'Internal server error' }, { status: 500 });
+  }
+}
+
+export async function DELETE(req: NextRequest) {
+  try {
+    await connectDB();
+    const { id } = await req.json();
+    if (!id) return NextResponse.json({ success: false, message: 'ID is required' }, { status: 400 });
+    const deleted = await Category.findByIdAndDelete(id);
+    if (!deleted) return NextResponse.json({ success: false, message: 'Category not found' }, { status: 404 });
+    return NextResponse.json({ success: true, message: 'Category deleted' });
+  } catch (error) {
+    return NextResponse.json({ success: false, message: 'Internal server error' }, { status: 500 });
+  }
+}

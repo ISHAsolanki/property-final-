@@ -35,12 +35,20 @@ const defaultForm: Property = {
   otherProjects: [''],
   trendingScore: 1,
   featured: false,
+  home: false,
   status: '',
 };
 
 export const PropertyForm: React.FC = () => {
   const { setCurrentPage, showToast, selectedProperty, setSelectedProperty } = useApp();
   const [formData, setFormData] = useState<Property>(selectedProperty || defaultForm);
+  // Helper to check for duplicate trendingScore
+  const isTrendingScoreDuplicate = (score: number | '') => {
+    if (score === '' || score === undefined) return false;
+    return allProperties.some(
+      (p) => p._id !== formData._id && p.trendingScore === score
+    );
+  };
   const [loading, setLoading] = useState(false);
   const [allProperties, setAllProperties] = useState<Property[]>([]);
   const [propertyCategories, setPropertyCategories] = useState<{ value: string; label: string }[]>([]);
@@ -327,7 +335,7 @@ export const PropertyForm: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <Input label="Property name" value={formData.name} onChange={v => handleChange('name', v)} required />
             <Input label="Tagline" value={formData.tagline} onChange={v => handleChange('tagline', v)} />
-            <Select label="Property type" options={propertyCategories} value={formData.propertyType} onChange={v => handleChange('propertyType', v)} required />
+            <Select label="Property type" options={propertyCategories} value={formData.propertyType} onChange={v => handleChange('propertyType', v)} required placeholder="Select property type" />
             <Input label="Area" value={formData.location} onChange={v => handleChange('location', v)} required />
             <div className="flex gap-2 items-end">
               <Input label="Price From" value={formData.priceRange.from.value} onChange={v => setFormData(prev => ({ ...prev, priceRange: { ...prev.priceRange, from: { ...prev.priceRange.from, value: v } } }))} required />
@@ -654,7 +662,31 @@ export const PropertyForm: React.FC = () => {
         {/* Section 9: Trending Score */}
         <Card>
           <h2 className="text-lg font-semibold text-white mb-6">Trending Score</h2>
-          <Input label="Trending Score (1-10)" type="number" value={formData.trendingScore.toString()} onChange={v => handleChange('trendingScore', parseInt(v) || 1)} helperText="Enter a value between 1 and 10" />
+          <Input
+            label="Trending Score (1-10)"
+            type="number"
+            value={formData.trendingScore === undefined || formData.trendingScore === null ? '' : formData.trendingScore.toString()}
+            onChange={v => {
+              // Allow blank
+              if (v === '' || v === null) {
+                handleChange('trendingScore', undefined);
+                return;
+              }
+              const num = parseInt(v);
+              // Restrict to 1-10 only
+              if (isNaN(num) || num < 1 || num > 10) {
+                showToast('Trending Score must be a number between 1 and 10.', 'error');
+                return;
+              }
+              // Prevent duplicate
+              if (isTrendingScoreDuplicate(num)) {
+                showToast('Trending Score must be unique across all properties.', 'error');
+                return;
+              }
+              handleChange('trendingScore', num);
+            }}
+            helperText="Enter a value between 1 and 10. Must be unique. Can be left blank."
+          />
         </Card>
         {/* Section 10: Featured */}
         <Card>
@@ -662,6 +694,11 @@ export const PropertyForm: React.FC = () => {
           <label className="flex items-center space-x-3">
             <input type="checkbox" checked={formData.featured} onChange={e => handleChange('featured', e.target.checked)} />
             <span className="text-sm text-gray-300">Featured</span>
+          </label>
+          {/* Home Checkbox */}
+          <label className="flex items-center space-x-3 mt-4">
+            <input type="checkbox" checked={!!formData.home} onChange={e => handleChange('home', e.target.checked)} />
+            <span className="text-sm text-gray-300">Home</span>
           </label>
         </Card>
         {/* Section 11: Status */}

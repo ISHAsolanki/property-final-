@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Card } from '../common/Card';
 import { Button } from '../common/Button';
 import { Input } from '../common/Input';
+import { FaEdit, FaTrash } from 'react-icons/fa';
 
 interface Category {
   _id?: string;
@@ -13,6 +14,8 @@ const PropertyCategories: React.FC = () => {
   const [showForm, setShowForm] = useState(false);
   const [categoryName, setCategoryName] = useState('');
   const [message, setMessage] = useState<string | null>(null);
+  const [editingId, setEditingId] = useState<string | null>(null);
+  const [editingName, setEditingName] = useState<string>('');
 
   useEffect(() => {
     fetch('/api/property-categories')
@@ -42,6 +45,67 @@ const PropertyCategories: React.FC = () => {
     }
   };
 
+  const handleEditClick = (id: string, name: string) => {
+    setEditingId(id);
+    setEditingName(name);
+    setMessage(null);
+  };
+
+  const handleCancelEdit = () => {
+    setEditingId(null);
+    setEditingName('');
+  };
+
+  const handleSaveEdit = async () => {
+    if (!editingId || !editingName.trim()) {
+      setMessage('Category name cannot be empty.');
+      return;
+    }
+    setMessage(null);
+    try {
+      const res = await fetch('/api/property-categories', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id: editingId, name: editingName.trim() }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        setCategories(categories.map(cat => (cat._id === editingId ? data.category : cat)));
+        setEditingId(null);
+        setEditingName('');
+        setMessage('Category updated!');
+      } else {
+        setMessage(data.message || 'Failed to update category.');
+      }
+    } catch (err) {
+      setMessage('Error updating category.');
+    }
+  };
+
+  const handleDelete = async (id: string) => {
+    setMessage(null);
+    try {
+      const res = await fetch('/api/property-categories', {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        setCategories(categories.filter(cat => cat._id !== id));
+        setMessage('Category deleted!');
+      } else {
+        setMessage(data.message || 'Failed to delete category.');
+      }
+    } catch (err) {
+      setMessage('Error deleting category.');
+    }
+  };
+
+  const isProtectedCategory = (name: string) => {
+    return name === 'Commercial' || name === 'Residential';
+  };
+
   return (
     <div className="p-8">
       <div className="flex items-center justify-between mb-8">
@@ -68,12 +132,33 @@ const PropertyCategories: React.FC = () => {
             <thead>
               <tr className="border-b border-gray-800">
                 <th className="text-left py-3 px-4 text-gray-300 font-medium">Category Name</th>
+                <th className="text-center py-3 px-4 text-gray-300 font-medium">Actions</th>
               </tr>
             </thead>
             <tbody>
               {categories.map((cat) => (
                 <tr key={cat._id || cat.name} className="border-b border-gray-800 hover:bg-gray-800 transition-colors">
-                  <td className="py-4 px-4 text-white">{cat.name}</td>
+                  <td className="py-4 px-4 text-white">
+                    {editingId === cat._id ? (
+                      <Input value={editingName} onChange={setEditingName} />
+                    ) : (
+                      cat.name
+                    )}
+                  </td>
+                  <td className="py-4 px-4 text-center space-x-0">
+                    {isProtectedCategory(cat.name) ? null : (
+                      <>
+                        <Button
+                          variant="ghost"
+                          className="p-1 hover:bg-gray-700 rounded"
+                          onClick={() => handleDelete(cat._id!)}
+                          aria-label="Delete category"
+                        >
+                          <FaTrash className="w-4 h-4 text-white" />
+                        </Button>
+                      </>
+                    )}
+                  </td>
                 </tr>
               ))}
             </tbody>
@@ -84,4 +169,4 @@ const PropertyCategories: React.FC = () => {
   );
 };
 
-export default PropertyCategories; 
+export default PropertyCategories;

@@ -16,21 +16,24 @@ interface Props {
 }
 
 function getBaseUrl() {
-  const headersList = headers();
-  const host = headersList.get('host');
-  const protocol = process.env.NODE_ENV === 'production' ? 'https' : 'http';
-  return `${protocol}://${host}`;
+  return (async () => {
+    const headersList = await headers();
+    const host = headersList.get('host');
+    const protocol = process.env.NODE_ENV === 'production' ? 'https' : 'http';
+    return `${protocol}://${host}`;
+  })();
 }
 
 async function fetchProperty(id: string): Promise<Property | null> {
-  const res = await fetch(`${getBaseUrl()}/api/properties`, { cache: 'no-store' });
+  const baseUrl = await getBaseUrl();
+  const res = await fetch(`${baseUrl}/api/properties`, { cache: 'no-store' });
   const data = await res.json();
   if (!data.success) return null;
   return data.properties.find((p: Property) => p._id === id) || null;
 }
 
 export default async function ProjectDetail({ params }: Props) {
-  const { id } = params;
+  const { id } = await params;
   const property = await fetchProperty(id);
   if (!property) notFound();
 

@@ -2462,12 +2462,18 @@ const defaultForm = {
     ],
     trendingScore: 1,
     featured: false,
+    home: false,
     status: ''
 };
 const PropertyForm = ()=>{
     _s();
     const { setCurrentPage, showToast, selectedProperty, setSelectedProperty } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$admin$2f$context$2f$AppContext$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useApp"])();
     const [formData, setFormData] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(selectedProperty || defaultForm);
+    // Helper to check for duplicate trendingScore
+    const isTrendingScoreDuplicate = (score)=>{
+        if (score === '' || score === undefined) return false;
+        return allProperties.some((p)=>p._id !== formData._id && p.trendingScore === score);
+    };
     const [loading, setLoading] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
     const [allProperties, setAllProperties] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])([]);
     const [propertyCategories, setPropertyCategories] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])([]);
@@ -2921,7 +2927,7 @@ const PropertyForm = ()=>{
                             children: ''
                         }, void 0, false, {
                             fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                            lineNumber: 311,
+                            lineNumber: 319,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2931,7 +2937,7 @@ const PropertyForm = ()=>{
                                     children: selectedProperty ? 'Edit Property' : 'Add Property'
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                    lineNumber: 318,
+                                    lineNumber: 326,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2939,24 +2945,24 @@ const PropertyForm = ()=>{
                                     children: selectedProperty ? 'Edit the property details' : 'Create a new property listing'
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                    lineNumber: 319,
+                                    lineNumber: 327,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                            lineNumber: 317,
+                            lineNumber: 325,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                    lineNumber: 310,
+                    lineNumber: 318,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                lineNumber: 309,
+                lineNumber: 317,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
@@ -2970,7 +2976,7 @@ const PropertyForm = ()=>{
                                 children: "Basic Info"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                lineNumber: 326,
+                                lineNumber: 334,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2983,7 +2989,7 @@ const PropertyForm = ()=>{
                                         required: true
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                        lineNumber: 328,
+                                        lineNumber: 336,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$admin$2f$components$2f$common$2f$Input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -2992,7 +2998,7 @@ const PropertyForm = ()=>{
                                         onChange: (v)=>handleChange('tagline', v)
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                        lineNumber: 329,
+                                        lineNumber: 337,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$admin$2f$components$2f$common$2f$Select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Select"], {
@@ -3000,10 +3006,11 @@ const PropertyForm = ()=>{
                                         options: propertyCategories,
                                         value: formData.propertyType,
                                         onChange: (v)=>handleChange('propertyType', v),
-                                        required: true
+                                        required: true,
+                                        placeholder: "Select property type"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                        lineNumber: 330,
+                                        lineNumber: 338,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$admin$2f$components$2f$common$2f$Input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -3013,7 +3020,7 @@ const PropertyForm = ()=>{
                                         required: true
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                        lineNumber: 331,
+                                        lineNumber: 339,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3035,7 +3042,7 @@ const PropertyForm = ()=>{
                                                 required: true
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                                lineNumber: 333,
+                                                lineNumber: 341,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$admin$2f$components$2f$common$2f$Select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Select"], {
@@ -3065,7 +3072,7 @@ const PropertyForm = ()=>{
                                                 className: "w-28"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                                lineNumber: 334,
+                                                lineNumber: 342,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -3073,7 +3080,7 @@ const PropertyForm = ()=>{
                                                 children: "to"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                                lineNumber: 345,
+                                                lineNumber: 353,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$admin$2f$components$2f$common$2f$Input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -3092,7 +3099,7 @@ const PropertyForm = ()=>{
                                                 required: true
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                                lineNumber: 346,
+                                                lineNumber: 354,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$admin$2f$components$2f$common$2f$Select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Select"], {
@@ -3122,25 +3129,25 @@ const PropertyForm = ()=>{
                                                 className: "w-28"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                                lineNumber: 347,
+                                                lineNumber: 355,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                        lineNumber: 332,
+                                        lineNumber: 340,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                lineNumber: 327,
+                                lineNumber: 335,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                        lineNumber: 325,
+                        lineNumber: 333,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$admin$2f$components$2f$common$2f$Card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
@@ -3150,7 +3157,7 @@ const PropertyForm = ()=>{
                                 children: "Builder Information"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                lineNumber: 363,
+                                lineNumber: 371,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3161,18 +3168,18 @@ const PropertyForm = ()=>{
                                     onChange: (v)=>handleNestedChange('builder', 'websiteUrl', v)
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                    lineNumber: 365,
+                                    lineNumber: 373,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                lineNumber: 364,
+                                lineNumber: 372,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                        lineNumber: 362,
+                        lineNumber: 370,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$admin$2f$components$2f$common$2f$Card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
@@ -3182,7 +3189,7 @@ const PropertyForm = ()=>{
                                 children: "Key Highlights"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                lineNumber: 370,
+                                lineNumber: 378,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3197,7 +3204,7 @@ const PropertyForm = ()=>{
                                                 onChange: (e)=>handleNestedChange('keyHighlights', 'reraApproved', e.target.checked)
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                                lineNumber: 373,
+                                                lineNumber: 381,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -3205,13 +3212,13 @@ const PropertyForm = ()=>{
                                                 children: "RERA Approved"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                                lineNumber: 374,
+                                                lineNumber: 382,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                        lineNumber: 372,
+                                        lineNumber: 380,
                                         columnNumber: 13
                                     }, this),
                                     formData.keyHighlights?.reraApproved && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$admin$2f$components$2f$common$2f$Input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -3221,7 +3228,7 @@ const PropertyForm = ()=>{
                                         required: true
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                        lineNumber: 377,
+                                        lineNumber: 385,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$admin$2f$components$2f$common$2f$Input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -3231,7 +3238,7 @@ const PropertyForm = ()=>{
                                         onChange: (v)=>handleNestedChange('keyHighlights', 'possessionDate', v)
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                        lineNumber: 379,
+                                        lineNumber: 387,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3241,7 +3248,7 @@ const PropertyForm = ()=>{
                                                 children: "Unit Configuration"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                                lineNumber: 381,
+                                                lineNumber: 389,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3263,7 +3270,7 @@ const PropertyForm = ()=>{
                                                                 }
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                                                lineNumber: 385,
+                                                                lineNumber: 393,
                                                                 columnNumber: 21
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -3271,18 +3278,18 @@ const PropertyForm = ()=>{
                                                                 children: num
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                                                lineNumber: 398,
+                                                                lineNumber: 406,
                                                                 columnNumber: 21
                                                             }, this)
                                                         ]
                                                     }, num, true, {
                                                         fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                                        lineNumber: 384,
+                                                        lineNumber: 392,
                                                         columnNumber: 19
                                                     }, this))
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                                lineNumber: 382,
+                                                lineNumber: 390,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3304,7 +3311,7 @@ const PropertyForm = ()=>{
                                                                 }
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                                                lineNumber: 405,
+                                                                lineNumber: 413,
                                                                 columnNumber: 21
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -3312,24 +3319,24 @@ const PropertyForm = ()=>{
                                                                 children: type
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                                                lineNumber: 418,
+                                                                lineNumber: 426,
                                                                 columnNumber: 21
                                                             }, this)
                                                         ]
                                                     }, type, true, {
                                                         fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                                        lineNumber: 404,
+                                                        lineNumber: 412,
                                                         columnNumber: 19
                                                     }, this))
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                                lineNumber: 402,
+                                                lineNumber: 410,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                        lineNumber: 380,
+                                        lineNumber: 388,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3351,7 +3358,7 @@ const PropertyForm = ()=>{
                                                 required: true
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                                lineNumber: 424,
+                                                lineNumber: 432,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -3359,7 +3366,7 @@ const PropertyForm = ()=>{
                                                 children: "to"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                                lineNumber: 425,
+                                                lineNumber: 433,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$admin$2f$components$2f$common$2f$Input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -3378,7 +3385,7 @@ const PropertyForm = ()=>{
                                                 required: true
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                                lineNumber: 426,
+                                                lineNumber: 434,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$admin$2f$components$2f$common$2f$Select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Select"], {
@@ -3420,13 +3427,13 @@ const PropertyForm = ()=>{
                                                 className: "w-28"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                                lineNumber: 427,
+                                                lineNumber: 435,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                        lineNumber: 423,
+                                        lineNumber: 431,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
@@ -3438,7 +3445,7 @@ const PropertyForm = ()=>{
                                                 onChange: (e)=>handleNestedChange('keyHighlights', 'igbcGoldCertified', e.target.checked)
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                                lineNumber: 443,
+                                                lineNumber: 451,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -3446,13 +3453,13 @@ const PropertyForm = ()=>{
                                                 children: "IGBC Gold certified"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                                lineNumber: 444,
+                                                lineNumber: 452,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                        lineNumber: 442,
+                                        lineNumber: 450,
                                         columnNumber: 13
                                     }, this),
                                     formData.keyHighlights?.igbcGoldCertified && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$admin$2f$components$2f$common$2f$Select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Select"], {
@@ -3480,13 +3487,13 @@ const PropertyForm = ()=>{
                                         required: true
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                        lineNumber: 447,
+                                        lineNumber: 455,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                lineNumber: 371,
+                                lineNumber: 379,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3497,7 +3504,7 @@ const PropertyForm = ()=>{
                                         children: "Other amenities"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                        lineNumber: 462,
+                                        lineNumber: 470,
                                         columnNumber: 13
                                     }, this),
                                     formData.keyHighlights?.otherAmenities.map((amenity, idx)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3509,7 +3516,7 @@ const PropertyForm = ()=>{
                                                     onChange: (v)=>handleArrayChange('keyHighlights', 'otherAmenities', idx, v)
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                                    lineNumber: 465,
+                                                    lineNumber: 473,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$admin$2f$components$2f$common$2f$Button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -3520,13 +3527,13 @@ const PropertyForm = ()=>{
                                                     children: ''
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                                    lineNumber: 466,
+                                                    lineNumber: 474,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, idx, true, {
                                             fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                            lineNumber: 464,
+                                            lineNumber: 472,
                                             columnNumber: 15
                                         }, this)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$admin$2f$components$2f$common$2f$Button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -3537,19 +3544,19 @@ const PropertyForm = ()=>{
                                         children: ''
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                        lineNumber: 469,
+                                        lineNumber: 477,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                lineNumber: 461,
+                                lineNumber: 469,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                        lineNumber: 369,
+                        lineNumber: 377,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$admin$2f$components$2f$common$2f$Card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
@@ -3559,7 +3566,7 @@ const PropertyForm = ()=>{
                                 children: "Gallery"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                lineNumber: 474,
+                                lineNumber: 482,
                                 columnNumber: 11
                             }, this),
                             formData.gallery.map((item, idx)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3598,7 +3605,7 @@ const PropertyForm = ()=>{
                                             }
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                            lineNumber: 478,
+                                            lineNumber: 486,
                                             columnNumber: 15
                                         }, this),
                                         item.data ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
@@ -3607,7 +3614,7 @@ const PropertyForm = ()=>{
                                             className: "w-16 h-16 object-cover rounded"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                            lineNumber: 500,
+                                            lineNumber: 508,
                                             columnNumber: 17
                                         }, this) : item.url ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
                                             src: item.url,
@@ -3615,7 +3622,7 @@ const PropertyForm = ()=>{
                                             className: "w-16 h-16 object-cover rounded"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                            lineNumber: 502,
+                                            lineNumber: 510,
                                             columnNumber: 17
                                         }, this) : null,
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$admin$2f$components$2f$common$2f$Input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -3624,7 +3631,7 @@ const PropertyForm = ()=>{
                                             onChange: (v)=>handleGalleryChange(idx, 'name', v)
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                            lineNumber: 504,
+                                            lineNumber: 512,
                                             columnNumber: 15
                                         }, this),
                                         item.url && !item.data && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$admin$2f$components$2f$common$2f$Input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -3633,7 +3640,7 @@ const PropertyForm = ()=>{
                                             onChange: (v)=>handleGalleryChange(idx, 'url', v)
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                            lineNumber: 507,
+                                            lineNumber: 515,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$admin$2f$components$2f$common$2f$Button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -3644,13 +3651,13 @@ const PropertyForm = ()=>{
                                             children: ''
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                            lineNumber: 509,
+                                            lineNumber: 517,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, idx, true, {
                                     fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                    lineNumber: 476,
+                                    lineNumber: 484,
                                     columnNumber: 13
                                 }, this)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$admin$2f$components$2f$common$2f$Button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -3661,13 +3668,13 @@ const PropertyForm = ()=>{
                                 children: ''
                             }, void 0, false, {
                                 fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                lineNumber: 512,
+                                lineNumber: 520,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                        lineNumber: 473,
+                        lineNumber: 481,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$admin$2f$components$2f$common$2f$Card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
@@ -3677,7 +3684,7 @@ const PropertyForm = ()=>{
                                 children: "Video"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                lineNumber: 516,
+                                lineNumber: 524,
                                 columnNumber: 11
                             }, this),
                             formData.videos.map((item, idx)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3689,7 +3696,7 @@ const PropertyForm = ()=>{
                                             onChange: (v)=>handleVideoChange(idx, 'url', v)
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                            lineNumber: 519,
+                                            lineNumber: 527,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$admin$2f$components$2f$common$2f$Input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -3698,7 +3705,7 @@ const PropertyForm = ()=>{
                                             onChange: (v)=>handleVideoChange(idx, 'name', v)
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                            lineNumber: 520,
+                                            lineNumber: 528,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$admin$2f$components$2f$common$2f$Button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -3709,13 +3716,13 @@ const PropertyForm = ()=>{
                                             children: ''
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                            lineNumber: 521,
+                                            lineNumber: 529,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, idx, true, {
                                     fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                    lineNumber: 518,
+                                    lineNumber: 526,
                                     columnNumber: 13
                                 }, this)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$admin$2f$components$2f$common$2f$Button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -3726,13 +3733,13 @@ const PropertyForm = ()=>{
                                 children: ''
                             }, void 0, false, {
                                 fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                lineNumber: 524,
+                                lineNumber: 532,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                        lineNumber: 515,
+                        lineNumber: 523,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$admin$2f$components$2f$common$2f$Card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
@@ -3742,7 +3749,7 @@ const PropertyForm = ()=>{
                                 children: "Location and Proximity Highlights"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                lineNumber: 528,
+                                lineNumber: 536,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$admin$2f$components$2f$common$2f$Input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -3751,7 +3758,7 @@ const PropertyForm = ()=>{
                                 onChange: (v)=>handleNestedChange('locationAdvantage', 'address', v)
                             }, void 0, false, {
                                 fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                lineNumber: 529,
+                                lineNumber: 537,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$admin$2f$components$2f$common$2f$Input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -3760,7 +3767,7 @@ const PropertyForm = ()=>{
                                 onChange: (v)=>handleNestedChange('locationAdvantage', 'addressUrl', v)
                             }, void 0, false, {
                                 fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                lineNumber: 530,
+                                lineNumber: 538,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3771,7 +3778,7 @@ const PropertyForm = ()=>{
                                         children: "Advantages"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                        lineNumber: 532,
+                                        lineNumber: 540,
                                         columnNumber: 13
                                     }, this),
                                     formData.locationAdvantage.advantages.map((adv, idx)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3783,7 +3790,7 @@ const PropertyForm = ()=>{
                                                     onChange: (v)=>handleArrayChange('locationAdvantage', 'advantages', idx, v)
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                                    lineNumber: 535,
+                                                    lineNumber: 543,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$admin$2f$components$2f$common$2f$Button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -3794,13 +3801,13 @@ const PropertyForm = ()=>{
                                                     children: ''
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                                    lineNumber: 536,
+                                                    lineNumber: 544,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, idx, true, {
                                             fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                            lineNumber: 534,
+                                            lineNumber: 542,
                                             columnNumber: 15
                                         }, this)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$admin$2f$components$2f$common$2f$Button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -3811,19 +3818,19 @@ const PropertyForm = ()=>{
                                         children: ''
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                        lineNumber: 539,
+                                        lineNumber: 547,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                lineNumber: 531,
+                                lineNumber: 539,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                        lineNumber: 527,
+                        lineNumber: 535,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$admin$2f$components$2f$common$2f$Card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
@@ -3833,7 +3840,7 @@ const PropertyForm = ()=>{
                                 children: "Featured Development"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                lineNumber: 544,
+                                lineNumber: 552,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$admin$2f$components$2f$common$2f$Input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -3842,7 +3849,7 @@ const PropertyForm = ()=>{
                                 onChange: (v)=>handleNestedChange('featuredDevelopment', 'text', v)
                             }, void 0, false, {
                                 fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                lineNumber: 545,
+                                lineNumber: 553,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3853,7 +3860,7 @@ const PropertyForm = ()=>{
                                         children: "Images"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                        lineNumber: 547,
+                                        lineNumber: 555,
                                         columnNumber: 13
                                     }, this),
                                     formData.featuredDevelopment.images.map((item, idx)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3895,7 +3902,7 @@ const PropertyForm = ()=>{
                                                     }
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                                    lineNumber: 551,
+                                                    lineNumber: 559,
                                                     columnNumber: 17
                                                 }, this),
                                                 item.data ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
@@ -3904,7 +3911,7 @@ const PropertyForm = ()=>{
                                                     className: "w-16 h-16 object-cover rounded"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                                    lineNumber: 573,
+                                                    lineNumber: 581,
                                                     columnNumber: 19
                                                 }, this) : item.url ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
                                                     src: item.url,
@@ -3912,7 +3919,7 @@ const PropertyForm = ()=>{
                                                     className: "w-16 h-16 object-cover rounded"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                                    lineNumber: 575,
+                                                    lineNumber: 583,
                                                     columnNumber: 19
                                                 }, this) : null,
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$admin$2f$components$2f$common$2f$Input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -3921,7 +3928,7 @@ const PropertyForm = ()=>{
                                                     onChange: (v)=>handleFeaturedDevImageChange(idx, 'name', v)
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                                    lineNumber: 577,
+                                                    lineNumber: 585,
                                                     columnNumber: 17
                                                 }, this),
                                                 item.url && !item.data && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$admin$2f$components$2f$common$2f$Input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -3930,7 +3937,7 @@ const PropertyForm = ()=>{
                                                     onChange: (v)=>handleFeaturedDevImageChange(idx, 'url', v)
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                                    lineNumber: 580,
+                                                    lineNumber: 588,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$admin$2f$components$2f$common$2f$Button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -3941,13 +3948,13 @@ const PropertyForm = ()=>{
                                                     children: ''
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                                    lineNumber: 582,
+                                                    lineNumber: 590,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, idx, true, {
                                             fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                            lineNumber: 549,
+                                            lineNumber: 557,
                                             columnNumber: 15
                                         }, this)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$admin$2f$components$2f$common$2f$Button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -3958,19 +3965,19 @@ const PropertyForm = ()=>{
                                         children: ''
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                        lineNumber: 585,
+                                        lineNumber: 593,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                lineNumber: 546,
+                                lineNumber: 554,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                        lineNumber: 543,
+                        lineNumber: 551,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$admin$2f$components$2f$common$2f$Card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
@@ -3980,7 +3987,7 @@ const PropertyForm = ()=>{
                                 children: "Other Projects"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                lineNumber: 590,
+                                lineNumber: 598,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4017,7 +4024,7 @@ const PropertyForm = ()=>{
                                                 onChange: (v)=>handleChange('propertyType', v)
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                                lineNumber: 593,
+                                                lineNumber: 601,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$admin$2f$components$2f$common$2f$Select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Select"], {
@@ -4044,13 +4051,13 @@ const PropertyForm = ()=>{
                                                 }
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                                lineNumber: 605,
+                                                lineNumber: 613,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                        lineNumber: 592,
+                                        lineNumber: 600,
                                         columnNumber: 13
                                     }, this),
                                     formData.otherProjects.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4061,7 +4068,7 @@ const PropertyForm = ()=>{
                                                 children: "Selected Projects:"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                                lineNumber: 631,
+                                                lineNumber: 639,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4080,43 +4087,43 @@ const PropertyForm = ()=>{
                                                                         children: "Remove"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                                                        lineNumber: 644,
+                                                                        lineNumber: 652,
                                                                         columnNumber: 25
                                                                     }, this),
                                                                     "×"
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                                                lineNumber: 639,
+                                                                lineNumber: 647,
                                                                 columnNumber: 23
                                                             }, this)
                                                         ]
                                                     }, index, true, {
                                                         fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                                        lineNumber: 634,
+                                                        lineNumber: 642,
                                                         columnNumber: 21
                                                     }, this))
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                                lineNumber: 632,
+                                                lineNumber: 640,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                        lineNumber: 630,
+                                        lineNumber: 638,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                lineNumber: 591,
+                                lineNumber: 599,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                        lineNumber: 589,
+                        lineNumber: 597,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$admin$2f$components$2f$common$2f$Card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
@@ -4126,24 +4133,42 @@ const PropertyForm = ()=>{
                                 children: "Trending Score"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                lineNumber: 656,
+                                lineNumber: 664,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$admin$2f$components$2f$common$2f$Input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
                                 label: "Trending Score (1-10)",
                                 type: "number",
-                                value: formData.trendingScore.toString(),
-                                onChange: (v)=>handleChange('trendingScore', parseInt(v) || 1),
-                                helperText: "Enter a value between 1 and 10"
+                                value: formData.trendingScore === undefined || formData.trendingScore === null ? '' : formData.trendingScore.toString(),
+                                onChange: (v)=>{
+                                    // Allow blank
+                                    if (v === '' || v === null) {
+                                        handleChange('trendingScore', undefined);
+                                        return;
+                                    }
+                                    const num = parseInt(v);
+                                    // Restrict to 1-10 only
+                                    if (isNaN(num) || num < 1 || num > 10) {
+                                        showToast('Trending Score must be a number between 1 and 10.', 'error');
+                                        return;
+                                    }
+                                    // Prevent duplicate
+                                    if (isTrendingScoreDuplicate(num)) {
+                                        showToast('Trending Score must be unique across all properties.', 'error');
+                                        return;
+                                    }
+                                    handleChange('trendingScore', num);
+                                },
+                                helperText: "Enter a value between 1 and 10. Must be unique. Can be left blank."
                             }, void 0, false, {
                                 fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                lineNumber: 657,
+                                lineNumber: 665,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                        lineNumber: 655,
+                        lineNumber: 663,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$admin$2f$components$2f$common$2f$Card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
@@ -4153,7 +4178,7 @@ const PropertyForm = ()=>{
                                 children: "Featured"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                lineNumber: 661,
+                                lineNumber: 693,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
@@ -4165,7 +4190,7 @@ const PropertyForm = ()=>{
                                         onChange: (e)=>handleChange('featured', e.target.checked)
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                        lineNumber: 663,
+                                        lineNumber: 695,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -4173,19 +4198,45 @@ const PropertyForm = ()=>{
                                         children: "Featured"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                        lineNumber: 664,
+                                        lineNumber: 696,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                lineNumber: 662,
+                                lineNumber: 694,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                className: "flex items-center space-x-3 mt-4",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                        type: "checkbox",
+                                        checked: !!formData.home,
+                                        onChange: (e)=>handleChange('home', e.target.checked)
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
+                                        lineNumber: 700,
+                                        columnNumber: 13
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                        className: "text-sm text-gray-300",
+                                        children: "Home"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
+                                        lineNumber: 701,
+                                        columnNumber: 13
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
+                                lineNumber: 699,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                        lineNumber: 660,
+                        lineNumber: 692,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$admin$2f$components$2f$common$2f$Card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
@@ -4195,7 +4246,7 @@ const PropertyForm = ()=>{
                                 children: "Status"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                lineNumber: 669,
+                                lineNumber: 706,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$admin$2f$components$2f$common$2f$Select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Select"], {
@@ -4206,13 +4257,13 @@ const PropertyForm = ()=>{
                                 required: true
                             }, void 0, false, {
                                 fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                lineNumber: 670,
+                                lineNumber: 707,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                        lineNumber: 668,
+                        lineNumber: 705,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4227,7 +4278,7 @@ const PropertyForm = ()=>{
                                 children: 'Cancel'
                             }, void 0, false, {
                                 fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                lineNumber: 674,
+                                lineNumber: 711,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$admin$2f$components$2f$common$2f$Button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -4237,25 +4288,25 @@ const PropertyForm = ()=>{
                                 children: loading ? 'Saving...' : selectedProperty ? 'Update Property' : 'Save Property'
                             }, void 0, false, {
                                 fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                lineNumber: 675,
+                                lineNumber: 712,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                        lineNumber: 673,
+                        lineNumber: 710,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                lineNumber: 323,
+                lineNumber: 331,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-        lineNumber: 308,
+        lineNumber: 316,
         columnNumber: 5
     }, this);
 };
@@ -6359,8 +6410,10 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$admin$2f$components$2f$common$2f$Card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/app/admin/components/common/Card.tsx [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$admin$2f$components$2f$common$2f$Button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/app/admin/components/common/Button.tsx [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$admin$2f$components$2f$common$2f$Input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/app/admin/components/common/Input.tsx [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$fa$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/react-icons/fa/index.mjs [app-client] (ecmascript)");
 ;
 var _s = __turbopack_context__.k.signature();
+;
 ;
 ;
 ;
@@ -6371,6 +6424,8 @@ const PropertyCategories = ()=>{
     const [showForm, setShowForm] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
     const [categoryName, setCategoryName] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])('');
     const [message, setMessage] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
+    const [editingId, setEditingId] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
+    const [editingName, setEditingName] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])('');
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
         "PropertyCategories.useEffect": ()=>{
             fetch('/api/property-categories').then({
@@ -6410,6 +6465,71 @@ const PropertyCategories = ()=>{
             setMessage('Error adding category.');
         }
     };
+    const handleEditClick = (id, name)=>{
+        setEditingId(id);
+        setEditingName(name);
+        setMessage(null);
+    };
+    const handleCancelEdit = ()=>{
+        setEditingId(null);
+        setEditingName('');
+    };
+    const handleSaveEdit = async ()=>{
+        if (!editingId || !editingName.trim()) {
+            setMessage('Category name cannot be empty.');
+            return;
+        }
+        setMessage(null);
+        try {
+            const res = await fetch('/api/property-categories', {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    id: editingId,
+                    name: editingName.trim()
+                })
+            });
+            const data = await res.json();
+            if (data.success) {
+                setCategories(categories.map((cat)=>cat._id === editingId ? data.category : cat));
+                setEditingId(null);
+                setEditingName('');
+                setMessage('Category updated!');
+            } else {
+                setMessage(data.message || 'Failed to update category.');
+            }
+        } catch (err) {
+            setMessage('Error updating category.');
+        }
+    };
+    const handleDelete = async (id)=>{
+        setMessage(null);
+        try {
+            const res = await fetch('/api/property-categories', {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    id
+                })
+            });
+            const data = await res.json();
+            if (data.success) {
+                setCategories(categories.filter((cat)=>cat._id !== id));
+                setMessage('Category deleted!');
+            } else {
+                setMessage(data.message || 'Failed to delete category.');
+            }
+        } catch (err) {
+            setMessage('Error deleting category.');
+        }
+    };
+    const isProtectedCategory = (name)=>{
+        return name === 'Commercial' || name === 'Residential';
+    };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "p-8",
         children: [
@@ -6421,7 +6541,7 @@ const PropertyCategories = ()=>{
                         children: "Property Categories"
                     }, void 0, false, {
                         fileName: "[project]/src/app/admin/components/pages/PropertyCategories.tsx",
-                        lineNumber: 48,
+                        lineNumber: 112,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$admin$2f$components$2f$common$2f$Button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -6430,13 +6550,13 @@ const PropertyCategories = ()=>{
                         children: "Create Category"
                     }, void 0, false, {
                         fileName: "[project]/src/app/admin/components/pages/PropertyCategories.tsx",
-                        lineNumber: 49,
+                        lineNumber: 113,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/admin/components/pages/PropertyCategories.tsx",
-                lineNumber: 47,
+                lineNumber: 111,
                 columnNumber: 7
             }, this),
             message && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -6444,7 +6564,7 @@ const PropertyCategories = ()=>{
                 children: message
             }, void 0, false, {
                 fileName: "[project]/src/app/admin/components/pages/PropertyCategories.tsx",
-                lineNumber: 53,
+                lineNumber: 117,
                 columnNumber: 19
             }, this),
             showForm && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$admin$2f$components$2f$common$2f$Card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
@@ -6458,7 +6578,7 @@ const PropertyCategories = ()=>{
                             onChange: setCategoryName
                         }, void 0, false, {
                             fileName: "[project]/src/app/admin/components/pages/PropertyCategories.tsx",
-                            lineNumber: 57,
+                            lineNumber: 121,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -6470,7 +6590,7 @@ const PropertyCategories = ()=>{
                                     children: "Save Category"
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/admin/components/pages/PropertyCategories.tsx",
-                                    lineNumber: 59,
+                                    lineNumber: 123,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$admin$2f$components$2f$common$2f$Button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -6482,24 +6602,24 @@ const PropertyCategories = ()=>{
                                     children: "Cancel"
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/admin/components/pages/PropertyCategories.tsx",
-                                    lineNumber: 60,
+                                    lineNumber: 124,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/admin/components/pages/PropertyCategories.tsx",
-                            lineNumber: 58,
+                            lineNumber: 122,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/app/admin/components/pages/PropertyCategories.tsx",
-                    lineNumber: 56,
+                    lineNumber: 120,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/app/admin/components/pages/PropertyCategories.tsx",
-                lineNumber: 55,
+                lineNumber: 119,
                 columnNumber: 9
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$admin$2f$components$2f$common$2f$Card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
@@ -6511,69 +6631,114 @@ const PropertyCategories = ()=>{
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("thead", {
                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tr", {
                                     className: "border-b border-gray-800",
-                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
-                                        className: "text-left py-3 px-4 text-gray-300 font-medium",
-                                        children: "Category Name"
-                                    }, void 0, false, {
-                                        fileName: "[project]/src/app/admin/components/pages/PropertyCategories.tsx",
-                                        lineNumber: 70,
-                                        columnNumber: 17
-                                    }, this)
-                                }, void 0, false, {
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
+                                            className: "text-left py-3 px-4 text-gray-300 font-medium",
+                                            children: "Category Name"
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/app/admin/components/pages/PropertyCategories.tsx",
+                                            lineNumber: 134,
+                                            columnNumber: 17
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
+                                            className: "text-center py-3 px-4 text-gray-300 font-medium",
+                                            children: "Actions"
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/app/admin/components/pages/PropertyCategories.tsx",
+                                            lineNumber: 135,
+                                            columnNumber: 17
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
                                     fileName: "[project]/src/app/admin/components/pages/PropertyCategories.tsx",
-                                    lineNumber: 69,
+                                    lineNumber: 133,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/app/admin/components/pages/PropertyCategories.tsx",
-                                lineNumber: 68,
+                                lineNumber: 132,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tbody", {
                                 children: categories.map((cat)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tr", {
                                         className: "border-b border-gray-800 hover:bg-gray-800 transition-colors",
-                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
-                                            className: "py-4 px-4 text-white",
-                                            children: cat.name
-                                        }, void 0, false, {
-                                            fileName: "[project]/src/app/admin/components/pages/PropertyCategories.tsx",
-                                            lineNumber: 76,
-                                            columnNumber: 19
-                                        }, this)
-                                    }, cat._id || cat.name, false, {
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
+                                                className: "py-4 px-4 text-white",
+                                                children: editingId === cat._id ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$admin$2f$components$2f$common$2f$Input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
+                                                    value: editingName,
+                                                    onChange: setEditingName
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/app/admin/components/pages/PropertyCategories.tsx",
+                                                    lineNumber: 143,
+                                                    columnNumber: 23
+                                                }, this) : cat.name
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/app/admin/components/pages/PropertyCategories.tsx",
+                                                lineNumber: 141,
+                                                columnNumber: 19
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
+                                                className: "py-4 px-4 text-center space-x-0",
+                                                children: isProtectedCategory(cat.name) ? null : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
+                                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$admin$2f$components$2f$common$2f$Button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
+                                                        variant: "ghost",
+                                                        className: "p-1 hover:bg-gray-700 rounded",
+                                                        onClick: ()=>handleDelete(cat._id),
+                                                        "aria-label": "Delete category",
+                                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$fa$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FaTrash"], {
+                                                            className: "w-4 h-4 text-white"
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/src/app/admin/components/pages/PropertyCategories.tsx",
+                                                            lineNumber: 157,
+                                                            columnNumber: 27
+                                                        }, this)
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/app/admin/components/pages/PropertyCategories.tsx",
+                                                        lineNumber: 151,
+                                                        columnNumber: 25
+                                                    }, this)
+                                                }, void 0, false)
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/app/admin/components/pages/PropertyCategories.tsx",
+                                                lineNumber: 148,
+                                                columnNumber: 19
+                                            }, this)
+                                        ]
+                                    }, cat._id || cat.name, true, {
                                         fileName: "[project]/src/app/admin/components/pages/PropertyCategories.tsx",
-                                        lineNumber: 75,
+                                        lineNumber: 140,
                                         columnNumber: 17
                                     }, this))
                             }, void 0, false, {
                                 fileName: "[project]/src/app/admin/components/pages/PropertyCategories.tsx",
-                                lineNumber: 73,
+                                lineNumber: 138,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/admin/components/pages/PropertyCategories.tsx",
-                        lineNumber: 67,
+                        lineNumber: 131,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/src/app/admin/components/pages/PropertyCategories.tsx",
-                    lineNumber: 66,
+                    lineNumber: 130,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/app/admin/components/pages/PropertyCategories.tsx",
-                lineNumber: 65,
+                lineNumber: 129,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/app/admin/components/pages/PropertyCategories.tsx",
-        lineNumber: 46,
+        lineNumber: 110,
         columnNumber: 5
     }, this);
 };
-_s(PropertyCategories, "40LQ8xOD2sPus034vLeHGfCoT9Y=");
+_s(PropertyCategories, "vPwOJXVMxrJNFV1sbm4Odh4eYV8=");
 _c = PropertyCategories;
 const __TURBOPACK__default__export__ = PropertyCategories;
 var _c;

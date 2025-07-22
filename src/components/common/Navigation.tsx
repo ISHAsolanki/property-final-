@@ -134,13 +134,13 @@ const NavigationBar = () => {
                 </button>
                 {/* Mega Menu */}
                 {propertiesMenuOpen && (
-                  <div className="absolute left-1/2 -translate-x-1/2 top-full w-[340px] sm:w-[480px] bg-black border border-gray-900 rounded-xl shadow-xl z-50 p-6 flex flex-col gap-2" style={{minWidth: 240}}>
+                  <div className="absolute left-1/2 -translate-x-1/2 top-full w-[340px] sm:w-[480px] bg-black/30 backdrop-blur-xl border border-white/20 rounded-2xl shadow-2xl z-50 p-6 flex flex-col gap-2" style={{minWidth: 240}}>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                       {categories.map(cat => (
                         <Link
                           key={cat.name}
                           href={`/category/${encodeURIComponent(cat.name)}`}
-                          className="text-white text-base font-medium py-2 px-3 rounded hover:bg-gray-800 transition-colors"
+                          className="text-white text-base font-medium py-2 px-3 rounded-lg hover:bg-white/10 transition-colors"
                           onClick={() => setPropertiesMenuOpen(false)}
                         >
                           {cat.name}

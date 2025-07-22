@@ -10,13 +10,7 @@ import Link from "next/link";
 
 const pageSize = 6;
 
-const propertyTypeOptions = [
-  { value: '', label: 'All Types' },
-  { value: 'Residential', label: 'Residential' },
-  { value: 'Commercial', label: 'Commercial' },
-  { value: 'Land', label: 'Land' },
-  { value: 'Luxury', label: 'Luxury' },
-];
+// Property type options will be fetched from API
 const statusButtonOptions = [
   { value: 'Ready', label: 'Ready' },
   { value: 'Under Construction', label: 'Under Construction' },
@@ -29,6 +23,7 @@ const selectionFilters = [
 ];
 
 export default function SearchPage() {
+  const [propertyTypeOptions, setPropertyTypeOptions] = useState<{ value: string; label: string }[]>([{ value: '', label: 'All Types' }]);
   const searchParams = useSearchParams();
   const [properties, setProperties] = useState<Property[]>([]);
   const [loading, setLoading] = useState(true);
@@ -46,6 +41,14 @@ export default function SearchPage() {
       .then((data) => {
         if (data.success) setProperties(data.properties);
         setLoading(false);
+      });
+    // Fetch property categories for property type options
+    fetch("/api/property-categories")
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success && Array.isArray(data.categories)) {
+          setPropertyTypeOptions([{ value: '', label: 'All Types' }, ...data.categories.map((cat: { name: string }) => ({ value: cat.name, label: cat.name }))]);
+        }
       });
   }, []);
 
@@ -101,7 +104,7 @@ export default function SearchPage() {
               value={propertyType}
               onChange={(e) => setPropertyType(e.target.value)}
             >
-              {propertyTypeOptions.map((option) => (
+              {propertyTypeOptions.map((option: { value: string; label: string }) => (
                 <option key={option.value} value={option.value}>
                   {option.label}
                 </option>
@@ -164,7 +167,7 @@ export default function SearchPage() {
               <div className="text-gray-400">No properties found.</div>
             ) : (
               paginated.map((property) => (
-                <Link href={`/projects/${property._id}`} key={property._id}>
+                <Link href={`/projects/${property._id}`} key={property._id} className="block">
                 <ProjectCard
                   project={{
                     id: property._id || '',
@@ -178,7 +181,7 @@ export default function SearchPage() {
                     bhk: property.keyHighlights?.unitConfiguration || '',
                     gallery: property.gallery,
                   }}
-                  className="w-[300px] sm:w-[390px] lg:w-[370px]"
+                    className="w-[300px] sm:w-[390px] lg:w-[370px] cursor-pointer hover:shadow-2xl transition-shadow duration-200"
                 />
                 </Link>
               ))

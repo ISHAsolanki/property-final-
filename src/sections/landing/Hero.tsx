@@ -1,6 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { FaMapMarkerAlt, FaPoundSign, FaBed, FaSearch, FaChevronDown } from 'react-icons/fa';
-import { heroData } from '@/data/hero';
+import { FaMapMarkerAlt, FaBed, FaSearch, FaChevronDown } from 'react-icons/fa';
+
+const RupeesIcon = () => (
+  <span className="text-white w-4 h-4 font-bold" style={{ fontSize: '1rem', lineHeight: '1' }}>
+    ₹
+  </span>
+);
+import { heroData as staticHeroData } from '@/data/hero';
+import type { HeroData } from '@/data/types';
 import ProjectCard from '@/components/property/ProjectCard';
 import Footer from '@/components/common/Footer';
 import { Property } from '@/app/admin/types';
@@ -15,7 +22,7 @@ import { useRouter } from 'next/navigation';
 const getInfoIcon = (icon: string) => {
   const iconMap = {
     location: <FaMapMarkerAlt className="text-white w-4 h-4" />,
-    price: <FaPoundSign className="text-white w-4 h-4" />,
+    price: <RupeesIcon />,
     bedroom: <FaBed className="text-white w-4 h-4" />,
     search: <FaSearch className="text-[#9CA3AF] w-4 h-4" />,
     dropdown: <FaChevronDown className="text-[#9CA3AF] w-3 h-3" />,
@@ -43,7 +50,7 @@ interface HeroProps {
 
 const pageSize = 6;
 
-const propertyTypeOptions = [
+const propertyTypeOptionsStatic = [
   { value: '', label: 'Select property type' },
   { value: 'Residential', label: 'Residential' },
   { value: 'Commercial', label: 'Commercial' },
@@ -76,12 +83,13 @@ const statusButtonOptions = [
  * - Call-to-action buttons
  * - Search filters for property search
  */
+type HeroContent = HeroData & { tagline?: string };
 const Hero: React.FC<HeroProps> = ({ onSearch, searchActive, matched: matchedProp }) => {
-  const { badge, title, infoChips, ctaButtons, searchFilters, filterChips, backgroundImage } = heroData;
-
-  // Search/filter state
+  const [homeProperty, setHomeProperty] = useState<Property | null>(null);
+  const [heroContent, setHeroContent] = useState<HeroContent>(staticHeroData);
   const [location, setLocation] = useState('');
   const [propertyType, setPropertyType] = useState('');
+  const [propertyTypeOptions, setPropertyTypeOptions] = useState(propertyTypeOptionsStatic);
   const [priceRange, setPriceRange] = useState('');
   const [status, setStatus] = useState('');
   const [matched, setMatched] = useState<Property[]>([]);
@@ -90,11 +98,56 @@ const Hero: React.FC<HeroProps> = ({ onSearch, searchActive, matched: matchedPro
   const [page, setPage] = useState(1);
   const router = useRouter();
 
+  // Only destructure if heroContent exists
+  let badge, title, infoChips, ctaButtons, searchFilters, filterChips, backgroundImage;
+  if (heroContent) {
+    ({ badge, title, infoChips, ctaButtons, searchFilters, filterChips, backgroundImage } = heroContent);
+  }
+
   useEffect(() => {
     fetch('/api/properties')
       .then(res => res.json())
       .then(data => {
-        if (data.success) setAllProperties(data.properties);
+        if (data.success) {
+          // Prioritize 'home' properties at the top, keep others in original order
+          const homeProps = data.properties.filter((p: Property) => p.home && p.trendingScore !== undefined && p.trendingScore !== null);
+          const nonHomeProps = data.properties.filter((p: Property) => !p.home);
+          setAllProperties([...homeProps, ...nonHomeProps]);
+          if (homeProps.length > 0) {
+            setHomeProperty(homeProps[0]);
+            setHeroContent({
+              ...staticHeroData,
+              backgroundImage: (homeProps[0].gallery && homeProps[0].gallery[0] && (homeProps[0].gallery[0].data || homeProps[0].gallery[0].url)) || staticHeroData.backgroundImage,
+              title: homeProps[0].name,
+              tagline: homeProps[0].tagline,
+              infoChips: [
+                { icon: 'location', text: homeProps[0].location },
+                { icon: 'price', text: formatPriceRange(homeProps[0].priceRange) },
+                { icon: 'bedroom', text: homeProps[0].keyHighlights?.unitConfiguration ? homeProps[0].keyHighlights.unitConfiguration.replace(/,\s*/g, '').replace(/\s+/g, '') : '' },
+              ],
+              ctaButtons: [
+                { text: 'View Project', variant: 'primary', href: `/projects/${homeProps[0]._id}` },
+                { text: 'Request Info', variant: 'secondary', href: '/contact' },
+              ],
+            });
+          } else {
+            setHomeProperty(null);
+            setHeroContent(staticHeroData);
+          }
+        }
+      });
+
+    // Fetch property categories for property type options
+    fetch('/api/property-categories')
+      .then(res => res.json())
+      .then(data => {
+        if (data.success && Array.isArray(data.categories)) {
+          const options = data.categories.map((cat: { name: string }) => ({
+            value: cat.name,
+            label: cat.name,
+          }));
+          setPropertyTypeOptions([{ value: '', label: 'Select property type' }, ...options]);
+        }
       });
   }, []);
 
@@ -114,6 +167,7 @@ const Hero: React.FC<HeroProps> = ({ onSearch, searchActive, matched: matchedPro
   const paginated = results.slice((page - 1) * pageSize, page * pageSize);
   const totalPages = Math.ceil(results.length / pageSize);
 
+  if (!heroContent) return null;
   return (
     <>
       <section className="relative w-full h-auto min-h-[667px] md:min-h-0 md:h-[720px]">
@@ -133,18 +187,17 @@ const Hero: React.FC<HeroProps> = ({ onSearch, searchActive, matched: matchedPro
           <div className="absolute inset-0 bg-black/40 md:bg-transparent z-[-1] rounded-none" />
           {/* Main Content */}
           <div className="flex flex-col gap-4 text-left md:text-left w-full max-w-md md:max-w-4xl mx-0">
-            {/* Top Project Badge */}
-            {badge && (
+            {(heroContent.tagline || badge) && (
               <div className="flex items-center justify-start w-fit bg-[#E50914] rounded-full px-4 py-1 mx-0">
                 <span className="text-white text-xs font-semibold leading-5">
-                  {badge}
+                  {heroContent.tagline || badge}
                 </span>
               </div>
             )}
 
             {/* Main Heading */}
             <h1 className="text-white text-4xl sm:text-5xl lg:text-[60px] font-semibold leading-tight sm:leading-[1.1] font-['General_Sans'] w-full mx-0 md:mx-0 md:w-3/4">
-              {title.split('\n').map((line, i) => (
+              {title.split('\n').map((line: string, i: number) => (
                 <React.Fragment key={i}>
                   {line}
                   {i < title.split('\n').length - 1 && <br />}
@@ -154,7 +207,7 @@ const Hero: React.FC<HeroProps> = ({ onSearch, searchActive, matched: matchedPro
 
             {/* Info Chips - each on its own line, left-aligned on mobile */}
             <div className="flex flex-col md:flex-row md:flex-wrap items-start md:items-center gap-0.5 md:gap-6 mt-2">
-              {infoChips.map((chip, index) => (
+              {infoChips && infoChips.map((chip: { icon: string; text: string }, index: number) => (
                 <div key={index} className="flex items-center gap-2 mb-1 md:mb-0">
                   {getInfoIcon(chip.icon)}
                   <span className="text-[#F7F7F7] text-xs md:text-lg leading-5 md:leading-6 tracking-[0.03em] font-['Bricolage_Grotesque']">
@@ -166,7 +219,7 @@ const Hero: React.FC<HeroProps> = ({ onSearch, searchActive, matched: matchedPro
 
             {/* CTA Buttons - side by side, left-aligned, not full width on mobile */}
             <div className="flex flex-row gap-2 md:gap-4 mt-4 w-full pb-20 md:pb-0">
-              {ctaButtons.map((button, index) => (
+              {ctaButtons && ctaButtons.map((button, index) => (
                 <button
                   key={index}
                   className={`px-4 md:px-6 py-2 md:py-3 rounded-lg font-medium font-['Bricolage_Grotesque'] text-xs md:text-base leading-6 ${
