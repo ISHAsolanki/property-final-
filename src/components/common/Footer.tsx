@@ -143,9 +143,20 @@ const Footer = () => {
                   <div className="w-5 h-5 flex-shrink-0">
                     {getIconComponent(info.icon)}
                   </div>
-                  <span className="font-['Bricolage_Grotesque'] font-light text-base leading-6 text-[#F7F7F7] tracking-[0.02em]">
-                    {info.text}
-                  </span>
+                  {info.href ? (
+                    <a
+                      href={info.href}
+                      className="font-['Bricolage_Grotesque'] font-light text-base leading-6 text-[#F7F7F7] tracking-[0.02em] hover:underline break-all"
+                      target={info.type === 'email' ? '_blank' : undefined}
+                      rel={info.type === 'email' ? 'noopener noreferrer' : undefined}
+                    >
+                      {info.text}
+                    </a>
+                  ) : (
+                    <span className="font-['Bricolage_Grotesque'] font-light text-base leading-6 text-[#F7F7F7] tracking-[0.02em]">
+                      {info.text}
+                    </span>
+                  )}
                 </div>
               ))}
             </div>

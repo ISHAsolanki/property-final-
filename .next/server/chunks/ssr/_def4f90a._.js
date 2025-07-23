@@ -94,21 +94,19 @@ const footerData = {
     quickLinks: [
         {
             label: 'Home',
-            href: '#'
+            href: '/'
         },
         {
             label: 'Properties',
-            href: '#'
+            href: '/properties'
         },
-        // { label: 'About Us', href: '#' },
-        // { label: 'Services', href: '#' },
         {
             label: 'Contact Us',
-            href: '#'
+            href: '/contact'
         },
         {
-            label: 'Blog',
-            href: '#'
+            label: 'Articles',
+            href: '/articles'
         }
     ],
     contactInfo: [
@@ -120,12 +118,14 @@ const footerData = {
         {
             icon: 'phone',
             text: '063599 26999',
-            type: 'phone'
+            type: 'phone',
+            href: 'tel:06359926999'
         },
         {
             icon: 'email',
             text: 'connect@sakargroup.in',
-            type: 'email'
+            type: 'email',
+            href: 'mailto:connect@sakargroup.in'
         },
         {
             icon: 'time',
@@ -408,13 +408,23 @@ const getIconComponent = (icon, className = 'w-5 h-5 text-[#F7F7F7]')=>{
                                                     lineNumber: 143,
                                                     columnNumber: 19
                                                 }, this),
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                info.href ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
+                                                    href: info.href,
+                                                    className: "font-['Bricolage_Grotesque'] font-light text-base leading-6 text-[#F7F7F7] tracking-[0.02em] hover:underline break-all",
+                                                    target: info.type === 'email' ? '_blank' : undefined,
+                                                    rel: info.type === 'email' ? 'noopener noreferrer' : undefined,
+                                                    children: info.text
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/components/common/Footer.tsx",
+                                                    lineNumber: 147,
+                                                    columnNumber: 21
+                                                }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                     className: "font-['Bricolage_Grotesque'] font-light text-base leading-6 text-[#F7F7F7] tracking-[0.02em]",
                                                     children: info.text
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/common/Footer.tsx",
-                                                    lineNumber: 146,
-                                                    columnNumber: 19
+                                                    lineNumber: 156,
+                                                    columnNumber: 21
                                                 }, this)
                                             ]
                                         }, index, true, {
@@ -449,7 +459,7 @@ const getIconComponent = (icon, className = 'w-5 h-5 text-[#F7F7F7]')=>{
                                 children: copyright
                             }, void 0, false, {
                                 fileName: "[project]/src/components/common/Footer.tsx",
-                                lineNumber: 158,
+                                lineNumber: 169,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -460,23 +470,23 @@ const getIconComponent = (icon, className = 'w-5 h-5 text-[#F7F7F7]')=>{
                                         children: link.label
                                     }, index, false, {
                                         fileName: "[project]/src/components/common/Footer.tsx",
-                                        lineNumber: 163,
+                                        lineNumber: 174,
                                         columnNumber: 17
                                     }, this))
                             }, void 0, false, {
                                 fileName: "[project]/src/components/common/Footer.tsx",
-                                lineNumber: 161,
+                                lineNumber: 172,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/common/Footer.tsx",
-                        lineNumber: 157,
+                        lineNumber: 168,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/src/components/common/Footer.tsx",
-                    lineNumber: 156,
+                    lineNumber: 167,
                     columnNumber: 9
                 }, this)
             ]

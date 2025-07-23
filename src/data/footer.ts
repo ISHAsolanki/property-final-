@@ -52,13 +52,10 @@ export const footerData: FooterData = {
   ] as SocialLink[],
   
   quickLinks: [
-    { label: 'Home', href: '#' },
-    { label: 'Properties', href: '#' },
-    // { label: 'About Us', href: '#' },
-    // { label: 'Services', href: '#' },
-    { label: 'Contact Us', href: '#' },
-    { label: 'Blog', href: '#' },
-    // { label: 'Careers', href: '#' },
+    { label: 'Home', href: '/' },
+    { label: 'Properties', href: '/' },
+    { label: 'Contact Us', href: '/contact' },
+    { label: 'Articles', href: '/articles' },
   ] as LinkItem[],
   
   contactInfo: [
@@ -70,12 +67,14 @@ export const footerData: FooterData = {
     { 
       icon: 'phone' as const, 
       text: '063599 26999',
-      type: 'phone' as const
+      type: 'phone' as const,
+      href: 'tel:06359926999'
     },
     { 
       icon: 'email' as const, 
       text: 'connect@sakargroup.in',
-      type: 'email' as const
+      type: 'email' as const,
+      href: 'mailto:connect@sakargroup.in'
     },
     { 
       icon: 'time' as const, 

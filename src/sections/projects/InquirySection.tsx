@@ -75,6 +75,18 @@ const InquirySection: React.FC<InquirySectionProps> = ({ defaultPropertyType, de
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    // Validation
+    const name = formData.fullName.trim();
+    const phone = formData.phone.trim();
+    const phonePattern = /^\d{10}$/;
+    if (!name || name === '.' || /^\.+$/.test(name)) {
+      alert('Name cannot be empty, only spaces, or only dots.');
+      return;
+    }
+    if (!phonePattern.test(phone)) {
+      alert('Please enter a valid 10 digit phone number (digits only).');
+      return;
+    }
     try {
       const res = await fetch('/api/inquiries', {
         method: 'POST',

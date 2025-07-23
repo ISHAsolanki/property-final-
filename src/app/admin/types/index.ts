@@ -46,7 +46,7 @@ export interface Property {
     images: GalleryItem[];
   };
   otherProjects: string[];
-  trendingScore: number;
+  trendingScore?: number;
   featured: boolean;
   home?: boolean;
   status: string;

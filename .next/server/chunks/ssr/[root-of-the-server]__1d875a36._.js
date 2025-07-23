@@ -1783,6 +1783,18 @@ const InquirySection = ({ defaultPropertyType, defaultPropertyId })=>{
     };
     const handleSubmit = async (e)=>{
         e.preventDefault();
+        // Validation
+        const name = formData.fullName.trim();
+        const phone = formData.phone.trim();
+        const phonePattern = /^\d{10}$/;
+        if (!name || name === '.' || /^\.+$/.test(name)) {
+            alert('Name cannot be empty, only spaces, or only dots.');
+            return;
+        }
+        if (!phonePattern.test(phone)) {
+            alert('Please enter a valid 10 digit phone number (digits only).');
+            return;
+        }
         try {
             const res = await fetch('/api/inquiries', {
                 method: 'POST',
@@ -1824,7 +1836,7 @@ const InquirySection = ({ defaultPropertyType, defaultPropertyId })=>{
                                 children: "Inquire Now"
                             }, void 0, false, {
                                 fileName: "[project]/src/sections/projects/InquirySection.tsx",
-                                lineNumber: 108,
+                                lineNumber: 120,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1832,13 +1844,13 @@ const InquirySection = ({ defaultPropertyType, defaultPropertyId })=>{
                                 children: "Schedule a site visit or request more information"
                             }, void 0, false, {
                                 fileName: "[project]/src/sections/projects/InquirySection.tsx",
-                                lineNumber: 111,
+                                lineNumber: 123,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/sections/projects/InquirySection.tsx",
-                        lineNumber: 107,
+                        lineNumber: 119,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
@@ -1859,7 +1871,7 @@ const InquirySection = ({ defaultPropertyType, defaultPropertyId })=>{
                                                         children: "Full Name"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/sections/projects/InquirySection.tsx",
-                                                        lineNumber: 120,
+                                                        lineNumber: 132,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -1868,36 +1880,6 @@ const InquirySection = ({ defaultPropertyType, defaultPropertyId })=>{
                                                         value: formData.fullName,
                                                         onChange: handleChange,
                                                         placeholder: "Enter your full name",
-                                                        className: "bg-[#0A0A0A] text-[#E0E0E0] text-sm p-3.5 rounded-lg border border-[#333] focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent",
-                                                        required: true
-                                                    }, void 0, false, {
-                                                        fileName: "[project]/src/sections/projects/InquirySection.tsx",
-                                                        lineNumber: 121,
-                                                        columnNumber: 19
-                                                    }, this)
-                                                ]
-                                            }, void 0, true, {
-                                                fileName: "[project]/src/sections/projects/InquirySection.tsx",
-                                                lineNumber: 119,
-                                                columnNumber: 17
-                                            }, this),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                className: "flex-1 flex flex-col gap-2 min-w-[120px]",
-                                                children: [
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
-                                                        className: "text-sm text-white",
-                                                        children: "Email Address"
-                                                    }, void 0, false, {
-                                                        fileName: "[project]/src/sections/projects/InquirySection.tsx",
-                                                        lineNumber: 132,
-                                                        columnNumber: 19
-                                                    }, this),
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                                                        type: "email",
-                                                        name: "email",
-                                                        value: formData.email,
-                                                        onChange: handleChange,
-                                                        placeholder: "Enter your email address",
                                                         className: "bg-[#0A0A0A] text-[#E0E0E0] text-sm p-3.5 rounded-lg border border-[#333] focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent",
                                                         required: true
                                                     }, void 0, false, {
@@ -1916,18 +1898,18 @@ const InquirySection = ({ defaultPropertyType, defaultPropertyId })=>{
                                                 children: [
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
                                                         className: "text-sm text-white",
-                                                        children: "Phone Number"
+                                                        children: "Email Address"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/sections/projects/InquirySection.tsx",
                                                         lineNumber: 144,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                                                        type: "tel",
-                                                        name: "phone",
-                                                        value: formData.phone,
+                                                        type: "email",
+                                                        name: "email",
+                                                        value: formData.email,
                                                         onChange: handleChange,
-                                                        placeholder: "Enter your phone number",
+                                                        placeholder: "Enter your email address",
                                                         className: "bg-[#0A0A0A] text-[#E0E0E0] text-sm p-3.5 rounded-lg border border-[#333] focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent",
                                                         required: true
                                                     }, void 0, false, {
@@ -1940,11 +1922,41 @@ const InquirySection = ({ defaultPropertyType, defaultPropertyId })=>{
                                                 fileName: "[project]/src/sections/projects/InquirySection.tsx",
                                                 lineNumber: 143,
                                                 columnNumber: 17
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "flex-1 flex flex-col gap-2 min-w-[120px]",
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                                        className: "text-sm text-white",
+                                                        children: "Phone Number"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/sections/projects/InquirySection.tsx",
+                                                        lineNumber: 156,
+                                                        columnNumber: 19
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                                        type: "tel",
+                                                        name: "phone",
+                                                        value: formData.phone,
+                                                        onChange: handleChange,
+                                                        placeholder: "Enter your phone number",
+                                                        className: "bg-[#0A0A0A] text-[#E0E0E0] text-sm p-3.5 rounded-lg border border-[#333] focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent",
+                                                        required: true
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/sections/projects/InquirySection.tsx",
+                                                        lineNumber: 157,
+                                                        columnNumber: 19
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/src/sections/projects/InquirySection.tsx",
+                                                lineNumber: 155,
+                                                columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/sections/projects/InquirySection.tsx",
-                                        lineNumber: 118,
+                                        lineNumber: 130,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -1953,7 +1965,7 @@ const InquirySection = ({ defaultPropertyType, defaultPropertyId })=>{
                                         value: formData.propertyType
                                     }, void 0, false, {
                                         fileName: "[project]/src/sections/projects/InquirySection.tsx",
-                                        lineNumber: 157,
+                                        lineNumber: 169,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -1962,13 +1974,13 @@ const InquirySection = ({ defaultPropertyType, defaultPropertyId })=>{
                                         value: formData.propertyId
                                     }, void 0, false, {
                                         fileName: "[project]/src/sections/projects/InquirySection.tsx",
-                                        lineNumber: 158,
+                                        lineNumber: 170,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/sections/projects/InquirySection.tsx",
-                                lineNumber: 117,
+                                lineNumber: 129,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1984,7 +1996,7 @@ const InquirySection = ({ defaultPropertyType, defaultPropertyId })=>{
                                         required: true
                                     }, void 0, false, {
                                         fileName: "[project]/src/sections/projects/InquirySection.tsx",
-                                        lineNumber: 162,
+                                        lineNumber: 174,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
@@ -1993,13 +2005,13 @@ const InquirySection = ({ defaultPropertyType, defaultPropertyId })=>{
                                         children: "I agree to receive communications about the real estate universe Group and other projects from the developer."
                                     }, void 0, false, {
                                         fileName: "[project]/src/sections/projects/InquirySection.tsx",
-                                        lineNumber: 171,
+                                        lineNumber: 183,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/sections/projects/InquirySection.tsx",
-                                lineNumber: 161,
+                                lineNumber: 173,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -2008,29 +2020,29 @@ const InquirySection = ({ defaultPropertyType, defaultPropertyId })=>{
                                 children: "Submit Enquiry"
                             }, void 0, false, {
                                 fileName: "[project]/src/sections/projects/InquirySection.tsx",
-                                lineNumber: 176,
+                                lineNumber: 188,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/sections/projects/InquirySection.tsx",
-                        lineNumber: 116,
+                        lineNumber: 128,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/sections/projects/InquirySection.tsx",
-                lineNumber: 106,
+                lineNumber: 118,
                 columnNumber: 9
             }, this)
         }, void 0, false, {
             fileName: "[project]/src/sections/projects/InquirySection.tsx",
-            lineNumber: 105,
+            lineNumber: 117,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/sections/projects/InquirySection.tsx",
-        lineNumber: 104,
+        lineNumber: 116,
         columnNumber: 5
     }, this);
 };

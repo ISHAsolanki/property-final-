@@ -17,6 +17,7 @@ export interface ContactInfo {
   icon: SocialIconType;
   text: string;
   type: 'text' | 'email' | 'phone' | 'address' | 'hours';
+  href?: string;
 }
 
 export interface FilterChip {

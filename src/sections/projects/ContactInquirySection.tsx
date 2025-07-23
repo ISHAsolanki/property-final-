@@ -63,6 +63,24 @@ const ContactInquirySection: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    // Validation
+    const name = formData.fullName.trim();
+    const email = formData.email.trim();
+    const phone = formData.phone.trim();
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const phonePattern = /^\d{10}$/;
+    if (!name || name === '.' || /^\.+$/.test(name)) {
+      alert('Name cannot be empty, only spaces, or only dots.');
+      return;
+    }
+    if (!emailPattern.test(email)) {
+      alert('Please enter a valid email address.');
+      return;
+    }
+    if (!phonePattern.test(phone)) {
+      alert('Please enter a valid 10 digit phone number (digits only).');
+      return;
+    }
     try {
       const res = await fetch('/api/inquiries', {
         method: 'POST',

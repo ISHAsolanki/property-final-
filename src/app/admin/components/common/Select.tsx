@@ -44,8 +44,8 @@ export const Select: React.FC<SelectProps> = ({
         }`}
       >
         {placeholder && <option value="">{placeholder}</option>}
-        {options.map((option) => (
-          <option key={option.value} value={option.value}>
+        {options.map((option, idx) => (
+          <option key={option.value !== '' ? option.value : `empty-${idx}`} value={option.value}>
             {option.label}
           </option>
         ))}

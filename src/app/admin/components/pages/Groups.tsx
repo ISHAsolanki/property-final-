@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Card } from '../common/Card';
 import { Button } from '../common/Button';
 import { Input } from '../common/Input';
@@ -56,6 +56,10 @@ const Groups: React.FC = () => {
 
   const handleAddGroup = async () => {
     setMessage(null);
+    if (!groupName.trim()) {
+      setMessage('Group name cannot be empty or only spaces.');
+      return;
+    }
     try {
       const res = await fetch('/api/groups', {
         method: 'POST',
@@ -90,12 +94,18 @@ const Groups: React.FC = () => {
     }
   };
 
+  const formRef = useRef<HTMLDivElement>(null);
   const handleEditGroup = (group: Group) => {
     setEditingGroup(group);
     setShowForm(true);
     setGroupName(group.name);
     setSelectedProperties(group.properties.map(p => p._id).filter((id): id is string => !!id));
     setGroupPhoto((group as any).photo || '');
+    setTimeout(() => {
+      if (formRef.current) {
+        formRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }, 100);
   };
 
   const handleSaveEdit = async () => {
@@ -137,7 +147,7 @@ const Groups: React.FC = () => {
       )}
       {showForm && (
         <Card className="mb-8">
-          <div className="flex flex-col gap-4">
+          <div ref={formRef} className="flex flex-col gap-4">
             <Input label="Group Name" value={groupName} onChange={setGroupName} />
             <label className="text-gray-300 text-sm font-medium mb-1">Select Properties</label>
             <div className="flex flex-col gap-2">

@@ -33,7 +33,7 @@ const defaultForm: Property = {
   locationAdvantage: { address: '', addressUrl: '', advantages: [''] },
   featuredDevelopment: { text: '', images: [{ url: '', name: '', data: '' }] },
   otherProjects: [''],
-  trendingScore: 1,
+  trendingScore: undefined,
   featured: false,
   home: false,
   status: '',
@@ -277,6 +277,82 @@ export const PropertyForm: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    // Property name validation
+    const name = formData.name.trim();
+    if (!name || name === '.' || /^\.+$/.test(name)) {
+      showToast('Property name cannot be empty, only spaces, or only dots.', 'error');
+      setLoading(false);
+      return;
+    }
+    // Video URL validation (all must be valid if not blank)
+    const urlPattern = /^https?:\/\/.+\..+/;
+    for (const video of formData.videos) {
+      if (video.url && !urlPattern.test(video.url)) {
+        showToast('Please enter a valid Video URL (must start with http:// or https://)', 'error');
+        setLoading(false);
+        return;
+      }
+    }
+
+    // Address URL validation (if present)
+    if (formData.locationAdvantage.addressUrl && !urlPattern.test(formData.locationAdvantage.addressUrl)) {
+      showToast('Please enter a valid Address URL (must start with http:// or https://)', 'error');
+      setLoading(false);
+      return;
+    }
+    // RERA Number validation (if present)
+    if (formData.keyHighlights?.reraApproved) {
+      const reraNumber = formData.keyHighlights.reraNumber?.trim();
+      if (reraNumber && /^-?0+$/.test(reraNumber)) {
+        showToast('RERA Number cannot be zero.', 'error');
+        setLoading(false);
+        return;
+      }
+      if (reraNumber && /^-/.test(reraNumber)) {
+        showToast('RERA Number cannot be negative.', 'error');
+        setLoading(false);
+        return;
+      }
+    }
+
+    // Carpet Area validation
+    const carpetFrom = parseFloat(formData.keyHighlights?.carpetArea?.from || '');
+    const carpetTo = parseFloat(formData.keyHighlights?.carpetArea?.to || '');
+    if (
+      isNaN(carpetFrom) || isNaN(carpetTo) ||
+      carpetFrom <= 0 || carpetTo <= 0
+    ) {
+      showToast('Carpet area values must be positive numbers.', 'error');
+      setLoading(false);
+      return;
+    }
+    if (carpetFrom > carpetTo) {
+      showToast('Carpet Area From should not be greater than Carpet Area To.', 'error');
+      setLoading(false);
+      return;
+    }
+    // Website URL validation
+    if (formData.builder.websiteUrl && !/^https?:\/\/.+\..+/.test(formData.builder.websiteUrl)) {
+      showToast('Please enter a valid Website URL (must start with http:// or https://)', 'error');
+      setLoading(false);
+      return;
+    }
+    // Price validation
+    const fromValue = parseFloat(formData.priceRange.from.value);
+    const toValue = parseFloat(formData.priceRange.to.value);
+    const fromUnit = formData.priceRange.from.unit;
+    const toUnit = formData.priceRange.to.unit;
+    // Convert to Cr for comparison
+    const fromCr = fromUnit === 'Cr' ? fromValue : fromValue / 100;
+    const toCr = toUnit === 'Cr' ? toValue : toValue / 100;
+    if (isNaN(fromValue) || isNaN(toValue) || fromValue <= 0 || toValue <= 0) {
+      showToast('Price values must be positive numbers.', 'error');
+      return;
+    }
+    if (fromCr > toCr) {
+      showToast('Price From should not be greater than Price To.', 'error');
+      return;
+    }
     setLoading(true);
     try {
       // Remove gallery items that have neither data nor url
@@ -295,6 +371,7 @@ export const PropertyForm: React.FC = () => {
         setSelectedProperty(null); // Clear selected property after saving
       } else {
         showToast(data.message || 'Failed to save property', 'error');
+        // Do not close the form on error
       }
     } catch (err) {
       showToast('Failed to save property', 'error');

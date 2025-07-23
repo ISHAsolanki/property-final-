@@ -17,8 +17,9 @@ const GroupSchema = new Schema({
 
 const Group = models.Group || model('Group', GroupSchema);
 
-export async function PUT(req: NextRequest, { params }: { params: { id: string } }) {
+export async function PUT(req: NextRequest, context: { params: { id: string } }) {
   await connectDB();
+  const { params } = await context;
   const { id } = params;
   const data = await req.json();
   const group = await Group.findByIdAndUpdate(
@@ -29,19 +30,21 @@ export async function PUT(req: NextRequest, { params }: { params: { id: string }
   return NextResponse.json({ success: !!group, group });
 }
 
-export async function DELETE(req: NextRequest, { params }: { params: { id: string } }) {
+export async function DELETE(req: NextRequest, context: { params: { id: string } }) {
   await connectDB();
+  const { params } = await context;
   const { id } = params;
   const result = await Group.findByIdAndDelete(id);
   return NextResponse.json({ success: !!result });
 }
 
-export async function GET(req: NextRequest, { params }: { params: { id: string } }) {
+export async function GET(req: NextRequest, context: { params: { id: string } }) {
   await connectDB();
+  const { params } = await context;
   const { id } = params;
   const group = await Group.findById(id).populate('properties');
   if (!group) {
     return NextResponse.json({ success: false, message: 'Group not found' }, { status: 404 });
   }
   return NextResponse.json({ success: true, group });
-} 
+}

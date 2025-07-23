@@ -104,6 +104,22 @@ const ArticlesAdmin: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    // Validation
+    const title = form.title.trim();
+    const author = form.author.trim();
+    const readTimeNum = parseInt(form.readTime);
+    if (!title || title === '.' || /^\.+$/.test(title)) {
+      alert('Article title cannot be empty, only spaces, or only dots.');
+      return;
+    }
+    if (!author || author === '.' || /^\.+$/.test(author)) {
+      alert('Author name cannot be empty, only spaces, or only dots.');
+      return;
+    }
+    if (isNaN(readTimeNum) || readTimeNum <= 0) {
+      alert('Read time must be a positive number.');
+      return;
+    }
     const method = editingId ? 'PUT' : 'POST';
     const url = '/api/articles';
     const body = editingId ? { ...form, _id: editingId } : form;

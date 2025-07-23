@@ -25,11 +25,16 @@ const PropertyCategories: React.FC = () => {
 
   const handleAddCategory = async () => {
     setMessage(null);
+    const trimmed = categoryName.trim();
+    if (!trimmed || trimmed === '.' || /^\.+$/.test(trimmed)) {
+      setMessage('Category name cannot be empty, only spaces, or only dots.');
+      return;
+    }
     try {
       const res = await fetch('/api/property-categories', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name: categoryName })
+        body: JSON.stringify({ name: trimmed })
       });
       const data = await res.json();
       if (data.success) {
@@ -57,8 +62,9 @@ const PropertyCategories: React.FC = () => {
   };
 
   const handleSaveEdit = async () => {
-    if (!editingId || !editingName.trim()) {
-      setMessage('Category name cannot be empty.');
+    const trimmed = editingName.trim();
+    if (!editingId || !trimmed || trimmed === '.' || /^\.+$/.test(trimmed)) {
+      setMessage('Category name cannot be empty, only spaces, or only dots.');
       return;
     }
     setMessage(null);

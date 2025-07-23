@@ -74,16 +74,16 @@ export const Properties: React.FC = () => {
     }
   };
 
-  const propertyTypeOptions = [
-    { value: '', label: 'All Types' },
-    { value: 'Residential', label: 'Residential' },
-    { value: 'Commercial', label: 'Commercial' },
-    { value: 'Land', label: 'Land' },
-    { value: 'Luxury', label: 'Luxury' },
-    { value: 'Appartment', label: 'Appartment' },
-    { value: 'Villa', label: 'Villa' },
-    { value: 'Penthouse', label: 'Penthouse' },
-  ];
+  const [propertyTypeOptions, setPropertyTypeOptions] = useState<{ value: string; label: string }[]>([{ value: '', label: 'All Types' }]);
+  useEffect(() => {
+    fetch('/api/property-categories')
+      .then(res => res.json())
+      .then(data => {
+        if (data.success && Array.isArray(data.categories)) {
+          setPropertyTypeOptions([{ value: '', label: 'All Types' }, ...data.categories.map((cat: { name: string }) => ({ value: cat.name.trim(), label: cat.name.trim() }))]);
+        }
+      });
+  }, []);
 
   const statusOptions = [
     { value: '', label: 'All Status' },
