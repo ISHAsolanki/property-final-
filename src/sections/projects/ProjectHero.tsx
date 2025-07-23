@@ -30,6 +30,9 @@ export default function ProjectHero({ title, tagline, location, priceRange, bhk,
   const imageSrc = typeof image === 'string' ? image : image.src;
   const formattedPrice = formatPriceRange(priceRange);
   const priceDisplay = `₹ ${formattedPrice && formattedPrice.trim() !== '' ? formattedPrice : '-'}`;
+        const formattedBHK = bhk
+          ? bhk.split(',').map(b => b.trim()).filter(Boolean).join(', ')
+          : '';
 
   // Scroll to gallery section
   const handleViewGallery = () => {
@@ -83,10 +86,10 @@ export default function ProjectHero({ title, tagline, location, priceRange, bhk,
               <div className={projectHeroStyles.metaItem}>
                 <span className="font-medium">{priceDisplay}</span>
               </div>
-              {bhk && (
+              {formattedBHK && (
                 <div className={projectHeroStyles.metaItem}>
                   <FaHome className="mr-2" />
-                  <span>{bhk.replace(/,\s*/g, '').replace(/\s+/g, '')}</span>
+                  <span>{formattedBHK}</span>
                 </div>
               )}
             </div>

@@ -123,7 +123,13 @@ const Hero: React.FC<HeroProps> = ({ onSearch, searchActive, matched: matchedPro
               infoChips: [
                 { icon: 'location', text: homeProps[0].location },
                 { icon: 'price', text: formatPriceRange(homeProps[0].priceRange) },
-                { icon: 'bedroom', text: homeProps[0].keyHighlights?.unitConfiguration ? homeProps[0].keyHighlights.unitConfiguration.replace(/,\s*/g, '').replace(/\s+/g, '') : '' },
+                { icon: 'bedroom', text: homeProps[0].keyHighlights?.unitConfiguration
+                  ? homeProps[0].keyHighlights.unitConfiguration
+                      .split(',')
+                      .map(b => b.trim())
+                      .filter(Boolean)
+                      .join(', ')
+                  : '' },
               ],
               ctaButtons: [
                 { text: 'View Project', variant: 'primary', href: `/projects/${homeProps[0]._id}` },

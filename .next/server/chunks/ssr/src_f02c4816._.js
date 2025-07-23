@@ -192,7 +192,7 @@ function formatPriceRange(price) {
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                 className: "text-[#E0E0E0]",
-                                children: project.bhk ? project.bhk.replace(/,\s*/g, '').replace(/\s+/g, '') : ''
+                                children: project.bhk ? project.bhk.split(',').map((b)=>b.trim()).filter(Boolean).join(', ') : ''
                             }, void 0, false, {
                                 fileName: "[project]/src/components/property/ProjectCard.tsx",
                                 lineNumber: 171,
@@ -209,7 +209,7 @@ function formatPriceRange(price) {
                         children: project.type
                     }, void 0, false, {
                         fileName: "[project]/src/components/property/ProjectCard.tsx",
-                        lineNumber: 175,
+                        lineNumber: 181,
                         columnNumber: 9
                     }, this)
                 ]
@@ -272,21 +272,19 @@ const footerData = {
     quickLinks: [
         {
             label: 'Home',
-            href: '#'
+            href: '/'
         },
         {
             label: 'Properties',
-            href: '#'
+            href: '/'
         },
-        // { label: 'About Us', href: '#' },
-        // { label: 'Services', href: '#' },
         {
             label: 'Contact Us',
-            href: '#'
+            href: '/contact'
         },
         {
-            label: 'Blog',
-            href: '#'
+            label: 'Articles',
+            href: '/articles'
         }
     ],
     contactInfo: [
@@ -298,12 +296,14 @@ const footerData = {
         {
             icon: 'phone',
             text: '063599 26999',
-            type: 'phone'
+            type: 'phone',
+            href: 'tel:06359926999'
         },
         {
             icon: 'email',
             text: 'connect@sakargroup.in',
-            type: 'email'
+            type: 'email',
+            href: 'mailto:connect@sakargroup.in'
         },
         {
             icon: 'time',
@@ -586,13 +586,23 @@ const getIconComponent = (icon, className = 'w-5 h-5 text-[#F7F7F7]')=>{
                                                     lineNumber: 143,
                                                     columnNumber: 19
                                                 }, this),
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                info.href ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
+                                                    href: info.href,
+                                                    className: "font-['Bricolage_Grotesque'] font-light text-base leading-6 text-[#F7F7F7] tracking-[0.02em] hover:underline break-all",
+                                                    target: info.type === 'email' ? '_blank' : undefined,
+                                                    rel: info.type === 'email' ? 'noopener noreferrer' : undefined,
+                                                    children: info.text
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/components/common/Footer.tsx",
+                                                    lineNumber: 147,
+                                                    columnNumber: 21
+                                                }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                     className: "font-['Bricolage_Grotesque'] font-light text-base leading-6 text-[#F7F7F7] tracking-[0.02em]",
                                                     children: info.text
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/common/Footer.tsx",
-                                                    lineNumber: 146,
-                                                    columnNumber: 19
+                                                    lineNumber: 156,
+                                                    columnNumber: 21
                                                 }, this)
                                             ]
                                         }, index, true, {
@@ -627,7 +637,7 @@ const getIconComponent = (icon, className = 'w-5 h-5 text-[#F7F7F7]')=>{
                                 children: copyright
                             }, void 0, false, {
                                 fileName: "[project]/src/components/common/Footer.tsx",
-                                lineNumber: 158,
+                                lineNumber: 169,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -638,23 +648,23 @@ const getIconComponent = (icon, className = 'w-5 h-5 text-[#F7F7F7]')=>{
                                         children: link.label
                                     }, index, false, {
                                         fileName: "[project]/src/components/common/Footer.tsx",
-                                        lineNumber: 163,
+                                        lineNumber: 174,
                                         columnNumber: 17
                                     }, this))
                             }, void 0, false, {
                                 fileName: "[project]/src/components/common/Footer.tsx",
-                                lineNumber: 161,
+                                lineNumber: 172,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/common/Footer.tsx",
-                        lineNumber: 157,
+                        lineNumber: 168,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/src/components/common/Footer.tsx",
-                    lineNumber: 156,
+                    lineNumber: 167,
                     columnNumber: 9
                 }, this)
             ]
@@ -1549,7 +1559,7 @@ function SearchPage() {
                                             type: property.propertyType,
                                             status: property.status,
                                             image: property.gallery && property.gallery[0] && (property.gallery[0].data || property.gallery[0].url) || '',
-                                            bhk: property.keyHighlights?.unitConfiguration || '',
+                                            bhk: property.keyHighlights?.unitConfiguration ? property.keyHighlights.unitConfiguration.split(',').map((b)=>b.trim()).filter(Boolean).join(', ') : '',
                                             gallery: property.gallery
                                         },
                                         className: "w-[300px] sm:w-[390px] lg:w-[370px] cursor-pointer hover:shadow-2xl transition-shadow duration-200"
@@ -1578,7 +1588,7 @@ function SearchPage() {
                                     children: '<'
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/search/page.tsx",
-                                    lineNumber: 193,
+                                    lineNumber: 199,
                                     columnNumber: 15
                                 }, this),
                                 [
@@ -1589,7 +1599,7 @@ function SearchPage() {
                                         children: i + 1
                                     }, i, false, {
                                         fileName: "[project]/src/app/search/page.tsx",
-                                        lineNumber: 201,
+                                        lineNumber: 207,
                                         columnNumber: 17
                                     }, this)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1599,13 +1609,13 @@ function SearchPage() {
                                     children: '>'
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/search/page.tsx",
-                                    lineNumber: 209,
+                                    lineNumber: 215,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/search/page.tsx",
-                            lineNumber: 192,
+                            lineNumber: 198,
                             columnNumber: 13
                         }, this)
                     ]
@@ -1621,7 +1631,7 @@ function SearchPage() {
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$common$2f$Footer$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                 fileName: "[project]/src/app/search/page.tsx",
-                lineNumber: 220,
+                lineNumber: 226,
                 columnNumber: 7
             }, this)
         ]

@@ -655,6 +655,7 @@ function ProjectHero({ title, tagline, location, priceRange, bhk, image, builder
     const imageSrc = typeof image === 'string' ? image : image.src;
     const formattedPrice = formatPriceRange(priceRange);
     const priceDisplay = `₹ ${formattedPrice && formattedPrice.trim() !== '' ? formattedPrice : '-'}`;
+    const formattedBHK = bhk ? bhk.split(',').map((b)=>b.trim()).filter(Boolean).join(', ') : '';
     // Scroll to gallery section
     const handleViewGallery = ()=>{
         if ("TURBOPACK compile-time truthy", 1) {
@@ -684,12 +685,12 @@ function ProjectHero({ title, tagline, location, priceRange, bhk, image, builder
                     sizes: "100vw"
                 }, void 0, false, {
                     fileName: "[project]/src/sections/projects/ProjectHero.tsx",
-                    lineNumber: 54,
+                    lineNumber: 57,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/sections/projects/ProjectHero.tsx",
-                lineNumber: 47,
+                lineNumber: 50,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -704,7 +705,7 @@ function ProjectHero({ title, tagline, location, priceRange, bhk, image, builder
                                 children: tagline
                             }, void 0, false, {
                                 fileName: "[project]/src/sections/projects/ProjectHero.tsx",
-                                lineNumber: 69,
+                                lineNumber: 72,
                                 columnNumber: 15
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
@@ -712,7 +713,7 @@ function ProjectHero({ title, tagline, location, priceRange, bhk, image, builder
                                 children: title
                             }, void 0, false, {
                                 fileName: "[project]/src/sections/projects/ProjectHero.tsx",
-                                lineNumber: 75,
+                                lineNumber: 78,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -725,20 +726,20 @@ function ProjectHero({ title, tagline, location, priceRange, bhk, image, builder
                                                 className: "mr-2"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/sections/projects/ProjectHero.tsx",
-                                                lineNumber: 80,
+                                                lineNumber: 83,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                 children: location
                                             }, void 0, false, {
                                                 fileName: "[project]/src/sections/projects/ProjectHero.tsx",
-                                                lineNumber: 81,
+                                                lineNumber: 84,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/sections/projects/ProjectHero.tsx",
-                                        lineNumber: 79,
+                                        lineNumber: 82,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -748,41 +749,41 @@ function ProjectHero({ title, tagline, location, priceRange, bhk, image, builder
                                             children: priceDisplay
                                         }, void 0, false, {
                                             fileName: "[project]/src/sections/projects/ProjectHero.tsx",
-                                            lineNumber: 84,
+                                            lineNumber: 87,
                                             columnNumber: 17
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/src/sections/projects/ProjectHero.tsx",
-                                        lineNumber: 83,
+                                        lineNumber: 86,
                                         columnNumber: 15
                                     }, this),
-                                    bhk && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    formattedBHK && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         className: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$project$2d$page$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["projectHeroStyles"].metaItem,
                                         children: [
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$fa$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FaHome"], {
                                                 className: "mr-2"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/sections/projects/ProjectHero.tsx",
-                                                lineNumber: 88,
+                                                lineNumber: 91,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                children: bhk.replace(/,\s*/g, '').replace(/\s+/g, '')
+                                                children: formattedBHK
                                             }, void 0, false, {
                                                 fileName: "[project]/src/sections/projects/ProjectHero.tsx",
-                                                lineNumber: 89,
+                                                lineNumber: 92,
                                                 columnNumber: 19
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/sections/projects/ProjectHero.tsx",
-                                        lineNumber: 87,
+                                        lineNumber: 90,
                                         columnNumber: 17
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/sections/projects/ProjectHero.tsx",
-                                lineNumber: 78,
+                                lineNumber: 81,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -796,7 +797,7 @@ function ProjectHero({ title, tagline, location, priceRange, bhk, image, builder
                                         children: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$project$2d$page$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["projectPageContent"].ctaButtons.contactDeveloper
                                     }, void 0, false, {
                                         fileName: "[project]/src/sections/projects/ProjectHero.tsx",
-                                        lineNumber: 97,
+                                        lineNumber: 100,
                                         columnNumber: 17
                                     }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                         className: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$project$2d$page$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["projectHeroStyles"].primaryButton,
@@ -804,7 +805,7 @@ function ProjectHero({ title, tagline, location, priceRange, bhk, image, builder
                                         children: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$project$2d$page$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["projectPageContent"].ctaButtons.contactDeveloper
                                     }, void 0, false, {
                                         fileName: "[project]/src/sections/projects/ProjectHero.tsx",
-                                        lineNumber: 101,
+                                        lineNumber: 104,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -814,35 +815,35 @@ function ProjectHero({ title, tagline, location, priceRange, bhk, image, builder
                                         children: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$project$2d$page$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["projectPageContent"].ctaButtons.viewGallery
                                     }, void 0, false, {
                                         fileName: "[project]/src/sections/projects/ProjectHero.tsx",
-                                        lineNumber: 105,
+                                        lineNumber: 108,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/sections/projects/ProjectHero.tsx",
-                                lineNumber: 95,
+                                lineNumber: 98,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/sections/projects/ProjectHero.tsx",
-                        lineNumber: 66,
+                        lineNumber: 69,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/src/sections/projects/ProjectHero.tsx",
-                    lineNumber: 65,
+                    lineNumber: 68,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/sections/projects/ProjectHero.tsx",
-                lineNumber: 64,
+                lineNumber: 67,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/sections/projects/ProjectHero.tsx",
-        lineNumber: 45,
+        lineNumber: 48,
         columnNumber: 5
     }, this);
 }
@@ -1103,7 +1104,7 @@ const KeyHighlights = ({ highlights })=>{
         {
             icon: icons.carpet,
             title: 'Unit Configuration',
-            description: highlights.unitConfiguration ? highlights.unitConfiguration.replace(/,\s*/g, '').replace(/\s+/g, '') : 'N/A'
+            description: highlights.unitConfiguration ? highlights.unitConfiguration.split(',').map((b)=>b.trim()).filter(Boolean).join(', ') : 'N/A'
         },
         {
             icon: icons.carpet,
@@ -1166,7 +1167,7 @@ const KeyHighlights = ({ highlights })=>{
                                             children: "Key Highlights"
                                         }, void 0, false, {
                                             fileName: "[project]/src/sections/projects/KeyHighlights.tsx",
-                                            lineNumber: 137,
+                                            lineNumber: 141,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1179,12 +1180,12 @@ const KeyHighlights = ({ highlights })=>{
                                                         className: "text-white w-3 h-3"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/sections/projects/KeyHighlights.tsx",
-                                                        lineNumber: 145,
+                                                        lineNumber: 149,
                                                         columnNumber: 21
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/sections/projects/KeyHighlights.tsx",
-                                                    lineNumber: 141,
+                                                    lineNumber: 145,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1194,24 +1195,24 @@ const KeyHighlights = ({ highlights })=>{
                                                         className: "text-white w-3 h-3"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/sections/projects/KeyHighlights.tsx",
-                                                        lineNumber: 151,
+                                                        lineNumber: 155,
                                                         columnNumber: 21
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/sections/projects/KeyHighlights.tsx",
-                                                    lineNumber: 147,
+                                                    lineNumber: 151,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/sections/projects/KeyHighlights.tsx",
-                                            lineNumber: 140,
+                                            lineNumber: 144,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/sections/projects/KeyHighlights.tsx",
-                                    lineNumber: 136,
+                                    lineNumber: 140,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1234,7 +1235,7 @@ const KeyHighlights = ({ highlights })=>{
                                                                 children: item.icon
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/sections/projects/KeyHighlights.tsx",
-                                                                lineNumber: 165,
+                                                                lineNumber: 169,
                                                                 columnNumber: 25
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1245,7 +1246,7 @@ const KeyHighlights = ({ highlights })=>{
                                                                         children: item.title
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/sections/projects/KeyHighlights.tsx",
-                                                                        lineNumber: 169,
+                                                                        lineNumber: 173,
                                                                         columnNumber: 27
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1253,63 +1254,63 @@ const KeyHighlights = ({ highlights })=>{
                                                                         children: item.description
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/sections/projects/KeyHighlights.tsx",
-                                                                        lineNumber: 170,
+                                                                        lineNumber: 174,
                                                                         columnNumber: 27
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/src/sections/projects/KeyHighlights.tsx",
-                                                                lineNumber: 168,
+                                                                lineNumber: 172,
                                                                 columnNumber: 25
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/sections/projects/KeyHighlights.tsx",
-                                                        lineNumber: 164,
+                                                        lineNumber: 168,
                                                         columnNumber: 23
                                                     }, this)
                                                 }, index, false, {
                                                     fileName: "[project]/src/sections/projects/KeyHighlights.tsx",
-                                                    lineNumber: 163,
+                                                    lineNumber: 167,
                                                     columnNumber: 21
                                                 }, this))
                                         }, void 0, false, {
                                             fileName: "[project]/src/sections/projects/KeyHighlights.tsx",
-                                            lineNumber: 157,
+                                            lineNumber: 161,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                             className: "jsx-6639e4eac6b78d61" + " " + "absolute right-0 top-0 w-20 h-full bg-gradient-to-l from-black to-transparent pointer-events-none z-10"
                                         }, void 0, false, {
                                             fileName: "[project]/src/sections/projects/KeyHighlights.tsx",
-                                            lineNumber: 177,
+                                            lineNumber: 181,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/sections/projects/KeyHighlights.tsx",
-                                    lineNumber: 156,
+                                    lineNumber: 160,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/sections/projects/KeyHighlights.tsx",
-                            lineNumber: 134,
+                            lineNumber: 138,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/sections/projects/KeyHighlights.tsx",
-                        lineNumber: 133,
+                        lineNumber: 137,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/src/sections/projects/KeyHighlights.tsx",
-                    lineNumber: 124,
+                    lineNumber: 128,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/sections/projects/KeyHighlights.tsx",
-                lineNumber: 123,
+                lineNumber: 127,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
@@ -1319,7 +1320,7 @@ const KeyHighlights = ({ highlights })=>{
         ]
     }, void 0, true, {
         fileName: "[project]/src/sections/projects/KeyHighlights.tsx",
-        lineNumber: 122,
+        lineNumber: 126,
         columnNumber: 5
     }, this);
 };
@@ -2236,6 +2237,8 @@ var _s = __turbopack_context__.k.signature();
 ;
 ;
 const ProjectCard = ({ id, title, type, location, price, size, image })=>{
+    // Format size (unit configuration) as comma-separated
+    const formattedSize = size ? size.split(',').map((b)=>b.trim()).filter(Boolean).join(', ') : '';
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "flex flex-col w-[360px] h-[280px] bg-[#0A0A0A] rounded-lg overflow-hidden shadow-lg",
         children: [
@@ -2249,7 +2252,7 @@ const ProjectCard = ({ id, title, type, location, price, size, image })=>{
                         className: "object-cover"
                     }, void 0, false, {
                         fileName: "[project]/src/sections/projects/RelatedProjects.tsx",
-                        lineNumber: 36,
+                        lineNumber: 40,
                         columnNumber: 11
                     }, this) : null,
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2268,28 +2271,28 @@ const ProjectCard = ({ id, title, type, location, price, size, image })=>{
                                     fill: "currentColor"
                                 }, void 0, false, {
                                     fileName: "[project]/src/sections/projects/RelatedProjects.tsx",
-                                    lineNumber: 55,
+                                    lineNumber: 59,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/sections/projects/RelatedProjects.tsx",
-                                lineNumber: 47,
+                                lineNumber: 51,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/src/sections/projects/RelatedProjects.tsx",
-                            lineNumber: 46,
+                            lineNumber: 50,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/sections/projects/RelatedProjects.tsx",
-                        lineNumber: 45,
+                        lineNumber: 49,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/sections/projects/RelatedProjects.tsx",
-                lineNumber: 34,
+                lineNumber: 38,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2300,7 +2303,7 @@ const ProjectCard = ({ id, title, type, location, price, size, image })=>{
                         children: title
                     }, void 0, false, {
                         fileName: "[project]/src/sections/projects/RelatedProjects.tsx",
-                        lineNumber: 66,
+                        lineNumber: 70,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2317,7 +2320,7 @@ const ProjectCard = ({ id, title, type, location, price, size, image })=>{
                                         fill: "#9CA3AF"
                                     }, void 0, false, {
                                         fileName: "[project]/src/sections/projects/RelatedProjects.tsx",
-                                        lineNumber: 77,
+                                        lineNumber: 81,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
@@ -2325,13 +2328,13 @@ const ProjectCard = ({ id, title, type, location, price, size, image })=>{
                                         fill: "#9CA3AF"
                                     }, void 0, false, {
                                         fileName: "[project]/src/sections/projects/RelatedProjects.tsx",
-                                        lineNumber: 81,
+                                        lineNumber: 85,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/sections/projects/RelatedProjects.tsx",
-                                lineNumber: 71,
+                                lineNumber: 75,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2339,13 +2342,13 @@ const ProjectCard = ({ id, title, type, location, price, size, image })=>{
                                 children: location
                             }, void 0, false, {
                                 fileName: "[project]/src/sections/projects/RelatedProjects.tsx",
-                                lineNumber: 86,
+                                lineNumber: 90,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/sections/projects/RelatedProjects.tsx",
-                        lineNumber: 70,
+                        lineNumber: 74,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2356,33 +2359,33 @@ const ProjectCard = ({ id, title, type, location, price, size, image })=>{
                                 children: price
                             }, void 0, false, {
                                 fileName: "[project]/src/sections/projects/RelatedProjects.tsx",
-                                lineNumber: 90,
+                                lineNumber: 94,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                 className: "text-[#E0E0E0] text-xs",
-                                children: size
+                                children: formattedSize
                             }, void 0, false, {
                                 fileName: "[project]/src/sections/projects/RelatedProjects.tsx",
-                                lineNumber: 93,
+                                lineNumber: 97,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/sections/projects/RelatedProjects.tsx",
-                        lineNumber: 89,
+                        lineNumber: 93,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/sections/projects/RelatedProjects.tsx",
-                lineNumber: 65,
+                lineNumber: 69,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/sections/projects/RelatedProjects.tsx",
-        lineNumber: 32,
+        lineNumber: 36,
         columnNumber: 5
     }, this);
 };
@@ -2434,12 +2437,12 @@ const RelatedProjects = ({ otherProjects })=>{
                             children: "Other Projects of The Stolen Group"
                         }, void 0, false, {
                             fileName: "[project]/src/sections/projects/RelatedProjects.tsx",
-                            lineNumber: 140,
+                            lineNumber: 144,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/sections/projects/RelatedProjects.tsx",
-                        lineNumber: 139,
+                        lineNumber: 143,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2447,18 +2450,18 @@ const RelatedProjects = ({ otherProjects })=>{
                         children: "Loading related projects..."
                     }, void 0, false, {
                         fileName: "[project]/src/sections/projects/RelatedProjects.tsx",
-                        lineNumber: 144,
+                        lineNumber: 148,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/sections/projects/RelatedProjects.tsx",
-                lineNumber: 138,
+                lineNumber: 142,
                 columnNumber: 9
             }, this)
         }, void 0, false, {
             fileName: "[project]/src/sections/projects/RelatedProjects.tsx",
-            lineNumber: 137,
+            lineNumber: 141,
             columnNumber: 7
         }, this);
     }
@@ -2477,12 +2480,12 @@ const RelatedProjects = ({ otherProjects })=>{
                         children: "Other Projects of The Stolen Group"
                     }, void 0, false, {
                         fileName: "[project]/src/sections/projects/RelatedProjects.tsx",
-                        lineNumber: 158,
+                        lineNumber: 162,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/src/sections/projects/RelatedProjects.tsx",
-                    lineNumber: 157,
+                    lineNumber: 161,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2496,32 +2499,32 @@ const RelatedProjects = ({ otherProjects })=>{
                                 type: property.status || 'Property',
                                 location: property.location,
                                 price: property.priceRange && property.priceRange.from && property.priceRange.to ? `${property.priceRange.from.value} ${property.priceRange.from.unit} - ${property.priceRange.to.value} ${property.priceRange.to.unit}` : '',
-                                size: property.keyHighlights.unitConfiguration || '',
+                                size: property.keyHighlights.unitConfiguration ? property.keyHighlights.unitConfiguration.split(',').map((b)=>b.trim()).filter(Boolean).join(', ') : '',
                                 image: property.gallery && property.gallery[0] && (property.gallery[0].data || property.gallery[0].url) || ''
                             }, void 0, false, {
                                 fileName: "[project]/src/sections/projects/RelatedProjects.tsx",
-                                lineNumber: 166,
+                                lineNumber: 170,
                                 columnNumber: 15
                             }, this)
                         }, property._id, false, {
                             fileName: "[project]/src/sections/projects/RelatedProjects.tsx",
-                            lineNumber: 165,
+                            lineNumber: 169,
                             columnNumber: 13
                         }, this))
                 }, void 0, false, {
                     fileName: "[project]/src/sections/projects/RelatedProjects.tsx",
-                    lineNumber: 163,
+                    lineNumber: 167,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/src/sections/projects/RelatedProjects.tsx",
-            lineNumber: 156,
+            lineNumber: 160,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/sections/projects/RelatedProjects.tsx",
-        lineNumber: 155,
+        lineNumber: 159,
         columnNumber: 5
     }, this);
 };

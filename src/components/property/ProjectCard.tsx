@@ -169,7 +169,13 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             {formatPriceRange(project.price)}
           </span>
           <span className="text-[#E0E0E0]">
-            {project.bhk ? project.bhk.replace(/,\s*/g, '').replace(/\s+/g, '') : ''}
+            {project.bhk
+              ? project.bhk
+                  .split(',')
+                  .map(b => b.trim())
+                  .filter(Boolean)
+                  .join(', ')
+              : ''}
           </span>
         </div>
         <div className="mt-2 text-xs sm:text-sm text-[#E0E0E0]">

@@ -5,7 +5,11 @@ const bricolage = Bricolage_Grotesque({ subsets: ['latin'] });
 
 type Property = { _id: string; name: string; propertyType: string };
 
-const ContactInquirySection: React.FC = () => {
+interface ContactInquirySectionProps {
+  onClose: () => void;
+}
+
+const ContactInquirySection: React.FC<ContactInquirySectionProps> = ({ onClose }) => {
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
@@ -107,9 +111,16 @@ const ContactInquirySection: React.FC = () => {
   };
 
   return (
-    <section className="flex flex-col items-center py-10 px-10 md:px-40 w-full bg-[#0A0A0A]">
+    <section className="flex flex-col items-center py-10 px-10 md:px-40 w-full">
       <div className="w-full max-w-[1100px] flex flex-col">
-        <div className="bg-[#141414] rounded-2xl p-6 md:p-10 w-full">
+        <div className="bg-[#141414] rounded-2xl p-6 md:p-10 w-full relative">
+          <button
+            className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-white shadow-lg flex items-center justify-center text-black text-2xl focus:outline-none border border-gray-300 hover:bg-gray-100 transition"
+            onClick={onClose}
+            aria-label="Close contact form"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
           <div className="flex flex-col items-center gap-1 mb-10">
             <h2 className={`${bricolage.className} text-2xl font-medium text-white text-center`}>
               Inquire Now
@@ -223,4 +234,4 @@ const ContactInquirySection: React.FC = () => {
   );
 };
 
-export default ContactInquirySection; 
+export default ContactInquirySection;

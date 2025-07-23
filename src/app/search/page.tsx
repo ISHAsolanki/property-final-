@@ -178,7 +178,13 @@ export default function SearchPage() {
                     status: property.status as any,
                     image:
                       (property.gallery && property.gallery[0] && (property.gallery[0].data || property.gallery[0].url)) || '',
-                    bhk: property.keyHighlights?.unitConfiguration || '',
+                    bhk: property.keyHighlights?.unitConfiguration
+                      ? property.keyHighlights.unitConfiguration
+                          .split(',')
+                          .map(b => b.trim())
+                          .filter(Boolean)
+                          .join(', ')
+                      : '',
                     gallery: property.gallery,
                   }}
                     className="w-[300px] sm:w-[390px] lg:w-[370px] cursor-pointer hover:shadow-2xl transition-shadow duration-200"

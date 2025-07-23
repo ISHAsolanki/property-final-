@@ -84,7 +84,11 @@ const KeyHighlights: React.FC<KeyHighlightsProps> = ({ highlights }) => {
       icon: icons.carpet,
       title: 'Unit Configuration',
       description: highlights.unitConfiguration
-        ? highlights.unitConfiguration.replace(/,\s*/g, '').replace(/\s+/g, '')
+        ? highlights.unitConfiguration
+            .split(',')
+            .map(b => b.trim())
+            .filter(Boolean)
+            .join(', ')
         : 'N/A',
     },
     {

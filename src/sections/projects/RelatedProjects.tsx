@@ -28,6 +28,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   size,
   image,
 }) => {
+  // Format size (unit configuration) as comma-separated
+  const formattedSize = size
+    ? size.split(',').map(b => b.trim()).filter(Boolean).join(', ')
+    : '';
   return (
     <div className="flex flex-col w-[360px] h-[280px] bg-[#0A0A0A] rounded-lg overflow-hidden shadow-lg">
       {/* Image Container */}
@@ -90,7 +94,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           <div className="bg-white/10 text-white text-xs font-medium px-2 py-1 rounded">
             {price}
           </div>
-          <span className="text-[#E0E0E0] text-xs">{size}</span>
+          <span className="text-[#E0E0E0] text-xs">{formattedSize}</span>
         </div>
       </div>
     </div>
@@ -173,7 +177,13 @@ const RelatedProjects: React.FC<RelatedProjectsProps> = ({ otherProjects }) => {
                     ? `${property.priceRange.from.value} ${property.priceRange.from.unit} - ${property.priceRange.to.value} ${property.priceRange.to.unit}`
                     : ''
                 }
-                size={property.keyHighlights.unitConfiguration || ''}
+                size={property.keyHighlights.unitConfiguration
+                  ? property.keyHighlights.unitConfiguration
+                      .split(',')
+                      .map(b => b.trim())
+                      .filter(Boolean)
+                      .join(', ')
+                  : ''}
                 image={property.gallery && property.gallery[0] && (property.gallery[0].data || property.gallery[0].url) || ''}
               />
             </Link>

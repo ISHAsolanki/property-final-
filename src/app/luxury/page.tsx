@@ -106,7 +106,13 @@ const LuxuryPage = () => {
                       : 'new-launch') as any,
                     image:
                       (property.gallery && property.gallery[0] && (property.gallery[0].data || property.gallery[0].url)) || '',
-                    bhk: property.keyHighlights.unitConfiguration ? property.keyHighlights.unitConfiguration.replace(/,\s*/g, '').replace(/\s+/g, '') : '',
+                    bhk: property.keyHighlights.unitConfiguration
+                      ? property.keyHighlights.unitConfiguration
+                          .split(',')
+                          .map(b => b.trim())
+                          .filter(Boolean)
+                          .join(', ')
+                      : '',
                   }} tagPosition="bottom" />
                   </div>
                 </Link>

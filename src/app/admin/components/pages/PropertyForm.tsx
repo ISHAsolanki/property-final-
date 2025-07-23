@@ -464,43 +464,24 @@ export const PropertyForm: React.FC = () => {
             <Input label="Possession Date" type="date" value={formData.keyHighlights?.possessionDate || ''} onChange={v => handleNestedChange('keyHighlights', 'possessionDate', v)} />
             <div>
               <label className="block text-gray-300 mb-2">Unit Configuration</label>
-              <div className="flex flex-wrap gap-2 mb-2">
-                {unitNumbers.map((num) => (
-                  <div key={num} className="flex items-center gap-1">
+              <div className="grid grid-cols-3 gap-x-6 gap-y-2 mb-2 w-max">
+                {["1BHK", "2BHK", "3BHK", "4BHK", "5BHK", "6BHK", "RK", "Studio"].map((unit) => (
+                  <div key={unit} className="flex items-center gap-1 min-w-[80px]">
                     <input
                       type="checkbox"
-                      checked={!!formData.keyHighlights?.unitConfiguration?.includes(num)}
+                      checked={!!formData.keyHighlights?.unitConfiguration?.includes(unit)}
                       onChange={e => {
                         let current = formData.keyHighlights?.unitConfiguration?.split(',').map(s => s.trim()).filter(Boolean) || [];
                         if (e.target.checked) {
-                          current.push(num);
+                          current.push(unit);
                         } else {
-                          current = current.filter(val => val !== num);
+                          current = current.filter(val => val !== unit);
                         }
                         handleNestedChange('keyHighlights', 'unitConfiguration', current.join(', '));
                       }}
+                      className="form-checkbox h-4 w-4 text-blue-600"
                     />
-                    <span className="text-gray-300">{num}</span>
-                  </div>
-                ))}
-              </div>
-              <div className="flex flex-wrap gap-2">
-                {unitTypes.map((type) => (
-                  <div key={type} className="flex items-center gap-1">
-                    <input
-                      type="checkbox"
-                      checked={!!formData.keyHighlights?.unitConfiguration?.includes(type)}
-                      onChange={e => {
-                        let current = formData.keyHighlights?.unitConfiguration?.split(',').map(s => s.trim()).filter(Boolean) || [];
-                        if (e.target.checked) {
-                          current.push(type);
-                        } else {
-                          current = current.filter(val => val !== type);
-                        }
-                        handleNestedChange('keyHighlights', 'unitConfiguration', current.join(', '));
-                      }}
-                    />
-                    <span className="text-gray-300">{type}</span>
+                    <span className="text-gray-300 text-base">{unit}</span>
                   </div>
                 ))}
               </div>

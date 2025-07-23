@@ -10,6 +10,7 @@ import ArticlesSection from "@/sections/landing/ArticlesSection";
 import Navigation from "@/components/common/Navigation";
 import Footer from "@/components/common/Footer";
 import React, { useState } from 'react';
+import HomeContactModal from '@/components/common/HomeContactModal';
 import { Property } from '@/app/admin/types';
 
 export default function Home() {
@@ -18,6 +19,7 @@ export default function Home() {
 
   return (
     <>
+      <HomeContactModal />
       <Navigation />
       <Hero 
         onSearch={(results: Property[]) => {

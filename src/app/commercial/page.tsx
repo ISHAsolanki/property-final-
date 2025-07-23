@@ -148,7 +148,13 @@ const CommercialPage = () => {
                             {formatPriceRange(property.priceRange)}
                           </span>
                           <span className="text-[#E0E0E0]">
-                            {property.keyHighlights.unitConfiguration ? property.keyHighlights.unitConfiguration.replace(/,\s*/g, '').replace(/\s+/g, '') : ''}
+                            {property.keyHighlights.unitConfiguration
+                              ? property.keyHighlights.unitConfiguration
+                                  .split(',')
+                                  .map(b => b.trim())
+                                  .filter(Boolean)
+                                  .join(', ')
+                              : ''}
                           </span>
                         </div>
                         <div className="mt-2 text-xs sm:text-sm text-[#E0E0E0]">
