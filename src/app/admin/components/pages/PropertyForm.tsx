@@ -284,6 +284,45 @@ export const PropertyForm: React.FC = () => {
       setLoading(false);
       return;
     }
+    // --- MANDATORY FIELD VALIDATION ---
+    // Key Highlights: Possession Date
+    if (!formData.keyHighlights?.possessionDate) {
+      showToast('Possession Date is required in Key Highlights.', 'error');
+      setLoading(false);
+      return;
+    }
+    // Key Highlights: Unit Configuration
+    if (!formData.keyHighlights?.unitConfiguration || !formData.keyHighlights.unitConfiguration.trim()) {
+      showToast('Unit Configuration is required in Key Highlights.', 'error');
+      setLoading(false);
+      return;
+    }
+    // Gallery: At least one image (with data or url)
+    const hasGalleryImage = Array.isArray(formData.gallery) && formData.gallery.some(img => (img.data && img.data !== '') || (img.url && img.url !== ''));
+    if (!hasGalleryImage) {
+      showToast('At least one image is required in Gallery.', 'error');
+      setLoading(false);
+      return;
+    }
+    // Location and Proximity Highlights: Address
+    if (!formData.locationAdvantage?.address || !formData.locationAdvantage.address.trim()) {
+      showToast('Address is required in Location and Proximity Highlights.', 'error');
+      setLoading(false);
+      return;
+    }
+    // Location and Proximity Highlights: At least one non-empty advantage
+    const hasAdvantage = Array.isArray(formData.locationAdvantage?.advantages) && formData.locationAdvantage.advantages.some(adv => adv && adv.trim());
+    if (!hasAdvantage) {
+      showToast('At least one Advantage is required in Location and Proximity Highlights.', 'error');
+      setLoading(false);
+      return;
+    }
+    // Featured Development: Text
+    if (!formData.featuredDevelopment?.text || !formData.featuredDevelopment.text.trim()) {
+      showToast('Text is required in Featured Development.', 'error');
+      setLoading(false);
+      return;
+    }
     // Video URL validation (all must be valid if not blank)
     const urlPattern = /^https?:\/\/.+\..+/;
     for (const video of formData.videos) {
@@ -461,9 +500,9 @@ export const PropertyForm: React.FC = () => {
             {formData.keyHighlights?.reraApproved && (
               <Input label="RERA Number" value={formData.keyHighlights?.reraNumber || ''} onChange={v => handleNestedChange('keyHighlights', 'reraNumber', v)} required />
             )}
-            <Input label="Possession Date" type="date" value={formData.keyHighlights?.possessionDate || ''} onChange={v => handleNestedChange('keyHighlights', 'possessionDate', v)} />
+            <Input label="Possession Date" type="date" value={formData.keyHighlights?.possessionDate || ''} onChange={v => handleNestedChange('keyHighlights', 'possessionDate', v)} required />
             <div>
-              <label className="block text-gray-300 mb-2">Unit Configuration</label>
+              <label className="block text-gray-300 mb-2">Unit Configuration<span className="text-red-500 ml-1">*</span></label>
               <div className="grid grid-cols-3 gap-x-6 gap-y-2 mb-2 w-max">
                 {["1BHK", "2BHK", "3BHK", "4BHK", "5BHK", "6BHK", "RK", "Studio"].map((unit) => (
                   <div key={unit} className="flex items-center gap-1 min-w-[80px]">
@@ -567,7 +606,7 @@ export const PropertyForm: React.FC = () => {
               ) : item.url ? (
                 <img src={item.url} alt="Preview" className="w-16 h-16 object-cover rounded" />
               ) : null}
-              <Input placeholder="Name" value={item.name} onChange={v => handleGalleryChange(idx, 'name', v)} />
+              <Input placeholder="Name" value={item.name} onChange={v => handleGalleryChange(idx, 'name', v)} required />
               {/* For backward compatibility, allow editing url if present */}
               {item.url && !item.data && (
                 <Input placeholder="Image URL" value={item.url} onChange={v => handleGalleryChange(idx, 'url', v)} />
@@ -592,13 +631,13 @@ export const PropertyForm: React.FC = () => {
         {/* Section 6: Location and Proximity Highlights */}
         <Card>
           <h2 className="text-lg font-semibold text-white mb-6">Location and Proximity Highlights</h2>
-          <Input label="Address" value={formData.locationAdvantage.address} onChange={v => handleNestedChange('locationAdvantage', 'address', v)} />
+          <Input label="Address" value={formData.locationAdvantage.address} onChange={v => handleNestedChange('locationAdvantage', 'address', v)} required />
           <Input label="Address url" value={formData.locationAdvantage.addressUrl} onChange={v => handleNestedChange('locationAdvantage', 'addressUrl', v)} />
           <div className="mt-6">
             <h3 className="text-sm font-medium text-gray-300 mb-2">Advantages</h3>
             {formData.locationAdvantage.advantages.map((adv, idx) => (
               <div key={idx} className="flex items-center space-x-3 mb-2">
-                <Input placeholder="Advantage" value={adv} onChange={v => handleArrayChange('locationAdvantage', 'advantages', idx, v)} />
+                <Input placeholder="Advantage" value={adv} onChange={v => handleArrayChange('locationAdvantage', 'advantages', idx, v)} required />
                 <Button variant="ghost" size="sm" icon={X} onClick={() => handleArrayRemove('locationAdvantage', 'advantages', idx)}>{''}</Button>
               </div>
             ))}
@@ -608,7 +647,7 @@ export const PropertyForm: React.FC = () => {
         {/* Section 7: Featured Development */}
         <Card>
           <h2 className="text-lg font-semibold text-white mb-6">Featured Development</h2>
-          <Input label="Text" value={formData.featuredDevelopment.text} onChange={v => handleNestedChange('featuredDevelopment', 'text', v)} />
+          <Input label="Text" value={formData.featuredDevelopment.text} onChange={v => handleNestedChange('featuredDevelopment', 'text', v)} required />
           <div className="mt-6">
             <h3 className="text-sm font-medium text-gray-300 mb-2">Images</h3>
             {formData.featuredDevelopment.images.map((item, idx) => (

@@ -3577,22 +3577,16 @@ const ContactInquirySection = ({ onClose })=>{
             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "bg-[#141414] rounded-2xl p-6 md:p-10 w-full relative",
                 children: [
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                        className: "absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-white shadow-lg flex items-center justify-center text-black text-2xl focus:outline-none border border-gray-300 hover:bg-gray-100 transition",
+                    onClose && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                        type: "button",
+                        "aria-label": "Close",
                         onClick: onClose,
-                        "aria-label": "Close contact form",
-                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                            "aria-hidden": "true",
-                            children: "×"
-                        }, void 0, false, {
-                            fileName: "[project]/src/sections/projects/ContactInquirySection.tsx",
-                            lineNumber: 122,
-                            columnNumber: 13
-                        }, this)
+                        className: "absolute top-4 right-4 text-gray-400 hover:text-white text-2xl font-bold focus:outline-none z-10",
+                        children: "×"
                     }, void 0, false, {
                         fileName: "[project]/src/sections/projects/ContactInquirySection.tsx",
-                        lineNumber: 117,
-                        columnNumber: 11
+                        lineNumber: 120,
+                        columnNumber: 13
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "flex flex-col items-center gap-1 mb-10",
@@ -3602,7 +3596,7 @@ const ContactInquirySection = ({ onClose })=>{
                                 children: "Inquire Now"
                             }, void 0, false, {
                                 fileName: "[project]/src/sections/projects/ContactInquirySection.tsx",
-                                lineNumber: 125,
+                                lineNumber: 130,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -3610,13 +3604,13 @@ const ContactInquirySection = ({ onClose })=>{
                                 children: "Schedule a site visit or request more information"
                             }, void 0, false, {
                                 fileName: "[project]/src/sections/projects/ContactInquirySection.tsx",
-                                lineNumber: 128,
+                                lineNumber: 133,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/sections/projects/ContactInquirySection.tsx",
-                        lineNumber: 124,
+                        lineNumber: 129,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
@@ -3637,7 +3631,7 @@ const ContactInquirySection = ({ onClose })=>{
                                                         children: "Full Name"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/sections/projects/ContactInquirySection.tsx",
-                                                        lineNumber: 137,
+                                                        lineNumber: 142,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -3650,13 +3644,13 @@ const ContactInquirySection = ({ onClose })=>{
                                                         required: true
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/sections/projects/ContactInquirySection.tsx",
-                                                        lineNumber: 138,
+                                                        lineNumber: 143,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/sections/projects/ContactInquirySection.tsx",
-                                                lineNumber: 136,
+                                                lineNumber: 141,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3667,7 +3661,7 @@ const ContactInquirySection = ({ onClose })=>{
                                                         children: "Email Address"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/sections/projects/ContactInquirySection.tsx",
-                                                        lineNumber: 149,
+                                                        lineNumber: 154,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -3680,13 +3674,13 @@ const ContactInquirySection = ({ onClose })=>{
                                                         required: true
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/sections/projects/ContactInquirySection.tsx",
-                                                        lineNumber: 150,
+                                                        lineNumber: 155,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/sections/projects/ContactInquirySection.tsx",
-                                                lineNumber: 148,
+                                                lineNumber: 153,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3697,7 +3691,7 @@ const ContactInquirySection = ({ onClose })=>{
                                                         children: "Phone Number"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/sections/projects/ContactInquirySection.tsx",
-                                                        lineNumber: 161,
+                                                        lineNumber: 166,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -3710,19 +3704,19 @@ const ContactInquirySection = ({ onClose })=>{
                                                         required: true
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/sections/projects/ContactInquirySection.tsx",
-                                                        lineNumber: 162,
+                                                        lineNumber: 167,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/sections/projects/ContactInquirySection.tsx",
-                                                lineNumber: 160,
+                                                lineNumber: 165,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/sections/projects/ContactInquirySection.tsx",
-                                        lineNumber: 135,
+                                        lineNumber: 140,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3736,7 +3730,7 @@ const ContactInquirySection = ({ onClose })=>{
                                                         children: "Property Type"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/sections/projects/ContactInquirySection.tsx",
-                                                        lineNumber: 175,
+                                                        lineNumber: 180,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
@@ -3752,7 +3746,7 @@ const ContactInquirySection = ({ onClose })=>{
                                                                 children: loadingCategories ? 'Loading...' : 'Select property type'
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/sections/projects/ContactInquirySection.tsx",
-                                                                lineNumber: 184,
+                                                                lineNumber: 189,
                                                                 columnNumber: 21
                                                             }, this),
                                                             propertyCategories.map((type)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -3760,19 +3754,19 @@ const ContactInquirySection = ({ onClose })=>{
                                                                     children: type
                                                                 }, type, false, {
                                                                     fileName: "[project]/src/sections/projects/ContactInquirySection.tsx",
-                                                                    lineNumber: 186,
+                                                                    lineNumber: 191,
                                                                     columnNumber: 23
                                                                 }, this))
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/sections/projects/ContactInquirySection.tsx",
-                                                        lineNumber: 176,
+                                                        lineNumber: 181,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/sections/projects/ContactInquirySection.tsx",
-                                                lineNumber: 174,
+                                                lineNumber: 179,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3783,7 +3777,7 @@ const ContactInquirySection = ({ onClose })=>{
                                                         children: "Property"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/sections/projects/ContactInquirySection.tsx",
-                                                        lineNumber: 191,
+                                                        lineNumber: 196,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
@@ -3799,7 +3793,7 @@ const ContactInquirySection = ({ onClose })=>{
                                                                 children: formData.propertyType ? 'Select property' : 'Select property type first'
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/sections/projects/ContactInquirySection.tsx",
-                                                                lineNumber: 200,
+                                                                lineNumber: 205,
                                                                 columnNumber: 21
                                                             }, this),
                                                             filteredProperties.map((p)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -3807,31 +3801,31 @@ const ContactInquirySection = ({ onClose })=>{
                                                                     children: p.name
                                                                 }, p._id, false, {
                                                                     fileName: "[project]/src/sections/projects/ContactInquirySection.tsx",
-                                                                    lineNumber: 202,
+                                                                    lineNumber: 207,
                                                                     columnNumber: 23
                                                                 }, this))
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/sections/projects/ContactInquirySection.tsx",
-                                                        lineNumber: 192,
+                                                        lineNumber: 197,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/sections/projects/ContactInquirySection.tsx",
-                                                lineNumber: 190,
+                                                lineNumber: 195,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/sections/projects/ContactInquirySection.tsx",
-                                        lineNumber: 173,
+                                        lineNumber: 178,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/sections/projects/ContactInquirySection.tsx",
-                                lineNumber: 134,
+                                lineNumber: 139,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3847,7 +3841,7 @@ const ContactInquirySection = ({ onClose })=>{
                                         required: true
                                     }, void 0, false, {
                                         fileName: "[project]/src/sections/projects/ContactInquirySection.tsx",
-                                        lineNumber: 210,
+                                        lineNumber: 215,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
@@ -3856,13 +3850,13 @@ const ContactInquirySection = ({ onClose })=>{
                                         children: "I agree to receive communications about the real estate universe Group and other projects from the developer."
                                     }, void 0, false, {
                                         fileName: "[project]/src/sections/projects/ContactInquirySection.tsx",
-                                        lineNumber: 219,
+                                        lineNumber: 224,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/sections/projects/ContactInquirySection.tsx",
-                                lineNumber: 209,
+                                lineNumber: 214,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -3871,29 +3865,29 @@ const ContactInquirySection = ({ onClose })=>{
                                 children: "Submit Enquiry"
                             }, void 0, false, {
                                 fileName: "[project]/src/sections/projects/ContactInquirySection.tsx",
-                                lineNumber: 224,
+                                lineNumber: 229,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/sections/projects/ContactInquirySection.tsx",
-                        lineNumber: 133,
+                        lineNumber: 138,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/sections/projects/ContactInquirySection.tsx",
-                lineNumber: 116,
+                lineNumber: 117,
                 columnNumber: 9
             }, this)
         }, void 0, false, {
             fileName: "[project]/src/sections/projects/ContactInquirySection.tsx",
-            lineNumber: 115,
+            lineNumber: 116,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/sections/projects/ContactInquirySection.tsx",
-        lineNumber: 114,
+        lineNumber: 115,
         columnNumber: 5
     }, this);
 };
