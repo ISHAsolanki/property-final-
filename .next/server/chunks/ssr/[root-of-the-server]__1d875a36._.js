@@ -2136,16 +2136,16 @@ const ProjectCard = ({ id, title, type, location, price, size, image })=>{
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "relative w-full h-[160px] bg-gray-800",
                 children: [
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
+                    image ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
                         src: image,
                         alt: title,
                         fill: true,
                         className: "object-cover"
                     }, void 0, false, {
                         fileName: "[project]/src/sections/projects/RelatedProjects.tsx",
-                        lineNumber: 35,
-                        columnNumber: 9
-                    }, this),
+                        lineNumber: 36,
+                        columnNumber: 11
+                    }, this) : null,
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "absolute top-2 right-2 bg-white rounded-full p-1",
                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2162,22 +2162,22 @@ const ProjectCard = ({ id, title, type, location, price, size, image })=>{
                                     fill: "currentColor"
                                 }, void 0, false, {
                                     fileName: "[project]/src/sections/projects/RelatedProjects.tsx",
-                                    lineNumber: 53,
+                                    lineNumber: 55,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/sections/projects/RelatedProjects.tsx",
-                                lineNumber: 45,
+                                lineNumber: 47,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/src/sections/projects/RelatedProjects.tsx",
-                            lineNumber: 44,
+                            lineNumber: 46,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/sections/projects/RelatedProjects.tsx",
-                        lineNumber: 43,
+                        lineNumber: 45,
                         columnNumber: 9
                     }, this)
                 ]
@@ -2194,7 +2194,7 @@ const ProjectCard = ({ id, title, type, location, price, size, image })=>{
                         children: title
                     }, void 0, false, {
                         fileName: "[project]/src/sections/projects/RelatedProjects.tsx",
-                        lineNumber: 64,
+                        lineNumber: 66,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2211,7 +2211,7 @@ const ProjectCard = ({ id, title, type, location, price, size, image })=>{
                                         fill: "#9CA3AF"
                                     }, void 0, false, {
                                         fileName: "[project]/src/sections/projects/RelatedProjects.tsx",
-                                        lineNumber: 75,
+                                        lineNumber: 77,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
@@ -2219,13 +2219,13 @@ const ProjectCard = ({ id, title, type, location, price, size, image })=>{
                                         fill: "#9CA3AF"
                                     }, void 0, false, {
                                         fileName: "[project]/src/sections/projects/RelatedProjects.tsx",
-                                        lineNumber: 79,
+                                        lineNumber: 81,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/sections/projects/RelatedProjects.tsx",
-                                lineNumber: 69,
+                                lineNumber: 71,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2233,13 +2233,13 @@ const ProjectCard = ({ id, title, type, location, price, size, image })=>{
                                 children: location
                             }, void 0, false, {
                                 fileName: "[project]/src/sections/projects/RelatedProjects.tsx",
-                                lineNumber: 84,
+                                lineNumber: 86,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/sections/projects/RelatedProjects.tsx",
-                        lineNumber: 68,
+                        lineNumber: 70,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2250,7 +2250,7 @@ const ProjectCard = ({ id, title, type, location, price, size, image })=>{
                                 children: price
                             }, void 0, false, {
                                 fileName: "[project]/src/sections/projects/RelatedProjects.tsx",
-                                lineNumber: 88,
+                                lineNumber: 90,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2258,19 +2258,19 @@ const ProjectCard = ({ id, title, type, location, price, size, image })=>{
                                 children: size
                             }, void 0, false, {
                                 fileName: "[project]/src/sections/projects/RelatedProjects.tsx",
-                                lineNumber: 91,
+                                lineNumber: 93,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/sections/projects/RelatedProjects.tsx",
-                        lineNumber: 87,
+                        lineNumber: 89,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/sections/projects/RelatedProjects.tsx",
-                lineNumber: 63,
+                lineNumber: 65,
                 columnNumber: 7
             }, this)
         ]
@@ -2320,12 +2320,12 @@ const RelatedProjects = ({ otherProjects })=>{
                             children: "Other Projects of The Stolen Group"
                         }, void 0, false, {
                             fileName: "[project]/src/sections/projects/RelatedProjects.tsx",
-                            lineNumber: 138,
+                            lineNumber: 140,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/sections/projects/RelatedProjects.tsx",
-                        lineNumber: 137,
+                        lineNumber: 139,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2333,18 +2333,18 @@ const RelatedProjects = ({ otherProjects })=>{
                         children: "Loading related projects..."
                     }, void 0, false, {
                         fileName: "[project]/src/sections/projects/RelatedProjects.tsx",
-                        lineNumber: 142,
+                        lineNumber: 144,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/sections/projects/RelatedProjects.tsx",
-                lineNumber: 136,
+                lineNumber: 138,
                 columnNumber: 9
             }, this)
         }, void 0, false, {
             fileName: "[project]/src/sections/projects/RelatedProjects.tsx",
-            lineNumber: 135,
+            lineNumber: 137,
             columnNumber: 7
         }, this);
     }
@@ -2363,12 +2363,12 @@ const RelatedProjects = ({ otherProjects })=>{
                         children: "Other Projects of The Stolen Group"
                     }, void 0, false, {
                         fileName: "[project]/src/sections/projects/RelatedProjects.tsx",
-                        lineNumber: 156,
+                        lineNumber: 158,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/src/sections/projects/RelatedProjects.tsx",
-                    lineNumber: 155,
+                    lineNumber: 157,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2381,33 +2381,33 @@ const RelatedProjects = ({ otherProjects })=>{
                                 title: property.name,
                                 type: property.status || 'Property',
                                 location: property.location,
-                                price: property.priceRange,
+                                price: property.priceRange && property.priceRange.from && property.priceRange.to ? `${property.priceRange.from.value} ${property.priceRange.from.unit} - ${property.priceRange.to.value} ${property.priceRange.to.unit}` : '',
                                 size: property.keyHighlights.unitConfiguration || '',
                                 image: property.gallery && property.gallery[0] && (property.gallery[0].data || property.gallery[0].url) || ''
                             }, void 0, false, {
                                 fileName: "[project]/src/sections/projects/RelatedProjects.tsx",
-                                lineNumber: 164,
+                                lineNumber: 166,
                                 columnNumber: 15
                             }, this)
                         }, property._id, false, {
                             fileName: "[project]/src/sections/projects/RelatedProjects.tsx",
-                            lineNumber: 163,
+                            lineNumber: 165,
                             columnNumber: 13
                         }, this))
                 }, void 0, false, {
                     fileName: "[project]/src/sections/projects/RelatedProjects.tsx",
-                    lineNumber: 161,
+                    lineNumber: 163,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/src/sections/projects/RelatedProjects.tsx",
-            lineNumber: 154,
+            lineNumber: 156,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/sections/projects/RelatedProjects.tsx",
-        lineNumber: 153,
+        lineNumber: 155,
         columnNumber: 5
     }, this);
 };

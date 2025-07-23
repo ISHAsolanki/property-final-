@@ -32,12 +32,14 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
     <div className="flex flex-col w-[360px] h-[280px] bg-[#0A0A0A] rounded-lg overflow-hidden shadow-lg">
       {/* Image Container */}
       <div className="relative w-full h-[160px] bg-gray-800">
-        <Image
-          src={image}
-          alt={title}
-          fill
-          className="object-cover"
-        />
+        {image ? (
+          <Image
+            src={image}
+            alt={title}
+            fill
+            className="object-cover"
+          />
+        ) : null}
         
         {/* Type Badge */}
         <div className="absolute top-2 right-2 bg-white rounded-full p-1">
@@ -166,7 +168,11 @@ const RelatedProjects: React.FC<RelatedProjectsProps> = ({ otherProjects }) => {
                 title={property.name}
                 type={property.status || 'Property'}
                 location={property.location}
-                price={property.priceRange}
+                price={
+                  property.priceRange && property.priceRange.from && property.priceRange.to
+                    ? `${property.priceRange.from.value} ${property.priceRange.from.unit} - ${property.priceRange.to.value} ${property.priceRange.to.unit}`
+                    : ''
+                }
                 size={property.keyHighlights.unitConfiguration || ''}
                 image={property.gallery && property.gallery[0] && (property.gallery[0].data || property.gallery[0].url) || ''}
               />

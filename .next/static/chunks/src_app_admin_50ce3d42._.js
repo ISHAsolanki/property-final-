@@ -774,6 +774,26 @@ var _s = __turbopack_context__.k.signature();
 ;
 const Dashboard = ()=>{
     _s();
+    const [propertyCategories, setPropertyCategories] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])([]);
+    // Fetch property categories for dynamic Property Distribution
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
+        "Dashboard.useEffect": ()=>{
+            fetch('/api/property-categories').then({
+                "Dashboard.useEffect": (res)=>res.json()
+            }["Dashboard.useEffect"]).then({
+                "Dashboard.useEffect": (data)=>{
+                    if (data.success) {
+                        setPropertyCategories(data.categories.map({
+                            "Dashboard.useEffect": (cat)=>({
+                                    value: cat.name,
+                                    label: cat.name
+                                })
+                        }["Dashboard.useEffect"]));
+                    }
+                }
+            }["Dashboard.useEffect"]);
+        }
+    }["Dashboard.useEffect"], []);
     const { setCurrentPage, setSelectedProperty } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$admin$2f$context$2f$AppContext$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useApp"])();
     const [properties, setProperties] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])([]);
     const [loading, setLoading] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(true);
@@ -852,23 +872,7 @@ const Dashboard = ()=>{
             icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$building$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Building$3e$__["Building"],
             color: 'text-blue-500'
         },
-        // Replace Monthly Views with Most Popular Location
-        (()=>{
-            const locationCounts = {};
-            properties.forEach((p)=>{
-                if (p.location) locationCounts[p.location] = (locationCounts[p.location] || 0) + 1;
-            });
-            const mostPopularLocation = Object.entries(locationCounts).sort((a, b)=>b[1] - a[1])[0]?.[0] || 'N/A';
-            return {
-                title: 'Most Popular Location',
-                value: mostPopularLocation,
-                change: '',
-                trend: 'up',
-                icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$eye$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Eye$3e$__["Eye"],
-                color: 'text-purple-500'
-            };
-        })(),
-        // Replace Revenue with Most Common Property Type
+        // Most Common Property Type
         (()=>{
             const typeCounts = {};
             properties.forEach((p)=>{
@@ -899,7 +903,6 @@ const Dashboard = ()=>{
             type: property.propertyType,
             status: property.status,
             price: formatPriceRange(property.priceRange),
-            views: (property.trendingScore || 1) * 1000,
             featured: property.featured
         }));
     const handleAddNewProperty = ()=>{
@@ -921,7 +924,7 @@ const Dashboard = ()=>{
                             children: "Dashboard"
                         }, void 0, false, {
                             fileName: "[project]/src/app/admin/components/pages/Dashboard.tsx",
-                            lineNumber: 155,
+                            lineNumber: 150,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -929,13 +932,13 @@ const Dashboard = ()=>{
                             children: "Loading dashboard data..."
                         }, void 0, false, {
                             fileName: "[project]/src/app/admin/components/pages/Dashboard.tsx",
-                            lineNumber: 156,
+                            lineNumber: 151,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/app/admin/components/pages/Dashboard.tsx",
-                    lineNumber: 154,
+                    lineNumber: 149,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -951,23 +954,23 @@ const Dashboard = ()=>{
                                 className: "h-24 bg-gray-700 rounded"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/admin/components/pages/Dashboard.tsx",
-                                lineNumber: 161,
+                                lineNumber: 156,
                                 columnNumber: 15
                             }, this)
                         }, i, false, {
                             fileName: "[project]/src/app/admin/components/pages/Dashboard.tsx",
-                            lineNumber: 160,
+                            lineNumber: 155,
                             columnNumber: 13
                         }, this))
                 }, void 0, false, {
                     fileName: "[project]/src/app/admin/components/pages/Dashboard.tsx",
-                    lineNumber: 158,
+                    lineNumber: 153,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/src/app/admin/components/pages/Dashboard.tsx",
-            lineNumber: 153,
+            lineNumber: 148,
             columnNumber: 7
         }, this);
     }
@@ -982,7 +985,7 @@ const Dashboard = ()=>{
                         children: "Dashboard"
                     }, void 0, false, {
                         fileName: "[project]/src/app/admin/components/pages/Dashboard.tsx",
-                        lineNumber: 172,
+                        lineNumber: 167,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -990,115 +993,117 @@ const Dashboard = ()=>{
                         children: "Welcome back! Here's what's happening with your properties."
                     }, void 0, false, {
                         fileName: "[project]/src/app/admin/components/pages/Dashboard.tsx",
-                        lineNumber: 173,
+                        lineNumber: 168,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/admin/components/pages/Dashboard.tsx",
-                lineNumber: 171,
+                lineNumber: 166,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8",
+                className: "grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 mb-10",
                 children: dashboardStats.map((stat, index)=>{
                     const Icon = stat.icon;
                     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$admin$2f$components$2f$common$2f$Card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
-                        className: "relative overflow-hidden",
-                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "flex items-center justify-between",
-                            children: [
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    children: [
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                            className: "text-sm text-gray-400 mb-1",
-                                            children: stat.title
+                        className: "relative overflow-hidden flex flex-col justify-between h-full min-h-[170px] p-6",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "flex items-center justify-between mb-4",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                className: "text-sm text-gray-400 mb-1",
+                                                children: stat.title
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/app/admin/components/pages/Dashboard.tsx",
+                                                lineNumber: 179,
+                                                columnNumber: 19
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                className: "text-3xl font-extrabold text-white leading-tight",
+                                                children: stat.value
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/app/admin/components/pages/Dashboard.tsx",
+                                                lineNumber: 180,
+                                                columnNumber: 19
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/src/app/admin/components/pages/Dashboard.tsx",
+                                        lineNumber: 178,
+                                        columnNumber: 17
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: `p-3 rounded-full bg-gray-800 ${stat.color}`,
+                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(Icon, {
+                                            className: "h-7 w-7"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/admin/components/pages/Dashboard.tsx",
-                                            lineNumber: 184,
-                                            columnNumber: 19
-                                        }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                            className: "text-2xl font-bold text-white",
-                                            children: stat.value
-                                        }, void 0, false, {
-                                            fileName: "[project]/src/app/admin/components/pages/Dashboard.tsx",
-                                            lineNumber: 185,
-                                            columnNumber: 19
-                                        }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "flex items-center mt-2",
-                                            children: [
-                                                stat.trend === 'up' ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$arrow$2d$up$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__ArrowUp$3e$__["ArrowUp"], {
-                                                    className: "h-4 w-4 text-green-500 mr-1"
-                                                }, void 0, false, {
-                                                    fileName: "[project]/src/app/admin/components/pages/Dashboard.tsx",
-                                                    lineNumber: 188,
-                                                    columnNumber: 23
-                                                }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$arrow$2d$down$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__ArrowDown$3e$__["ArrowDown"], {
-                                                    className: "h-4 w-4 text-red-500 mr-1"
-                                                }, void 0, false, {
-                                                    fileName: "[project]/src/app/admin/components/pages/Dashboard.tsx",
-                                                    lineNumber: 190,
-                                                    columnNumber: 23
-                                                }, this),
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                    className: `text-sm ${stat.trend === 'up' ? 'text-green-500' : 'text-red-500'}`,
-                                                    children: stat.change
-                                                }, void 0, false, {
-                                                    fileName: "[project]/src/app/admin/components/pages/Dashboard.tsx",
-                                                    lineNumber: 192,
-                                                    columnNumber: 21
-                                                }, this),
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                    className: "text-sm text-gray-400 ml-1",
-                                                    children: "from last month"
-                                                }, void 0, false, {
-                                                    fileName: "[project]/src/app/admin/components/pages/Dashboard.tsx",
-                                                    lineNumber: 195,
-                                                    columnNumber: 21
-                                                }, this)
-                                            ]
-                                        }, void 0, true, {
-                                            fileName: "[project]/src/app/admin/components/pages/Dashboard.tsx",
-                                            lineNumber: 186,
+                                            lineNumber: 183,
                                             columnNumber: 19
                                         }, this)
-                                    ]
-                                }, void 0, true, {
-                                    fileName: "[project]/src/app/admin/components/pages/Dashboard.tsx",
-                                    lineNumber: 183,
-                                    columnNumber: 17
-                                }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: `p-3 rounded-full bg-gray-800 ${stat.color}`,
-                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(Icon, {
-                                        className: "h-6 w-6"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/admin/components/pages/Dashboard.tsx",
-                                        lineNumber: 199,
-                                        columnNumber: 19
+                                        lineNumber: 182,
+                                        columnNumber: 17
                                     }, this)
-                                }, void 0, false, {
-                                    fileName: "[project]/src/app/admin/components/pages/Dashboard.tsx",
-                                    lineNumber: 198,
-                                    columnNumber: 17
-                                }, this)
-                            ]
-                        }, void 0, true, {
-                            fileName: "[project]/src/app/admin/components/pages/Dashboard.tsx",
-                            lineNumber: 182,
-                            columnNumber: 15
-                        }, this)
-                    }, index, false, {
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/app/admin/components/pages/Dashboard.tsx",
+                                lineNumber: 177,
+                                columnNumber: 15
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "flex items-center mt-2",
+                                children: [
+                                    stat.trend === 'up' ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$arrow$2d$up$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__ArrowUp$3e$__["ArrowUp"], {
+                                        className: "h-4 w-4 text-green-500 mr-1"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/admin/components/pages/Dashboard.tsx",
+                                        lineNumber: 188,
+                                        columnNumber: 19
+                                    }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$arrow$2d$down$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__ArrowDown$3e$__["ArrowDown"], {
+                                        className: "h-4 w-4 text-red-500 mr-1"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/admin/components/pages/Dashboard.tsx",
+                                        lineNumber: 190,
+                                        columnNumber: 19
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                        className: `text-sm ${stat.trend === 'up' ? 'text-green-500' : 'text-red-500'}`,
+                                        children: stat.change
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/admin/components/pages/Dashboard.tsx",
+                                        lineNumber: 192,
+                                        columnNumber: 17
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                        className: "text-sm text-gray-400 ml-1",
+                                        children: "from last month"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/admin/components/pages/Dashboard.tsx",
+                                        lineNumber: 195,
+                                        columnNumber: 17
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/app/admin/components/pages/Dashboard.tsx",
+                                lineNumber: 186,
+                                columnNumber: 15
+                            }, this)
+                        ]
+                    }, index, true, {
                         fileName: "[project]/src/app/admin/components/pages/Dashboard.tsx",
-                        lineNumber: 181,
+                        lineNumber: 176,
                         columnNumber: 13
                     }, this);
                 })
             }, void 0, false, {
                 fileName: "[project]/src/app/admin/components/pages/Dashboard.tsx",
-                lineNumber: 177,
+                lineNumber: 172,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1115,7 +1120,7 @@ const Dashboard = ()=>{
                                         children: "Recent Properties"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/admin/components/pages/Dashboard.tsx",
-                                        lineNumber: 211,
+                                        lineNumber: 206,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$admin$2f$components$2f$common$2f$Button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -1125,13 +1130,13 @@ const Dashboard = ()=>{
                                         children: "View All"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/admin/components/pages/Dashboard.tsx",
-                                        lineNumber: 212,
+                                        lineNumber: 207,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/admin/components/pages/Dashboard.tsx",
-                                lineNumber: 210,
+                                lineNumber: 205,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1143,12 +1148,12 @@ const Dashboard = ()=>{
                                         children: "No properties found. Add your first property to get started!"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/admin/components/pages/Dashboard.tsx",
-                                        lineNumber: 219,
+                                        lineNumber: 214,
                                         columnNumber: 17
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/admin/components/pages/Dashboard.tsx",
-                                    lineNumber: 218,
+                                    lineNumber: 213,
                                     columnNumber: 15
                                 }, this) : recentProperties.map((property)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         className: "flex items-center justify-between p-4 bg-gray-800 rounded-lg",
@@ -1161,7 +1166,7 @@ const Dashboard = ()=>{
                                                         children: property.name
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/admin/components/pages/Dashboard.tsx",
-                                                        lineNumber: 225,
+                                                        lineNumber: 220,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1173,7 +1178,7 @@ const Dashboard = ()=>{
                                                                 children: property.type
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/admin/components/pages/Dashboard.tsx",
-                                                                lineNumber: 227,
+                                                                lineNumber: 222,
                                                                 columnNumber: 21
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$admin$2f$components$2f$common$2f$Badge$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Badge"], {
@@ -1182,7 +1187,7 @@ const Dashboard = ()=>{
                                                                 children: property.status
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/admin/components/pages/Dashboard.tsx",
-                                                                lineNumber: 230,
+                                                                lineNumber: 225,
                                                                 columnNumber: 21
                                                             }, this),
                                                             property.featured && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$admin$2f$components$2f$common$2f$Badge$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Badge"], {
@@ -1191,64 +1196,51 @@ const Dashboard = ()=>{
                                                                 children: "Featured"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/admin/components/pages/Dashboard.tsx",
-                                                                lineNumber: 237,
+                                                                lineNumber: 232,
                                                                 columnNumber: 25
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/app/admin/components/pages/Dashboard.tsx",
-                                                        lineNumber: 226,
+                                                        lineNumber: 221,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/admin/components/pages/Dashboard.tsx",
-                                                lineNumber: 224,
+                                                lineNumber: 219,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                 className: "text-right",
-                                                children: [
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                        className: "font-medium text-white",
-                                                        children: property.price
-                                                    }, void 0, false, {
-                                                        fileName: "[project]/src/app/admin/components/pages/Dashboard.tsx",
-                                                        lineNumber: 244,
-                                                        columnNumber: 19
-                                                    }, this),
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                        className: "text-sm text-gray-400",
-                                                        children: [
-                                                            property.views.toLocaleString(),
-                                                            " views"
-                                                        ]
-                                                    }, void 0, true, {
-                                                        fileName: "[project]/src/app/admin/components/pages/Dashboard.tsx",
-                                                        lineNumber: 245,
-                                                        columnNumber: 21
-                                                    }, this)
-                                                ]
-                                            }, void 0, true, {
+                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                    className: "font-medium text-white",
+                                                    children: property.price
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/app/admin/components/pages/Dashboard.tsx",
+                                                    lineNumber: 239,
+                                                    columnNumber: 19
+                                                }, this)
+                                            }, void 0, false, {
                                                 fileName: "[project]/src/app/admin/components/pages/Dashboard.tsx",
-                                                lineNumber: 243,
+                                                lineNumber: 238,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, property.id, true, {
                                         fileName: "[project]/src/app/admin/components/pages/Dashboard.tsx",
-                                        lineNumber: 223,
+                                        lineNumber: 218,
                                         columnNumber: 15
                                     }, this))
                             }, void 0, false, {
                                 fileName: "[project]/src/app/admin/components/pages/Dashboard.tsx",
-                                lineNumber: 216,
+                                lineNumber: 211,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/admin/components/pages/Dashboard.tsx",
-                        lineNumber: 209,
+                        lineNumber: 204,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$admin$2f$components$2f$common$2f$Card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
@@ -1258,7 +1250,7 @@ const Dashboard = ()=>{
                                 children: "Quick Actions"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/admin/components/pages/Dashboard.tsx",
-                                lineNumber: 255,
+                                lineNumber: 249,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1273,14 +1265,14 @@ const Dashboard = ()=>{
                                                 className: "h-4 w-4 mr-2"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/admin/components/pages/Dashboard.tsx",
-                                                lineNumber: 258,
+                                                lineNumber: 252,
                                                 columnNumber: 15
                                             }, this),
                                             "Add New Property"
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/admin/components/pages/Dashboard.tsx",
-                                        lineNumber: 257,
+                                        lineNumber: 251,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$admin$2f$components$2f$common$2f$Button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -1292,20 +1284,20 @@ const Dashboard = ()=>{
                                                 className: "h-4 w-4 mr-2"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/admin/components/pages/Dashboard.tsx",
-                                                lineNumber: 262,
+                                                lineNumber: 256,
                                                 columnNumber: 15
                                             }, this),
                                             "View All Properties"
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/admin/components/pages/Dashboard.tsx",
-                                        lineNumber: 261,
+                                        lineNumber: 255,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/admin/components/pages/Dashboard.tsx",
-                                lineNumber: 256,
+                                lineNumber: 250,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1316,29 +1308,24 @@ const Dashboard = ()=>{
                                         children: "Property Distribution"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/admin/components/pages/Dashboard.tsx",
-                                        lineNumber: 269,
-                                        columnNumber: 13
+                                        lineNumber: 263,
+                                        columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         className: "space-y-2",
-                                        children: [
-                                            'Residential',
-                                            'Commercial',
-                                            'Land',
-                                            'Luxury'
-                                        ].map((type)=>{
-                                            const count = properties.filter((p)=>p.propertyType === type).length;
+                                        children: propertyCategories.map((cat)=>{
+                                            const count = properties.filter((p)=>p.propertyType === cat.value).length;
                                             const percentage = properties.length > 0 ? (count / properties.length * 100).toFixed(1) : '0';
                                             return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                 className: "flex justify-between items-center",
                                                 children: [
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                         className: "text-sm text-gray-400",
-                                                        children: type
+                                                        children: cat.label
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/admin/components/pages/Dashboard.tsx",
-                                                        lineNumber: 276,
-                                                        columnNumber: 21
+                                                        lineNumber: 270,
+                                                        columnNumber: 23
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                         className: "text-sm text-white",
@@ -1350,47 +1337,47 @@ const Dashboard = ()=>{
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/app/admin/components/pages/Dashboard.tsx",
-                                                        lineNumber: 277,
-                                                        columnNumber: 21
+                                                        lineNumber: 271,
+                                                        columnNumber: 23
                                                     }, this)
                                                 ]
-                                            }, type, true, {
+                                            }, cat.value, true, {
                                                 fileName: "[project]/src/app/admin/components/pages/Dashboard.tsx",
-                                                lineNumber: 275,
-                                                columnNumber: 19
+                                                lineNumber: 269,
+                                                columnNumber: 21
                                             }, this);
                                         })
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/admin/components/pages/Dashboard.tsx",
-                                        lineNumber: 270,
-                                        columnNumber: 13
+                                        lineNumber: 264,
+                                        columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/admin/components/pages/Dashboard.tsx",
-                                lineNumber: 268,
-                                columnNumber: 11
+                                lineNumber: 262,
+                                columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/admin/components/pages/Dashboard.tsx",
-                        lineNumber: 254,
+                        lineNumber: 248,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/admin/components/pages/Dashboard.tsx",
-                lineNumber: 207,
+                lineNumber: 202,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/app/admin/components/pages/Dashboard.tsx",
-        lineNumber: 170,
+        lineNumber: 165,
         columnNumber: 5
     }, this);
 };
-_s(Dashboard, "GxGD4D8IaJN/iQKe2JbtGzBfy+Y=", false, function() {
+_s(Dashboard, "kbbrsFULQmKBauUAsbdLCAXAO4c=", false, function() {
     return [
         __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$admin$2f$context$2f$AppContext$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useApp"]
     ];
@@ -4071,22 +4058,7 @@ const PropertyForm = ()=>{
                                                         value: '',
                                                         label: 'Select property type'
                                                     },
-                                                    {
-                                                        value: 'Residential',
-                                                        label: 'Residential'
-                                                    },
-                                                    {
-                                                        value: 'Commercial',
-                                                        label: 'Commercial'
-                                                    },
-                                                    {
-                                                        value: 'Land',
-                                                        label: 'Land'
-                                                    },
-                                                    {
-                                                        value: 'Luxury',
-                                                        label: 'Luxury'
-                                                    }
+                                                    ...propertyCategories
                                                 ],
                                                 value: formData.propertyType,
                                                 onChange: (v)=>handleChange('propertyType', v)
@@ -4119,7 +4091,7 @@ const PropertyForm = ()=>{
                                                 }
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                                lineNumber: 690,
+                                                lineNumber: 687,
                                                 columnNumber: 15
                                             }, this)
                                         ]
@@ -4136,7 +4108,7 @@ const PropertyForm = ()=>{
                                                 children: "Selected Projects:"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                                lineNumber: 716,
+                                                lineNumber: 713,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4155,31 +4127,31 @@ const PropertyForm = ()=>{
                                                                         children: "Remove"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                                                        lineNumber: 729,
+                                                                        lineNumber: 726,
                                                                         columnNumber: 25
                                                                     }, this),
                                                                     "×"
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                                                lineNumber: 724,
+                                                                lineNumber: 721,
                                                                 columnNumber: 23
                                                             }, this)
                                                         ]
                                                     }, index, true, {
                                                         fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                                        lineNumber: 719,
+                                                        lineNumber: 716,
                                                         columnNumber: 21
                                                     }, this))
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                                lineNumber: 717,
+                                                lineNumber: 714,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                        lineNumber: 715,
+                                        lineNumber: 712,
                                         columnNumber: 15
                                     }, this)
                                 ]
@@ -4201,7 +4173,7 @@ const PropertyForm = ()=>{
                                 children: "Trending Score"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                lineNumber: 741,
+                                lineNumber: 738,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$admin$2f$components$2f$common$2f$Input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -4230,13 +4202,13 @@ const PropertyForm = ()=>{
                                 helperText: "Enter a value between 1 and 10. Must be unique. Can be left blank."
                             }, void 0, false, {
                                 fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                lineNumber: 742,
+                                lineNumber: 739,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                        lineNumber: 740,
+                        lineNumber: 737,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$admin$2f$components$2f$common$2f$Card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
@@ -4246,7 +4218,7 @@ const PropertyForm = ()=>{
                                 children: "Featured"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                lineNumber: 770,
+                                lineNumber: 767,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
@@ -4258,7 +4230,7 @@ const PropertyForm = ()=>{
                                         onChange: (e)=>handleChange('featured', e.target.checked)
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                        lineNumber: 772,
+                                        lineNumber: 769,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -4266,13 +4238,13 @@ const PropertyForm = ()=>{
                                         children: "Featured"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                        lineNumber: 773,
+                                        lineNumber: 770,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                lineNumber: 771,
+                                lineNumber: 768,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
@@ -4284,7 +4256,7 @@ const PropertyForm = ()=>{
                                         onChange: (e)=>handleChange('home', e.target.checked)
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                        lineNumber: 777,
+                                        lineNumber: 774,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -4292,19 +4264,19 @@ const PropertyForm = ()=>{
                                         children: "Home"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                        lineNumber: 778,
+                                        lineNumber: 775,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                lineNumber: 776,
+                                lineNumber: 773,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                        lineNumber: 769,
+                        lineNumber: 766,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$admin$2f$components$2f$common$2f$Card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
@@ -4314,7 +4286,7 @@ const PropertyForm = ()=>{
                                 children: "Status"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                lineNumber: 783,
+                                lineNumber: 780,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$admin$2f$components$2f$common$2f$Select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Select"], {
@@ -4325,13 +4297,13 @@ const PropertyForm = ()=>{
                                 required: true
                             }, void 0, false, {
                                 fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                lineNumber: 784,
+                                lineNumber: 781,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                        lineNumber: 782,
+                        lineNumber: 779,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4346,7 +4318,7 @@ const PropertyForm = ()=>{
                                 children: 'Cancel'
                             }, void 0, false, {
                                 fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                lineNumber: 788,
+                                lineNumber: 785,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$admin$2f$components$2f$common$2f$Button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -4356,13 +4328,13 @@ const PropertyForm = ()=>{
                                 children: loading ? 'Saving...' : selectedProperty ? 'Update Property' : 'Save Property'
                             }, void 0, false, {
                                 fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                                lineNumber: 789,
+                                lineNumber: 786,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/admin/components/pages/PropertyForm.tsx",
-                        lineNumber: 787,
+                        lineNumber: 784,
                         columnNumber: 9
                     }, this)
                 ]

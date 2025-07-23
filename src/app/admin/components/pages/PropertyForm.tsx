@@ -676,16 +676,13 @@ export const PropertyForm: React.FC = () => {
           <div className="space-y-4">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <Select 
-                label="Property Type" 
+                label="Property Type"
                 options={[
                   { value: '', label: 'Select property type' },
-                  { value: 'Residential', label: 'Residential' },
-                  { value: 'Commercial', label: 'Commercial' },
-                  { value: 'Land', label: 'Land' },
-                  { value: 'Luxury', label: 'Luxury' }
-                ]} 
-                value={formData.propertyType} 
-                onChange={v => handleChange('propertyType', v)} 
+                  ...propertyCategories
+                ]}
+                value={formData.propertyType}
+                onChange={v => handleChange('propertyType', v)}
               />
               <Select 
                 label="Property" 

@@ -5,5 +5,6 @@
   "/api/groups/route": "app/api/groups/route.js",
   "/api/properties/route": "app/api/properties/route.js",
   "/api/property-categories/route": "app/api/property-categories/route.js",
-  "/page": "app/page.js"
+  "/page": "app/page.js",
+  "/projects/[id]/page": "app/projects/[id]/page.js"
 }

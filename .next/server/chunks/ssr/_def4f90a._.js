@@ -98,7 +98,7 @@ const footerData = {
         },
         {
             label: 'Properties',
-            href: '/properties'
+            href: '/'
         },
         {
             label: 'Contact Us',
